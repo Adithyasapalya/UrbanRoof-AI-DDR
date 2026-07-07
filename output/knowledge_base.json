@@ -1,0 +1,75 @@
+{
+    "areas": {
+        "Kitchen": {
+            "inspection": [
+                {
+                    "id": 0,
+                    "source": "inspection",
+                    "area": "Kitchen",
+                    "page": 5,
+                    "issue": "Wall Dampness",
+                    "description": "Observed dampness near sink.",
+                    "bbox": [
+                        20,
+                        30,
+                        200,
+                        80
+                    ],
+                    "image_refs": [],
+                    "confidence": 1.0,
+                    "embedding_id": -1,
+                    "severity": "Unknown",
+                    "root_cause": "",
+                    "recommendation": ""
+                }
+            ],
+            "thermal": [
+                {
+                    "id": 1,
+                    "source": "thermal",
+                    "area": "Kitchen",
+                    "page": 8,
+                    "issue": "Cold Spot",
+                    "description": "Thermal anomaly detected.",
+                    "bbox": [
+                        15,
+                        25,
+                        180,
+                        75
+                    ],
+                    "image_refs": [],
+                    "confidence": 1.0,
+                    "embedding_id": -1,
+                    "severity": "Unknown",
+                    "root_cause": "",
+                    "recommendation": ""
+                }
+            ]
+        },
+        "Bathroom": {
+            "inspection": [
+                {
+                    "id": 2,
+                    "source": "inspection",
+                    "area": "Bathroom",
+                    "page": 12,
+                    "issue": "Leakage",
+                    "description": "Leakage observed below wash basin.",
+                    "bbox": [
+                        30,
+                        50,
+                        220,
+                        90
+                    ],
+                    "image_refs": [],
+                    "confidence": 1.0,
+                    "embedding_id": -1,
+                    "severity": "Unknown",
+                    "root_cause": "",
+                    "recommendation": ""
+                }
+            ],
+            "thermal": []
+        }
+    }
+}
