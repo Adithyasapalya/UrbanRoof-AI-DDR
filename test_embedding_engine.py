@@ -14,28 +14,23 @@ kb.add_observation(
 )
 
 kb.add_observation(
-    source="inspection",
-    area="Bathroom",
+    source="thermal",
+    area="Kitchen",
     page=2,
-    issue="Leakage",
-    description="Leakage below basin",
-    source_evidence="Water stains visible",
-    bbox=[10,20,30,40]
+    issue="Moisture",
+    description="Cold spot behind sink",
+    source_evidence="Thermal anomaly",
+    bbox=[20,30,40,50]
 )
 
 engine = EmbeddingEngine()
 
-observations = kb.get_all_observations()
+inspection = kb.get_inspection_observations()
 
-engine.assign_embedding_ids(observations)
+engine.assign_embedding_ids(inspection)
 
-embeddings = engine.create_embeddings(observations)
-
-print("Shape:", embeddings.shape)
-
-print("First Embedding ID:", observations[0].embedding_id)
-
-engine.save_embeddings(
-    embeddings,
-    "output/test_embeddings.npy"
+embeddings = engine.create_embeddings(
+    inspection
 )
+
+print(embeddings.shape)

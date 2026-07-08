@@ -28,7 +28,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
 from collections import Counter
+from datetime import datetime
 
+import json
 import numpy as np
 import faiss
 
@@ -39,17 +41,26 @@ from modules.knowledge_base import (
     Observation
 )
 
-# ============================================================
-# Configuration
-# ============================================================
-
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"
-
-AUTO_MATCH_THRESHOLD = 0.90
-
-REVIEW_THRESHOLD = 0.70
-
-TOP_K = 3
+from config import (
+    EMBEDDING_MODEL,
+    EMBEDDING_DIR,
+    INSPECTION_EMBEDDINGS,
+    THERMAL_EMBEDDINGS,
+    INSPECTION_INDEX,
+    THERMAL_INDEX,
+    MATCHES_FILE,
+    INDEX_METADATA,
+    PIPELINE_VERSION,
+    PARSER_VERSION,
+    KNOWLEDGE_BASE_VERSION,
+    SEMANTIC_MATCHER_VERSION,
+    TOP_K,
+    AUTO_MATCH_THRESHOLD,
+    REVIEW_THRESHOLD,
+    IGNORE_THRESHOLD,
+    KEYWORD_WEIGHT,
+    SEMANTIC_WEIGHT,
+)
 
 # ============================================================
 # Match Object
@@ -176,7 +187,7 @@ Evidence:
     def save_embeddings(
         self,
         embeddings: np.ndarray,
-        output_file: str
+        output_file: Path
     ):
 
         np.save(output_file, embeddings)
@@ -187,7 +198,7 @@ Evidence:
 
     def load_embeddings(
         self,
-        input_file: str
+        input_file: Path
     ) -> np.ndarray:
 
         embeddings = np.load(input_file)
@@ -195,6 +206,192 @@ Evidence:
         print(f"Loaded embeddings ← {input_file}")
 
         return embeddings
+    
+# ============================================================
+# Index Manager
+# ============================================================
+
+import json
+from datetime import datetime
+
+
+class IndexManager:
+    """
+    Responsible for:
+    - Building FAISS indexes
+    - Saving indexes
+    - Loading indexes
+    - Saving metadata
+    """
+
+    def __init__(self):
+
+        self.inspection_index = None
+
+        self.thermal_index = None
+            
+    # --------------------------------------------------------
+    # Build Index
+    # --------------------------------------------------------
+
+    def build_index(
+        self,
+        embeddings: np.ndarray
+    ):
+
+        if len(embeddings) == 0:
+
+            return None
+
+        dimension = embeddings.shape[1]
+
+        index = faiss.IndexFlatIP(dimension)
+
+        index.add(embeddings)
+
+        return index
+    
+    # --------------------------------------------------------
+    # Save Index
+    # --------------------------------------------------------
+
+    def save_index(
+        self,
+        index,
+        path: Path
+    ):
+
+        faiss.write_index(
+            index,
+            path
+        )
+
+        print(f"Saved index → {path}")
+    # --------------------------------------------------------
+    # Load Index
+    # --------------------------------------------------------
+
+    def load_index(
+        self,
+        path: Path
+    ):
+
+        print(f"Loading index ← {path}")
+
+        return faiss.read_index(path)
+        # --------------------------------------------------------
+    # Save Metadata
+    # --------------------------------------------------------
+
+    def save_metadata(
+
+        self,
+
+        embedding_model,
+
+        embedding_dimension,
+
+        inspection_vectors,
+
+        thermal_vectors,
+
+        output_path
+
+    ):
+
+        metadata = {
+
+    "pipeline_version": PIPELINE_VERSION,
+
+    "parser_version": PARSER_VERSION,
+
+    "knowledge_base_version": KNOWLEDGE_BASE_VERSION,
+
+    "semantic_matcher_version": SEMANTIC_MATCHER_VERSION,
+
+    "embedding_model": embedding_model,
+
+    "embedding_dimension": embedding_dimension,
+
+    "inspection_vectors": inspection_vectors,
+
+    "thermal_vectors": thermal_vectors,
+
+    "created_at": datetime.now().isoformat()
+
+}
+
+        with open(
+
+            output_path,
+
+            "w",
+
+            encoding="utf-8"
+
+        ) as f:
+
+            json.dump(
+
+                metadata,
+
+                f,
+
+                indent=4
+
+            )
+
+        print(
+
+            f"Saved metadata → {output_path}"
+
+        )
+           # --------------------------------------------------------
+    # Validate Metadata
+    # --------------------------------------------------------
+
+    def validate_metadata(
+
+        self,
+
+        metadata_path,
+
+        embedding_model,
+
+        embedding_dimension
+
+    ):
+
+        with open(
+
+            metadata_path,
+
+            "r",
+
+            encoding="utf-8"
+
+        ) as f:
+
+            metadata = json.load(f)
+
+        if metadata["embedding_model"] != embedding_model:
+
+            raise ValueError(
+
+                "Embedding model mismatch."
+
+            )
+
+        if metadata["embedding_dimension"] != embedding_dimension:
+
+            raise ValueError(
+
+                "Embedding dimension mismatch."
+
+            )
+
+        print("Metadata validated successfully.")
+
     
 # ============================================================
 # Semantic Matcher
@@ -209,11 +406,9 @@ class SemanticMatcher:
     def __init__(self):
         self.embedding_engine = EmbeddingEngine()
 
+        self.index_manager = IndexManager()
+
         self.dimension = self.embedding_engine.dimension
-
-        self.inspection_index = None
-
-        self.thermal_index = None
 
         self.matches = []
 
