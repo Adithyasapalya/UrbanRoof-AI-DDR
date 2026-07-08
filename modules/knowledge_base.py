@@ -1,124 +1,202 @@
 """
 ===========================================================
-knowledge_base.py
-
 UrbanRoof AI DDR Generator
 
-Central Knowledge Base
+knowledge_base.py
 
-This module stores all structured observations extracted
-from Inspection and Thermal reports.
+Advanced Observation Knowledge Base
 
-Pipeline
+Supports:
 
-PDF Parser
-        ↓
-Knowledge Base
-        ↓
-Semantic Matcher
-        ↓
-Gemini
-        ↓
-DDR Generator
+- Inspection observations
+- Thermal observations
+- Semantic matching
+- Observation linking
+- Embedding storage
+- Gemini-ready reasoning
 
-Author: Adithya Sapalya
 ===========================================================
 """
 
-from __future__ import annotations
 
 from dataclasses import dataclass, field, asdict
-from typing import List, Dict
+from typing import List, Optional, Dict
 import json
 
 
-# ============================================================
-# Observation Dataclass
-# ============================================================
+
+# ==========================================================
+# Observation Object
+# ==========================================================
+
 
 @dataclass
 class Observation:
-    """
-    Represents one inspection or thermal finding.
-    """
+
 
     id: int
+
+
+    # Source document
     source: str
+
+
+    # Location
     area: str
+
+
     page: int
+
+
+    # Problem information
     issue: str
+
+
     description: str
+
+
+
+    # Exact extracted sentence
+    # from PDF
+
+    source_evidence: str
+
+
+
+    # Location inside PDF
+
     bbox: list
 
-    image_refs: List[str] = field(default_factory=list)
 
-    confidence: float = 1.0
+
+    # Connected images
+
+    image_refs: List[str] = field(
+        default_factory=list
+    )
+
+
+
+    # AI information
+
+
+    embedding: Optional[List[float]] = None
+
 
     embedding_id: int = -1
 
+
+
+    confidence: float = 1.0
+
+
+
+    # Matching information
+
+
+    matched_observation_id: Optional[int] = None
+
+
+    similarity_score: float = 0.0
+
+
+
+    # Gemini output fields
+
+
     severity: str = "Unknown"
 
+
     root_cause: str = ""
+
 
     recommendation: str = ""
 
 
-# ============================================================
+
+# ==========================================================
 # Property Area
-# ============================================================
+# ==========================================================
+
 
 @dataclass
 class PropertyArea:
 
+
     name: str
 
-    observations: List[Observation] = field(default_factory=list)
 
-    thermal_observations: List[Observation] = field(default_factory=list)
-
-
-# ============================================================
+    observations: List[Observation] = field(
+        default_factory=list
+    )
+# ==========================================================
 # Knowledge Base
-# ============================================================
+# ==========================================================
+
 
 class KnowledgeBase:
 
-    """
-    Central storage for all observations.
-    """
 
     def __init__(self):
 
-        self.areas: Dict[str, PropertyArea] = {}
 
-        self.total_observations = 0
+        self.observations = {}
 
-    # --------------------------------------------------------
+        self.areas = {}
 
-    def add_area(self, area: str):
+
+        self.counter = 0
+
+
+
+    # ------------------------------------------------------
+
+    def add_area(self, area):
+
 
         if area not in self.areas:
 
-            self.areas[area] = PropertyArea(name=area)
+            self.areas[area] = PropertyArea(
+                name=area
+            )
 
-    # --------------------------------------------------------
+
+
+    # ------------------------------------------------------
 
     def add_observation(
+
         self,
+
         source,
+
         area,
+
         page,
+
         issue,
+
         description,
+
+        source_evidence,
+
         bbox,
-        image_refs=None
+
+        image_refs=None,
+
+        confidence=1.0
+
     ):
+
+
 
         self.add_area(area)
 
-        obs = Observation(
 
-            id=self.total_observations,
+
+        observation = Observation(
+
+            id=self.counter,
 
             source=source,
 
@@ -130,166 +208,203 @@ class KnowledgeBase:
 
             description=description,
 
+            source_evidence=source_evidence,
+
             bbox=bbox,
 
-            image_refs=image_refs or []
+            image_refs=image_refs or [],
+
+            confidence=confidence
 
         )
 
-        self.total_observations += 1
 
-        if source.lower() == "inspection":
 
-            self.areas[area].observations.append(obs)
+        self.observations[
+            self.counter
+        ] = observation
 
-        else:
 
-            self.areas[area].thermal_observations.append(obs)
 
-        return obs
+        self.areas[area].observations.append(
+            observation
+        )
 
-    # --------------------------------------------------------
 
-    def get_area(self, area):
 
-        return self.areas.get(area)
+        self.counter += 1
 
-    # --------------------------------------------------------
 
-    def get_area_names(self):
 
-        return list(self.areas.keys())
+        return observation
 
-    # --------------------------------------------------------
+
+
+    # ------------------------------------------------------
+
+    def link_observations(
+
+        self,
+
+        inspection_id,
+
+        thermal_id,
+
+        similarity
+
+    ):
+
+
+        inspection = self.observations.get(
+            inspection_id
+        )
+
+
+        thermal = self.observations.get(
+            thermal_id
+        )
+
+
+
+        if inspection and thermal:
+
+
+            inspection.matched_observation_id = (
+                thermal_id
+            )
+
+
+            thermal.matched_observation_id = (
+                inspection_id
+            )
+
+
+            inspection.similarity_score = (
+                similarity
+            )
+
+
+            thermal.similarity_score = (
+                similarity
+            )
+
+
+
+    # ------------------------------------------------------
+
+    def get_observation(self, obs_id):
+
+        return self.observations.get(obs_id)
+
+
+
+    # ------------------------------------------------------
 
     def get_all_observations(self):
 
-        observations = []
+        return list(
+            self.observations.values()
+        )
 
-        for area in self.areas.values():
 
-            observations.extend(area.observations)
 
-            observations.extend(area.thermal_observations)
+    # ------------------------------------------------------
 
-        return observations
+    def get_area_observations(self, area):
 
-    # --------------------------------------------------------
+        if area in self.areas:
 
-    def total(self):
+            return self.areas[
+                area
+            ].observations
 
-        return self.total_observations
 
-    # --------------------------------------------------------
+        return []
+
+
+
+    # ------------------------------------------------------
 
     def summary(self):
 
-        print("\n" + "=" * 60)
-        print("UrbanRoof Knowledge Base Summary")
-        print("=" * 60)
 
-        print(f"\nAreas Detected       : {len(self.areas)}")
-        print(f"Total Observations   : {self.total_observations}")
+        print("\n========== Knowledge Base ==========\n")
 
-        print("\nArea-wise Summary")
-        print("-" * 60)
+
+        print(
+            "Total observations:",
+            len(self.observations)
+        )
+
+
+        print(
+            "Areas:",
+            len(self.areas)
+        )
+
+
 
         for area in self.areas.values():
 
+
             print(
-                f"{area.name:25}"
-                f"Inspection : {len(area.observations):3}"
-                f"   Thermal : {len(area.thermal_observations):3}"
+
+                area.name,
+
+                "->",
+
+                len(area.observations),
+
+                "findings"
+
             )
 
-        print("=" * 60)
 
-    # --------------------------------------------------------
 
-    def save(self, output_path):
+    # ------------------------------------------------------
+
+    def save(self,path):
+
 
         data = {
 
-            "areas": {}
+
+            "observations":[
+
+                asdict(obs)
+
+                for obs in self.observations.values()
+
+            ]
 
         }
 
-        for area_name, area in self.areas.items():
 
-            data["areas"][area_name] = {
-
-                "inspection": [
-
-                    asdict(obs)
-
-                    for obs in area.observations
-
-                ],
-
-                "thermal": [
-
-                    asdict(obs)
-
-                    for obs in area.thermal_observations
-
-                ]
-
-            }
 
         with open(
-            output_path,
+
+            path,
+
             "w",
+
             encoding="utf-8"
-        ) as file:
+
+        ) as f:
+
 
             json.dump(
+
                 data,
-                file,
-                indent=4,
-                ensure_ascii=False
+
+                f,
+
+                indent=4
+
             )
 
-        print(f"\nKnowledge Base saved successfully.")
-        print(output_path)
 
-    # --------------------------------------------------------
 
-    def load(self, input_path):
-
-        with open(
-            input_path,
-            "r",
-            encoding="utf-8"
-        ) as file:
-
-            data = json.load(file)
-
-        self.areas = {}
-        self.total_observations = 0
-
-        for area_name, area_data in data["areas"].items():
-
-            self.add_area(area_name)
-
-            for obs in area_data["inspection"]:
-
-                observation = Observation(**obs)
-
-                self.areas[area_name].observations.append(
-                    observation
-                )
-
-                self.total_observations += 1
-
-            for obs in area_data["thermal"]:
-
-                observation = Observation(**obs)
-
-                self.areas[area_name].thermal_observations.append(
-                    observation
-                )
-
-                self.total_observations += 1
-
-        print("Knowledge Base loaded successfully.")
-        
+        print(
+            "Knowledge base saved:",
+            path
+        )
