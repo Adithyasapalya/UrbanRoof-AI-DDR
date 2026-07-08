@@ -415,6 +415,9 @@ class PDFParser:
                     if room not in detected:
                         detected.append(room)
 
+        if not detected:
+            detected.append("General")
+
         return detected
 
 
@@ -422,85 +425,87 @@ class PDFParser:
     # Extract Possible Observations
     # ======================================================
 
-    def extract_observations(self, page_data: PageData):
-        """
-        Extract likely inspection observations.
-        """
+def extract_observations(self, page_data: PageData):
+    """
+    Extract likely inspection observations.
+    Returns a richer structure compatible with the Knowledge Base.
+    """
 
-        KEYWORDS = [
+    KEYWORDS = [
 
-            "damp",
+        "damp",
+        "dampness",
+        "seepage",
+        "leak",
+        "leakage",
+        "crack",
+        "cracks",
+        "moisture",
+        "fungus",
+        "paint",
+        "tile",
+        "hollow",
+        "corrosion",
+        "rust",
+        "spalling",
+        "efflorescence",
+        "water ingress",
+        "water penetration",
+        "thermal anomaly"
 
-            "dampness",
+    ]
 
-            "seepage",
+    observations = []
 
-            "leak",
+    current_section = "General"
 
-            "leakage",
+    sections = self.detect_sections(page_data)
 
-            "crack",
+    if sections:
+        current_section = sections[0]
 
-            "cracks",
+    for block in page_data.blocks:
 
-            "moisture",
+        lower = block.text.lower()
 
-            "fungus",
+        for keyword in KEYWORDS:
 
-            "paint",
+            if keyword in lower:
 
-            "tile",
+                observations.append({
 
-            "hollow",
+                    "area": current_section,
 
-            "corrosion",
+                    "issue": keyword.title(),
 
-            "rust",
+                    "description": block.text,
 
-            "spalling",
+                    "text": block.text,
 
-            "efflorescence",
+                    "keyword": keyword,
 
-            "water ingress",
+                    "page": page_data.page_number,
 
-            "water penetration",
+                    "bbox": block.bbox,
 
-            "thermal anomaly"
+                    "confidence": 1.0,
 
-        ]
+                    "is_heading": block.is_heading,
 
-        observations = []
+                    "image_refs": []
 
-        for block in page_data.blocks:
+                })
 
-            lower = block.text.lower()
+                break
 
-            for keyword in KEYWORDS:
-
-                if keyword in lower:
-
-                    observations.append({
-
-                        "text": block.text,
-
-                        "keyword": keyword,
-
-                        "bbox": block.bbox,
-
-                        "is_heading": block.is_heading
-
-                    })
-
-                    break
-
-        return observations
+    return observations
 
 
     # ======================================================
     # Layout Confidence Score
     # ======================================================
 
-    def calculate_layout_confidence(self, page_data: PageData):
+def calculate_layout_confidence(self, page_data: PageData):
         """
         Simple confidence score based on document richness.
         """
@@ -520,7 +525,7 @@ class PDFParser:
     # Convert Page Object to Dictionary
     # ======================================================
 
-    def page_to_dict(self, page_data: PageData):
+def page_to_dict(self, page_data: PageData):
         """
         Convert dataclasses into JSON serializable dictionary.
         """
@@ -582,29 +587,55 @@ class PDFParser:
     # Parse Complete PDF
     # ======================================================
 
-    def parse(self):
-        """
-        Parse the complete document.
-        """
+def parse_pdf(self):
+    """
+    Parse the complete document.
+    """
 
-        logger.info("Starting document parsing...")
+    logger.info("Starting document parsing...")
 
-        self.output["metadata"] = self.extract_metadata()
+    self.output["metadata"] = self.extract_metadata()
 
-        pages = []
+    pages = []
 
-        for page_number in range(self.total_pages):
+    for page_number in range(self.total_pages):
 
-            page_data = self.parse_page(page_number)
+        page_data = self.parse_page(page_number)
 
-            pages.append(
+        pages.append(
 
-                self.page_to_dict(page_data)
+            self.page_to_dict(page_data)
 
-            )
+        )
 
-        self.output["pages"] = pages
+    self.output["pages"] = pages
 
-        logger.info("Document parsing completed.")
+    output_file = EXTRACTED_DIR / f"{self.pdf_path.stem}.json"
 
-        return self.output
+    with open(
+
+        output_file,
+
+        "w",
+
+        encoding="utf-8"
+
+    ) as f:
+
+        json.dump(
+
+            self.output,
+
+            f,
+
+            indent=4,
+
+            ensure_ascii=False
+
+        )
+
+    logger.info(f"Saved parsed JSON -> {output_file}")
+
+    logger.info("Document parsing completed.")
+
+    return self.output

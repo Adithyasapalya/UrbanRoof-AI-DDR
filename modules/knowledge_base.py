@@ -2,167 +2,105 @@
 ===========================================================
 UrbanRoof AI DDR Generator
 
-knowledge_base.py
+Knowledge Base
 
-Advanced Observation Knowledge Base
+Stores all observations extracted from
+Inspection and Thermal reports.
 
-Supports:
-
-- Inspection observations
-- Thermal observations
-- Semantic matching
-- Observation linking
-- Embedding storage
-- Gemini-ready reasoning
-
+Author: Adithya Sapalya
 ===========================================================
 """
 
-
 from dataclasses import dataclass, field, asdict
-from typing import List, Optional, Dict
+from typing import List, Optional
 import json
 
 
-
 # ==========================================================
-# Observation Object
+# Observation
 # ==========================================================
-
 
 @dataclass
 class Observation:
 
-
     id: int
 
-
-    # Source document
     source: str
 
-
-    # Location
     area: str
-
 
     page: int
 
-
-    # Problem information
     issue: str
-
 
     description: str
 
-
-
-    # Exact extracted sentence
-    # from PDF
-
     source_evidence: str
-
-
-
-    # Location inside PDF
 
     bbox: list
 
+    image_refs: List[str] = field(default_factory=list)
 
-
-    # Connected images
-
-    image_refs: List[str] = field(
-        default_factory=list
-    )
-
-
-
-    # AI information
-
-
-    embedding: Optional[List[float]] = None
-
+    embedding=None
 
     embedding_id: int = -1
 
-
-
     confidence: float = 1.0
-
-
-
-    # Matching information
-
 
     matched_observation_id: Optional[int] = None
 
-
     similarity_score: float = 0.0
-
-
-
-    # Gemini output fields
-
 
     severity: str = "Unknown"
 
-
     root_cause: str = ""
-
 
     recommendation: str = ""
 
 
-
 # ==========================================================
-# Property Area
+# Area
 # ==========================================================
-
 
 @dataclass
 class PropertyArea:
 
-
     name: str
 
+    observations: List[Observation] = field(default_factory=list)
 
-    observations: List[Observation] = field(
-        default_factory=list
-    )
+
 # ==========================================================
 # Knowledge Base
 # ==========================================================
 
-
 class KnowledgeBase:
-
 
     def __init__(self):
 
+        self.inspection_observations = []
 
-        self.observations = {}
+        self.thermal_observations = []
+
+        self.observations = []
 
         self.areas = {}
 
-
         self.counter = 0
 
-
-
-    # ------------------------------------------------------
+    # =======================================================
+    # Area
+    # =======================================================
 
     def add_area(self, area):
 
-
         if area not in self.areas:
 
-            self.areas[area] = PropertyArea(
-                name=area
-            )
+            self.areas[area] = PropertyArea(area)
 
-
-
-    # ------------------------------------------------------
+    # =======================================================
+    # Add Observation
+    # =======================================================
 
     def add_observation(
 
@@ -188,13 +126,9 @@ class KnowledgeBase:
 
     ):
 
-
-
         self.add_area(area)
 
-
-
-        observation = Observation(
+        obs = Observation(
 
             id=self.counter,
 
@@ -218,31 +152,27 @@ class KnowledgeBase:
 
         )
 
-
-
-        self.observations[
-            self.counter
-        ] = observation
-
-
-
-        self.areas[area].observations.append(
-            observation
-        )
-
-
-
         self.counter += 1
 
+        self.observations.append(obs)
 
+        self.areas[area].observations.append(obs)
 
-        return observation
+        if source.lower() == "inspection":
 
+            self.inspection_observations.append(obs)
 
+        else:
 
-    # ------------------------------------------------------
+            self.thermal_observations.append(obs)
 
-    def link_observations(
+        return obs
+
+    # =======================================================
+    # Link Observations
+    # =======================================================
+
+    def link(
 
         self,
 
@@ -254,98 +184,161 @@ class KnowledgeBase:
 
     ):
 
+        inspection = self.get_observation(
 
-        inspection = self.observations.get(
             inspection_id
+
         )
 
+        thermal = self.get_observation(
 
-        thermal = self.observations.get(
             thermal_id
+
         )
 
+        if inspection is None:
 
+            return
 
-        if inspection and thermal:
+        if thermal is None:
 
+            return
 
-            inspection.matched_observation_id = (
-                thermal_id
-            )
+        inspection.matched_observation_id = thermal.id
 
+        thermal.matched_observation_id = inspection.id
 
-            thermal.matched_observation_id = (
-                inspection_id
-            )
+        inspection.similarity_score = similarity
 
+        thermal.similarity_score = similarity
 
-            inspection.similarity_score = (
-                similarity
-            )
-
-
-            thermal.similarity_score = (
-                similarity
-            )
-
-
-
-    # ------------------------------------------------------
+    # =======================================================
+    # Getters
+    # =======================================================
 
     def get_observation(self, obs_id):
 
-        return self.observations.get(obs_id)
+        for obs in self.observations:
 
+            if obs.id == obs_id:
 
+                return obs
 
-    # ------------------------------------------------------
+        return None
 
     def get_all_observations(self):
 
-        return list(
-            self.observations.values()
-        )
+        return self.observations
 
+    def get_inspection_observations(self):
 
+        return self.inspection_observations
 
-    # ------------------------------------------------------
+    def get_thermal_observations(self):
+
+        return self.thermal_observations
 
     def get_area_observations(self, area):
 
-        if area in self.areas:
+        if area not in self.areas:
 
-            return self.areas[
-                area
-            ].observations
+            return []
 
+        return self.areas[area].observations
 
-        return []
+    # =======================================================
+    # Load Parsed PDF
+    # =======================================================
 
+    def load_pdf(
 
+        self,
 
-    # ------------------------------------------------------
+        parsed_pdf,
+
+        source
+
+    ):
+
+        pages = parsed_pdf.get("pages", [])
+
+        current_area = "General"
+
+        for page in pages:
+
+            page_no = page["page_number"]
+
+            if page["sections"]:
+
+                current_area = page["sections"][0]
+
+            observations = page.get(
+
+                "observations",
+
+                []
+
+            )
+
+            for obs in observations:
+
+                self.add_observation(
+
+                    source=source,
+
+                    area=current_area,
+
+                    page=page_no,
+
+                    issue=obs["keyword"],
+
+                    description=obs["text"],
+
+                    source_evidence=obs["text"],
+
+                    bbox=obs["bbox"],
+
+                    image_refs=[],
+
+                    confidence=1.0
+
+                )
+
+    # =======================================================
+    # Summary
+    # =======================================================
 
     def summary(self):
 
-
         print("\n========== Knowledge Base ==========\n")
 
+        print(
+
+            "Inspection Findings :",
+
+            len(self.inspection_observations)
+
+        )
 
         print(
-            "Total observations:",
+
+            "Thermal Findings :",
+
+            len(self.thermal_observations)
+
+        )
+
+        print(
+
+            "Total Findings :",
+
             len(self.observations)
+
         )
 
-
-        print(
-            "Areas:",
-            len(self.areas)
-        )
-
-
+        print()
 
         for area in self.areas.values():
-
 
             print(
 
@@ -353,33 +346,35 @@ class KnowledgeBase:
 
                 "->",
 
-                len(area.observations),
-
-                "findings"
+                len(area.observations)
 
             )
 
+    # =======================================================
+    # Save
+    # =======================================================
 
-
-    # ------------------------------------------------------
-
-    def save(self,path):
-
+    def save(self, path):
 
         data = {
 
-
-            "observations":[
+            "inspection": [
 
                 asdict(obs)
 
-                for obs in self.observations.values()
+                for obs in self.inspection_observations
+
+            ],
+
+            "thermal": [
+
+                asdict(obs)
+
+                for obs in self.thermal_observations
 
             ]
 
         }
-
-
 
         with open(
 
@@ -391,7 +386,6 @@ class KnowledgeBase:
 
         ) as f:
 
-
             json.dump(
 
                 data,
@@ -402,38 +396,8 @@ class KnowledgeBase:
 
             )
 
-
-
         print(
-            "Knowledge base saved:",
-            path
+
+            f"Knowledge Base saved -> {path}"
+
         )
-        # ------------------------------------------------------
-
-    def get_observations_by_source(self, source):
-        """
-        Return all observations from a given source.
-        """
-
-        source = source.lower()
-
-        return [
-            obs
-            for obs in self.observations.values()
-            if obs.source.lower() == source
-        ]
-        # ------------------------------------------------------
-
-    def get_inspection_observations(self):
-
-        return self.get_observations_by_source(
-            "inspection"
-        )
-        # ------------------------------------------------------
-
-    def get_thermal_observations(self):
-
-        return self.get_observations_by_source(
-            "thermal"
-        )
-    
