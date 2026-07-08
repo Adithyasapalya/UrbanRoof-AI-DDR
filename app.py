@@ -2,13 +2,35 @@
 ==========================================================
 UrbanRoof AI DDR Generator
 
-Main Pipeline
+Main Application
+
+Pipeline
+
+Inspection PDF
+        │
+Thermal PDF
+        │
+PDF Parser
+        │
+Knowledge Base
+        │
+Semantic Matcher
+        │
+LLM Reasoner
+        │
+Report Generator
+        │
+DDR Report
 
 Author: Adithya Sapalya
 ==========================================================
 """
 
-from pathlib import Path
+from config import (
+    DATA_DIR,
+    OUTPUT_DIR,
+    REPORT_OUTPUT
+)
 
 from modules.pdf_parser import PDFParser
 from modules.knowledge_base import KnowledgeBase
@@ -16,87 +38,127 @@ from modules.semantic_matcher import SemanticMatcher
 from modules.llm_reasoner import LLMReasoner
 from modules.report_generator import ReportGenerator
 
-from config import (
-    DATA_DIR,
-    REPORT_OUTPUT,
-)
 
-# ----------------------------------------------------------
-# Input Files
-# ----------------------------------------------------------
+def main():
 
-inspection_pdf = DATA_DIR / "inspection.pdf"
-thermal_pdf = DATA_DIR / "thermal.pdf"
+    print("=" * 60)
+    print("UrbanRoof AI DDR Generator")
+    print("=" * 60)
 
-# ----------------------------------------------------------
-# Parse PDFs
-# ----------------------------------------------------------
+    inspection_pdf = DATA_DIR / "inspection.pdf"
+    thermal_pdf = DATA_DIR / "thermal.pdf"
 
-print("\n==============================")
-print("STEP 1 : Parsing PDFs")
-print("==============================")
+    # --------------------------------------------------
+    # Parse PDFs
+    # --------------------------------------------------
 
-parser = PDFParser()
+    print("\nParsing Inspection PDF...")
 
-inspection_data = parser.parse_pdf(inspection_pdf)
-thermal_data = parser.parse_pdf(thermal_pdf)
+    inspection_parser = PDFParser(inspection_pdf)
+    inspection_data = inspection_parser.parse_pdf()
 
-# ----------------------------------------------------------
-# Build Knowledge Base
-# ----------------------------------------------------------
+    print("\nParsing Thermal PDF...")
 
-print("\n==============================")
-print("STEP 2 : Building Knowledge Base")
-print("==============================")
+    thermal_parser = PDFParser(thermal_pdf)
+    thermal_data = thermal_parser.parse_pdf()
 
-kb = KnowledgeBase()
+    # --------------------------------------------------
+    # Build Knowledge Base
+    # --------------------------------------------------
 
-kb.load_inspection(inspection_data)
-kb.load_thermal(thermal_data)
+    kb = KnowledgeBase()
 
-print(f"Inspection observations : {len(kb.inspection_observations)}")
-print(f"Thermal observations    : {len(kb.thermal_observations)}")
+    #
+    # NOTE:
+    # Replace these loops if your parser already has
+    # a method like parser.build_knowledge_base(kb)
+    #
 
-# ----------------------------------------------------------
-# Semantic Matching
-# ----------------------------------------------------------
+    for page in inspection_data["pages"]:
 
-print("\n==============================")
-print("STEP 3 : Semantic Matching")
-print("==============================")
+        for obs in page["observations"]:
 
-matcher = SemanticMatcher()
+            kb.add_observation(
 
-kb = matcher.run(kb)
+                source="inspection",
 
-# ----------------------------------------------------------
-# Gemini Reasoning
-# ----------------------------------------------------------
+                area=page["sections"][0] if page["sections"] else "Unknown",
 
-print("\n==============================")
-print("STEP 4 : Gemini Reasoning")
-print("==============================")
+                page=page["page_number"],
 
-reasoner = LLMReasoner()
+                issue=obs["keyword"],
 
-kb = reasoner.run(kb)
+                description=obs["text"],
 
-# ----------------------------------------------------------
-# Report Generation
-# ----------------------------------------------------------
+                source_evidence=obs["text"],
 
-print("\n==============================")
-print("STEP 5 : Report Generation")
-print("==============================")
+                bbox=obs["bbox"]
 
-report = ReportGenerator()
+            )
 
-report.build(kb)
+    for page in thermal_data["pages"]:
 
-report.save(REPORT_OUTPUT)
+        for obs in page["observations"]:
 
-print("\n=====================================")
-print("PIPELINE COMPLETED SUCCESSFULLY")
-print("=====================================")
+            kb.add_observation(
 
-print(f"\nReport generated at:\n{REPORT_OUTPUT}")
+                source="thermal",
+
+                area=page["sections"][0] if page["sections"] else "Unknown",
+
+                page=page["page_number"],
+
+                issue=obs["keyword"],
+
+                description=obs["text"],
+
+                source_evidence=obs["text"],
+
+                bbox=obs["bbox"]
+
+            )
+
+    print("\nKnowledge Base Created")
+
+    kb.summary()
+
+    # --------------------------------------------------
+    # Semantic Matching
+    # --------------------------------------------------
+
+    matcher = SemanticMatcher()
+
+    kb = matcher.run(kb)
+
+    # --------------------------------------------------
+    # LLM Reasoning
+    # --------------------------------------------------
+
+    reasoner = LLMReasoner()
+
+    kb, report = reasoner.run(kb)
+
+    # --------------------------------------------------
+    # Report Generation
+    # --------------------------------------------------
+
+    generator = ReportGenerator()
+
+    generator.run(
+
+        kb,
+
+        report,
+
+        REPORT_OUTPUT
+
+    )
+
+    print("\nDone.")
+
+    print(f"\nReport saved at:\n{REPORT_OUTPUT}")
+
+
+if __name__ == "__main__":
+
+    main()

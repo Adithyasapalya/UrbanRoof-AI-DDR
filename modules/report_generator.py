@@ -2,14 +2,23 @@
 ==========================================================
 UrbanRoof AI DDR Generator
 
-DOCX Report Generator
+Report Generator
+
+Creates:
+- Executive Summary
+- Observation Tables
+- Recommendations
+- Final DDR Report (.docx)
+
+Author: Adithya Sapalya
 ==========================================================
 """
 
 from pathlib import Path
 
 from docx import Document
-from docx.shared import Inches
+from docx.shared import Pt
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 from modules.knowledge_base import KnowledgeBase
 
@@ -20,157 +29,272 @@ class ReportGenerator:
 
         self.document = Document()
 
-    # --------------------------------------------------------
+        self.document.styles["Normal"].font.name = "Calibri"
+        self.document.styles["Normal"].font.size = Pt(11)
 
-    def heading(self, text, level=1):
+    # -----------------------------------------------------
 
-        self.document.add_heading(text, level=level)
+    def add_title(self):
 
-    # --------------------------------------------------------
-
-    def paragraph(self, text):
-
-        self.document.add_paragraph(str(text))
-
-    # --------------------------------------------------------
-
-    def image(self, image_path):
-
-        image_path = Path(image_path)
-
-        if image_path.exists():
-
-            self.document.add_picture(
-
-                str(image_path),
-
-                width=Inches(5.5)
-
-            )
-
-    # --------------------------------------------------------
-
-    def build(self, kb: KnowledgeBase):
-
-        self.heading(
-
-            "DETAILED DEFECT REPORT",
-
-            0
-
+        heading = self.document.add_heading(
+            "Defect Diagnostic Report",
+            level=0
         )
 
-        self.paragraph(
+        heading.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
 
-            "Automatically generated using UrbanRoof AI Pipeline."
-
+        self.document.add_paragraph(
+            "UrbanRoof AI DDR Generator"
         )
 
-        self.heading(
+        self.document.add_page_break()
 
+    # -----------------------------------------------------
+
+    def executive_summary(
+        self,
+        report
+    ):
+
+        self.document.add_heading(
             "Executive Summary",
+            level=1
+        )
 
-            1
+        summary = report["executive_summary"]
+
+        self.document.add_paragraph(
+            f"Overall Condition : {summary['overall_condition']}"
+        )
+
+        self.document.add_paragraph(
+            summary["executive_summary"]
+        )
+
+        self.document.add_heading(
+            "Priority Actions",
+            level=2
+        )
+
+        for action in summary["priority_actions"]:
+
+            self.document.add_paragraph(
+                action,
+                style="List Bullet"
+            )
+    # -----------------------------------------------------
+
+    def observations_section(
+
+        self,
+
+        kb: KnowledgeBase
+
+    ):
+
+        self.document.add_heading(
+
+            "Inspection Findings",
+
+            level=1
 
         )
 
-        self.paragraph(
+        table = self.document.add_table(
 
-            f"Inspection Findings : {len(kb.inspection_observations)}"
+            rows=1,
 
-        )
-
-        self.paragraph(
-
-            f"Thermal Findings : {len(kb.thermal_observations)}"
+            cols=6
 
         )
 
-        self.heading(
+        table.style = "Table Grid"
 
-            "Matched Observations",
+        header = table.rows[0].cells
 
-            1
+        header[0].text = "Area"
 
-        )
+        header[1].text = "Issue"
 
-        thermal_lookup = {
+        header[2].text = "Severity"
 
-            obs.id: obs
+        header[3].text = "Root Cause"
 
-            for obs in kb.thermal_observations
+        header[4].text = "Recommendation"
 
-        }
+        header[5].text = "Match"
 
-        for obs in kb.inspection_observations:
+        for obs in kb.get_all_observations():
 
-            self.heading(
+            row = table.add_row().cells
 
-                obs.area,
+            row[0].text = obs.area
 
-                2
+            row[1].text = obs.issue
 
-            )
+            row[2].text = obs.severity
 
-            self.paragraph(
+            row[3].text = obs.root_cause
 
-                f"Issue : {obs.issue}"
+            row[4].text = obs.recommendation
 
-            )
+            if obs.matched_observation_id is None:
 
-            self.paragraph(
+                row[5].text = "-"
 
-                f"Description : {obs.description}"
+            else:
 
-            )
+                row[5].text = (
 
-            self.paragraph(
+                    f"#{obs.matched_observation_id} "
 
-                f"Severity : {obs.severity}"
-
-            )
-
-            self.paragraph(
-
-                f"Root Cause : {obs.root_cause}"
-
-            )
-
-            self.paragraph(
-
-                f"Recommendation : {obs.recommendation}"
-
-            )
-
-            self.paragraph(
-
-                f"Similarity : {round(obs.similarity_score or 0,3)}"
-            )
-
-            thermal = thermal_lookup.get(
-
-                obs.matched_observation_id
-
-            )
-
-            if thermal:
-
-                self.paragraph(
-
-                    f"Thermal Issue : {thermal.issue}"
+                    f"({obs.similarity_score:.2f})"
 
                 )
 
-            for image in obs.image_refs:
+    # -----------------------------------------------------
 
-                self.image(image)
+    def severity_summary(
 
-            self.document.add_page_break()
+        self,
 
-    # --------------------------------------------------------
+        report
 
-    def save(self, output_path):
+    ):
 
-        self.document.save(output_path)
+        self.document.add_heading(
 
-        print(f"Report saved -> {output_path}")
+            "Severity Summary",
+
+            level=1
+
+        )
+
+        stats = report["severity_statistics"]
+
+        table = self.document.add_table(
+
+            rows=1,
+
+            cols=2
+
+        )
+
+        table.style = "Table Grid"
+
+        header = table.rows[0].cells
+
+        header[0].text = "Severity"
+
+        header[1].text = "Count"
+
+        for severity, count in stats.items():
+
+            row = table.add_row().cells
+
+            row[0].text = severity
+
+            row[1].text = str(count)
+
+        self.document.add_paragraph()
+
+        self.document.add_paragraph(
+
+            f"Overall Building Health Score : {report['health_score']}/100"
+
+        )
+    # -----------------------------------------------------
+    # Save Report
+    # -----------------------------------------------------
+
+    def save(
+
+        self,
+
+        output_path
+
+    ):
+
+        output_path = Path(output_path)
+
+        output_path.parent.mkdir(
+
+            parents=True,
+
+            exist_ok=True
+
+        )
+
+        self.document.save(
+
+            output_path
+
+        )
+
+        print(
+
+            f"Report saved -> {output_path}"
+
+        )
+
+    # -----------------------------------------------------
+    # Full Pipeline
+    # -----------------------------------------------------
+
+    def run(
+
+        self,
+
+        kb: KnowledgeBase,
+
+        report,
+
+        output_path
+
+    ):
+
+        print()
+
+        print("=" * 60)
+
+        print("GENERATING DDR REPORT")
+
+        print("=" * 60)
+
+        self.add_title()
+
+        self.executive_summary(
+
+            report
+
+        )
+
+        self.observations_section(
+
+            kb
+
+        )
+
+        self.severity_summary(
+
+            report
+
+        )
+
+        self.save(
+
+            output_path
+
+        )
+
+        print()
+
+        print("=" * 60)
+
+        print("DDR REPORT GENERATED SUCCESSFULLY")
+
+        print("=" * 60)
+
+        print()
+
+        return output_path

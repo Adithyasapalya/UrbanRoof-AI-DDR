@@ -12,7 +12,6 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from pathlib import Path
 from typing import List
 
 import faiss
@@ -74,15 +73,22 @@ class SemanticMatcher:
 
         print("\nLoading SentenceTransformer...")
 
-        self.model = SentenceTransformer(EMBEDDING_MODEL)
+        self.model = SentenceTransformer(
+            EMBEDDING_MODEL
+        )
 
-        self.dimension = self.model.get_sentence_embedding_dimension()
+        self.dimension = (
+            self.model.get_sentence_embedding_dimension()
+        )
 
-        print(f"Embedding Dimension : {self.dimension}")
+        print(
+            f"Embedding Dimension : {self.dimension}"
+        )
 
-        self.matches = []
-            # --------------------------------------------------------
-    # Observation to Text
+        self.matches: List[Match] = []
+
+    # --------------------------------------------------------
+    # Observation -> Text
     # --------------------------------------------------------
 
     def observation_to_text(
@@ -109,7 +115,8 @@ Severity:
 Recommendation:
 {obs.recommendation}
 """
-        # --------------------------------------------------------
+
+    # --------------------------------------------------------
     # Create Embeddings
     # --------------------------------------------------------
 
@@ -133,6 +140,10 @@ Recommendation:
 
         ]
 
+        print(
+            f"\nGenerating {len(texts)} embeddings..."
+        )
+
         embeddings = self.model.encode(
 
             texts,
@@ -146,7 +157,8 @@ Recommendation:
         )
 
         return embeddings.astype(np.float32)
-        # --------------------------------------------------------
+
+    # --------------------------------------------------------
     # Save Embeddings
     # --------------------------------------------------------
 
@@ -154,15 +166,15 @@ Recommendation:
 
         self,
 
-        inspection_embeddings,
+        inspection_embeddings: np.ndarray,
 
-        thermal_embeddings
+        thermal_embeddings: np.ndarray
 
     ):
 
         np.save(
 
-            INSPECTION_EMBEDDINGS,
+            str(INSPECTION_EMBEDDINGS),
 
             inspection_embeddings
 
@@ -170,14 +182,37 @@ Recommendation:
 
         np.save(
 
-            THERMAL_EMBEDDINGS,
+            str(THERMAL_EMBEDDINGS),
 
             thermal_embeddings
 
         )
 
-        print("Embeddings Saved.")
-            # --------------------------------------------------------
+        print("Inspection embeddings saved.")
+
+        print("Thermal embeddings saved.")
+
+    # --------------------------------------------------------
+    # Load Embeddings
+    # --------------------------------------------------------
+
+    def load_embeddings(self):
+
+        inspection = np.load(
+
+            str(INSPECTION_EMBEDDINGS)
+
+        )
+
+        thermal = np.load(
+
+            str(THERMAL_EMBEDDINGS)
+
+        )
+
+        return inspection, thermal
+
+    # --------------------------------------------------------
     # Build FAISS Index
     # --------------------------------------------------------
 
@@ -185,9 +220,13 @@ Recommendation:
 
         self,
 
-        embeddings
+        embeddings: np.ndarray
 
     ):
+
+        if len(embeddings) == 0:
+
+            return None
 
         index = faiss.IndexFlatIP(
 
@@ -202,17 +241,72 @@ Recommendation:
         )
 
         return index
-    
-        # --------------------------------------------------------
+
+    # --------------------------------------------------------
+    # Save Index
+    # --------------------------------------------------------
+
+    def save_index(
+
+        self,
+
+        inspection_index,
+
+        thermal_index
+
+    ):
+
+        if inspection_index is not None:
+
+            faiss.write_index(
+
+                inspection_index,
+
+                str(INSPECTION_INDEX)
+
+            )
+
+        if thermal_index is not None:
+
+            faiss.write_index(
+
+                thermal_index,
+
+                str(THERMAL_INDEX)
+
+            )
+
+        print("FAISS indexes saved.")
+
+    # --------------------------------------------------------
     # Keyword Extraction
     # --------------------------------------------------------
 
-    def extract_keywords(self, text: str):
+    def extract_keywords(
+
+        self,
+
+        text: str
+
+    ):
 
         stopwords = {
-            "the", "a", "an", "of", "is", "are",
-            "and", "to", "near", "on", "at",
-            "in", "for", "with"
+
+            "the",
+            "a",
+            "an",
+            "of",
+            "is",
+            "are",
+            "and",
+            "to",
+            "near",
+            "on",
+            "at",
+            "in",
+            "for",
+            "with"
+
         }
 
         words = []
@@ -220,43 +314,77 @@ Recommendation:
         for word in text.lower().split():
 
             word = "".join(
-                c for c in word
+
+                c
+
+                for c in word
+
                 if c.isalnum()
+
             )
 
-            if len(word) > 2 and word not in stopwords:
+            if (
+
+                len(word) > 2
+
+                and
+
+                word not in stopwords
+
+            ):
 
                 words.append(word)
 
         return set(words)
-
     # --------------------------------------------------------
     # Keyword Similarity
     # --------------------------------------------------------
 
     def keyword_similarity(
+
         self,
+
         obs1: Observation,
+
         obs2: Observation
-    ):
+
+    ) -> float:
 
         words1 = self.extract_keywords(
+
             self.observation_to_text(obs1)
+
         )
 
         words2 = self.extract_keywords(
+
             self.observation_to_text(obs2)
+
         )
 
         if len(words1) == 0:
 
             return 0.0
 
-        overlap = words1.intersection(words2)
+        overlap = words1.intersection(
 
-        union = words1.union(words2)
+            words2
 
-        return len(overlap) / max(len(union), 1)
+        )
+
+        union = words1.union(
+
+            words2
+
+        )
+
+        return len(overlap) / max(
+
+            len(union),
+
+            1
+
+        )
 
     # --------------------------------------------------------
     # Combined Score
@@ -266,11 +394,11 @@ Recommendation:
 
         self,
 
-        semantic_score,
+        semantic_score: float,
 
-        keyword_score
+        keyword_score: float
 
-    ):
+    ) -> float:
 
         return (
 
@@ -283,16 +411,16 @@ Recommendation:
         )
 
     # --------------------------------------------------------
-    # Match Type
+    # Match Classification
     # --------------------------------------------------------
 
     def classify_match(
 
         self,
 
-        score
+        score: float
 
-    ):
+    ) -> str:
 
         if score >= AUTO_MATCH_THRESHOLD:
 
@@ -305,7 +433,8 @@ Recommendation:
         else:
 
             return "IGNORE"
-            # --------------------------------------------------------
+
+    # --------------------------------------------------------
     # Find Matches
     # --------------------------------------------------------
 
@@ -313,21 +442,39 @@ Recommendation:
 
         self,
 
-        inspection_observations,
+        inspection_observations: List[Observation],
 
-        thermal_observations,
+        thermal_observations: List[Observation],
 
-        inspection_embeddings,
+        inspection_embeddings: np.ndarray,
 
-        thermal_embeddings
+        thermal_embeddings: np.ndarray
 
-    ):
+    ) -> List[Match]:
 
-        print("\nSearching for matches...")
+        print("\nSearching for semantic matches...")
+
+        if len(inspection_observations) == 0:
+
+            print("No inspection observations found.")
+
+            return []
+
+        if len(thermal_observations) == 0:
+
+            print("No thermal observations found.")
+
+            return []
 
         thermal_index = self.build_index(
+
             thermal_embeddings
+
         )
+
+        if thermal_index is None:
+
+            return []
 
         distances, indices = thermal_index.search(
 
@@ -348,20 +495,32 @@ Recommendation:
         ):
 
             inspection = inspection_observations[
+
                 inspection_idx
+
             ]
 
             best_match = None
 
-            best_score = -1
+            best_score = -1.0
 
             for rank in range(TOP_K):
 
-                thermal_idx = indices[
-                    inspection_idx
-                ][rank]
+                thermal_idx = int(
+
+                    indices[inspection_idx][rank]
+
+                )
 
                 if thermal_idx == -1:
+
+                    continue
+
+                if thermal_idx >= len(
+
+                    thermal_observations
+
+                ):
 
                     continue
 
@@ -370,14 +529,14 @@ Recommendation:
                     continue
 
                 thermal = thermal_observations[
+
                     thermal_idx
+
                 ]
 
                 semantic_score = float(
 
-                    distances[
-                        inspection_idx
-                    ][rank]
+                    distances[inspection_idx][rank]
 
                 )
 
@@ -417,14 +576,28 @@ Recommendation:
 
                 continue
 
-            thermal_idx, semantic_score, keyword_score, final_score = best_match
+            (
+
+                thermal_idx,
+
+                semantic_score,
+
+                keyword_score,
+
+                final_score
+
+            ) = best_match
 
             used_thermal.add(
+
                 thermal_idx
+
             )
 
             match_type = self.classify_match(
+
                 final_score
+
             )
 
             match = Match(
@@ -446,21 +619,29 @@ Recommendation:
                 match_type=match_type,
 
                 review_required=(
+
                     match_type == "REVIEW"
+
                 )
 
             )
 
-            matches.append(match)
+            matches.append(
+
+                match
+
+            )
 
         self.matches = matches
 
         print(
-            f"Found {len(matches)} matches."
+
+            f"Found {len(matches)} semantic matches."
+
         )
 
         return matches
-        # --------------------------------------------------------
+    # --------------------------------------------------------
     # Update Knowledge Base
     # --------------------------------------------------------
 
@@ -470,43 +651,29 @@ Recommendation:
 
         kb: KnowledgeBase
 
-    ):
-
-        inspection_lookup = {
-
-            obs.id: obs
-
-            for obs in kb.inspection_observations
-
-        }
-
-        thermal_lookup = {
-
-            obs.id: obs
-
-            for obs in kb.thermal_observations
-
-        }
+    ) -> KnowledgeBase:
 
         for match in self.matches:
 
-            inspection = inspection_lookup[
-                match.inspection_id
-            ]
+            kb.link_observations(
 
-            thermal = thermal_lookup[
-                match.thermal_id
-            ]
+                inspection_id=match.inspection_id,
 
-            inspection.matched_observation_id = thermal.id
-            inspection.similarity_score = match.final_score
+                thermal_id=match.thermal_id,
 
-            thermal.matched_observation_id = inspection.id
-            thermal.similarity_score = match.final_score
+                similarity=match.final_score
+
+            )
+
+        print(
+
+            f"Linked {len(self.matches)} observations."
+
+        )
 
         return kb
-    
-        # --------------------------------------------------------
+
+    # --------------------------------------------------------
     # Save Matches
     # --------------------------------------------------------
 
@@ -524,11 +691,29 @@ Recommendation:
 
                 "area": match.area,
 
-                "keyword_score": round(match.keyword_score, 4),
+                "keyword_score": round(
 
-                "semantic_score": round(match.semantic_score, 4),
+                    match.keyword_score,
 
-                "final_score": round(match.final_score, 4),
+                    4
+
+                ),
+
+                "semantic_score": round(
+
+                    match.semantic_score,
+
+                    4
+
+                ),
+
+                "final_score": round(
+
+                    match.final_score,
+
+                    4
+
+                ),
 
                 "match_type": match.match_type,
 
@@ -556,7 +741,11 @@ Recommendation:
 
             )
 
-        print(f"Saved {len(data)} matches -> {MATCHES_FILE}")
+        print(
+
+            f"Saved {len(data)} matches."
+
+        )
 
     # --------------------------------------------------------
     # Save Metadata
@@ -578,9 +767,27 @@ Recommendation:
 
             "embedding_dimension": self.dimension,
 
-            "inspection_vectors": len(inspection_embeddings),
+            "inspection_vectors": len(
 
-            "thermal_vectors": len(thermal_embeddings)
+                inspection_embeddings
+
+            ),
+
+            "thermal_vectors": len(
+
+                thermal_embeddings
+
+            ),
+
+            "top_k": TOP_K,
+
+            "semantic_weight": SEMANTIC_WEIGHT,
+
+            "keyword_weight": KEYWORD_WEIGHT,
+
+            "auto_threshold": AUTO_MATCH_THRESHOLD,
+
+            "review_threshold": REVIEW_THRESHOLD
 
         }
 
@@ -604,8 +811,13 @@ Recommendation:
 
             )
 
-        print("Metadata saved.")
-           # --------------------------------------------------------
+        print(
+
+            "Metadata saved."
+
+        )
+
+    # --------------------------------------------------------
     # Full Pipeline
     # --------------------------------------------------------
 
@@ -615,19 +827,51 @@ Recommendation:
 
         kb: KnowledgeBase
 
-    ):
+    ) -> KnowledgeBase:
 
-        print("\n===================================")
-        print("Running Semantic Matching")
-        print("===================================")
+        print()
 
-        inspection = kb.inspection_observations
+        print("=" * 60)
 
-        thermal = kb.thermal_observations
+        print("SEMANTIC MATCHING")
 
-        print(f"\nInspection Findings : {len(inspection)}")
+        print("=" * 60)
 
-        print(f"Thermal Findings    : {len(thermal)}")
+        inspection = kb.get_inspection_observations()
+
+        thermal = kb.get_thermal_observations()
+
+        print(
+
+            f"Inspection Findings : {len(inspection)}"
+
+        )
+
+        print(
+
+            f"Thermal Findings    : {len(thermal)}"
+
+        )
+
+        if len(inspection) == 0:
+
+            print(
+
+                "No inspection observations."
+
+            )
+
+            return kb
+
+        if len(thermal) == 0:
+
+            print(
+
+                "No thermal observations."
+
+            )
+
+            return kb
 
         inspection_embeddings = self.create_embeddings(
 
@@ -697,38 +941,14 @@ Recommendation:
 
         self.save_matches()
 
-        print("\nSemantic Matching Completed Successfully")
+        print()
+
+        print("=" * 60)
+
+        print("Semantic Matching Completed")
+
+        print("=" * 60)
+
+        print()
 
         return kb
-     
-    # --------------------------------------------------------
-    # Save Index
-    # --------------------------------------------------------
-
-    def save_index(
-
-        self,
-
-        inspection_index,
-
-        thermal_index
-
-    ):
-
-        faiss.write_index(
-
-            inspection_index,
-
-            str(INSPECTION_INDEX)
-
-        )
-
-        faiss.write_index(
-
-            thermal_index,
-
-            str(THERMAL_INDEX)
-
-        )
-
-        print("Indexes Saved.")
