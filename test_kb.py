@@ -63,3 +63,6 @@ kb.summary()
 print(
     inspection
 )
+
+print(len(kb.get_inspection_observations()))
+print(len(kb.get_thermal_observations()))

@@ -408,3 +408,32 @@ class KnowledgeBase:
             "Knowledge base saved:",
             path
         )
+        # ------------------------------------------------------
+
+    def get_observations_by_source(self, source):
+        """
+        Return all observations from a given source.
+        """
+
+        source = source.lower()
+
+        return [
+            obs
+            for obs in self.observations.values()
+            if obs.source.lower() == source
+        ]
+        # ------------------------------------------------------
+
+    def get_inspection_observations(self):
+
+        return self.get_observations_by_source(
+            "inspection"
+        )
+        # ------------------------------------------------------
+
+    def get_thermal_observations(self):
+
+        return self.get_observations_by_source(
+            "thermal"
+        )
+    
