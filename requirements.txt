@@ -1,5 +1,7 @@
 streamlit>=1.46.1
 
+groq>=0.10.0
+
 google-generativeai>=0.8.5
 
 sentence-transformers>=5.0.0

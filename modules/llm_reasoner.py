@@ -4,7 +4,7 @@ UrbanRoof AI DDR Generator
 
 LLM Reasoning Engine
 
-Uses Gemini 2.5 Pro
+Uses Groq models for reasoning.
 
 Responsible for:
 - Executive Summary
@@ -24,6 +24,7 @@ import time
 
 import os
 from groq import Groq
+from numpy.strings import index
 
 from modules.knowledge_base import (
 
@@ -37,20 +38,16 @@ from config import (
 
     GROQ_API_KEY,
 
-    GEMINI_MODEL
+    GROQ_MODEL
 
 )
 
 
 # ==========================================================
-# Gemini Configuration
+# Groq Configuration
 # ==========================================================
 
-groq_client = Groq(
-
-    api_key=GROQ_API_KEY
-
-)
+groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
 
 # ==========================================================
@@ -65,11 +62,13 @@ class LLMReasoner:
 
         self.model = groq_client
 
-        print(
+        if self.model is None:
 
-            f"Model Loaded : {GROQ_API_KEY}"
+            print("Groq API key not configured. LLM reasoning will be skipped.")
 
-        )
+        else:
+
+            print("Groq model loaded.")
 
 
     # ------------------------------------------------------
@@ -182,7 +181,7 @@ Return JSON only.
 
 
     # ------------------------------------------------------
-    # Ask Gemini
+    # Ask Groq
     # ------------------------------------------------------
 
     def ask(
@@ -195,19 +194,51 @@ Return JSON only.
 
     ):
 
+        if self.model is None:
+
+            print("Groq API key not configured; skipping request.")
+
+            return None
+
         for attempt in range(retries):
 
             try:
 
-                response = self.model.generate_content(
+                response = self.model.chat.completions.create(
 
-                    prompt
+                    model=GROQ_MODEL,
+
+                    messages=[
+
+                        {
+
+                            "role": "user",
+
+                            "content": prompt
+
+                        }
+
+                    ],
+
+                    temperature=0.1
 
                 )
 
+                content = response.choices[0].message.content
+
+                if isinstance(content, list):
+
+                    content = "".join(
+
+                        part.get("text", "") if isinstance(part, dict) else str(part)
+
+                        for part in content
+
+                    )
+
                 result = self.parse_json(
 
-                    response.text
+                    content
 
                 )
 
@@ -219,7 +250,7 @@ Return JSON only.
 
                 print(
 
-                    f"Gemini Error : {e}"
+                    f"Groq Error : {e}"
 
                 )
 
@@ -300,6 +331,12 @@ Return JSON only.
 
         observations = kb.get_all_observations()
 
+        # -------- CHANGE THIS NUMBER --------
+        MAX_OBSERVATIONS = 20
+        # -----------------------------------
+
+        observations = observations[:MAX_OBSERVATIONS]
+
         print()
 
         print("=" * 60)
@@ -308,35 +345,22 @@ Return JSON only.
 
         print("=" * 60)
 
-        print(
-
-            f"Observations : {len(observations)}"
-
-        )
+        print(f"Processing {len(observations)} observations")
 
         for index, observation in enumerate(
-
             observations,
-
             start=1
-
         ):
-
             print(
-
                 f"[{index}/{len(observations)}] "
-
                 f"{observation.area} - "
-
                 f"{observation.issue}"
-
             )
 
-            self.reason_observation(
+            self.reason_observation(observation)
 
-                observation
-
-            )
+            # Prevent hitting Groq rate limits
+            time.sleep(5)
 
         print()
 
