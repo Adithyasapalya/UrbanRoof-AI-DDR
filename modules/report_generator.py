@@ -21,6 +21,8 @@ Author : Adithya Sapalya
 
 from __future__ import annotations
 
+import os
+import tempfile
 from collections import defaultdict
 
 from docx import Document
@@ -871,9 +873,32 @@ class ReportGenerator:
         output_file
     ):
 
-        self.document.save(output_file)
+        output_path = os.path.abspath(output_file)
+        output_dir = os.path.dirname(output_path) or "."
 
-        print(f"Report saved -> {output_file}")
+        os.makedirs(output_dir, exist_ok=True)
+
+        if os.path.exists(output_path):
+            try:
+                os.remove(output_path)
+            except PermissionError:
+                pass
+
+        with tempfile.NamedTemporaryFile(
+            delete=False,
+            dir=output_dir,
+            suffix=".docx"
+        ) as tmp_file:
+            temp_path = tmp_file.name
+
+        try:
+            self.document.save(temp_path)
+            os.replace(temp_path, output_path)
+        finally:
+            if os.path.exists(temp_path) and not os.path.exists(output_path):
+                os.remove(temp_path)
+
+        print(f"Report saved -> {output_path}")
 
     # -----------------------------------------------------
     # Public Entry Point

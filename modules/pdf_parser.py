@@ -15,7 +15,8 @@ Features
 ✔ Detect headings
 ✔ Detect property areas
 ✔ Extract observations
-✔ Extract images
+✔ Extract and save images
+✔ Associate images with observations
 ✔ Generate JSON
 
 Author : Adithya Sapalya
@@ -29,9 +30,12 @@ from __future__ import annotations
 import json
 import logging
 
+
 from dataclasses import dataclass, asdict
 
+
 from pathlib import Path
+
 
 from typing import List
 
@@ -39,7 +43,10 @@ from typing import List
 import fitz
 
 
+
 from config import EXTRACTED_DIR
+
+
 
 
 
@@ -62,6 +69,7 @@ logger = logging.getLogger(__name__)
 
 
 
+
 # ==========================================================
 # DATA MODELS
 # ==========================================================
@@ -69,7 +77,6 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class TextSpan:
-
 
     text: str
 
@@ -84,9 +91,9 @@ class TextSpan:
 
 
 
+
 @dataclass
 class TextBlock:
-
 
     block_no: int
 
@@ -101,9 +108,9 @@ class TextBlock:
 
 
 
+
 @dataclass
 class ImageInfo:
-
 
     xref: int
 
@@ -115,12 +122,14 @@ class ImageInfo:
 
     bbox: list
 
+    path: str = ""
+
+
 
 
 
 @dataclass
 class PageData:
-
 
     page_number: int
 
@@ -138,6 +147,8 @@ class PageData:
 
 
 
+
+
 # ==========================================================
 # PDF PARSER
 # ==========================================================
@@ -146,10 +157,16 @@ class PageData:
 class PDFParser:
 
 
-    def __init__(self, pdf_path):
+    def __init__(
+            self,
+            pdf_path,
+            report_type="inspection"
+    ):
 
 
-        self.pdf_path = Path(pdf_path)
+        self.pdf_path = Path(
+            pdf_path
+        )
 
 
         if not self.pdf_path.exists():
@@ -159,9 +176,11 @@ class PDFParser:
             )
 
 
+
         logger.info(
             f"Opening {self.pdf_path.name}"
         )
+
 
 
         self.doc = fitz.open(
@@ -169,120 +188,90 @@ class PDFParser:
         )
 
 
+
         self.total_pages = len(
             self.doc
         )
 
 
+
+        self.report_type = report_type
+
+
+
         self.output = {
+
 
             "metadata": {},
 
+
             "pages": []
 
-        }
-
-
-
-    # ======================================================
-    # Metadata
-    # ======================================================
-
-
-    def extract_metadata(self):
-
-
-        meta = self.doc.metadata
-
-
-        return {
-
-
-            "file_name":
-                self.pdf_path.name,
-
-
-            "title":
-                meta.get("title",""),
-
-
-            "author":
-                meta.get("author",""),
-
-
-            "creator":
-                meta.get("creator",""),
-
-
-            "page_count":
-                self.total_pages
 
         }
 
 
 
-    # ======================================================
-    # Heading Detection
-    # ======================================================
+
+        # ==================================================
+        # Image folders
+        # ==================================================
 
 
-    def is_heading(self, span):
-
-
-        text = span.get(
-            "text",
-            ""
-        ).strip()
-
-
-        if len(text) < 3:
-
-            return False
-
-
-        size = span.get(
-            "size",
-            0
+        self.image_root = Path(
+            "output/images"
         )
 
 
-        flags = span.get(
-            "flags",
-            0
-        )
 
+        self.inspection_image_dir = (
 
-        bold = bool(
-            flags & 16
-        )
-
-
-        upper_ratio = (
-            sum(c.isupper() for c in text)
+            self.image_root
             /
-            max(len(text),1)
+            "inspection"
+
         )
 
 
-        if size >= 14:
 
-            return True
+        self.thermal_image_dir = (
 
+            self.image_root
+            /
+            "thermal"
 
-        if bold and size >= 11:
-
-            return True
-
-
-        if upper_ratio > 0.7:
-
-            return True
+        )
 
 
-        return False
-        # ======================================================
-    # Extract Text Blocks
+
+        self.inspection_image_dir.mkdir(
+
+            parents=True,
+
+            exist_ok=True
+
+        )
+
+
+
+        self.thermal_image_dir.mkdir(
+
+            parents=True,
+
+            exist_ok=True
+
+        )
+
+
+
+        logger.info(
+
+            f"Report type: {self.report_type}"
+
+        )
     # ======================================================
+# Extract Text Blocks
+# ======================================================
 
     def extract_text_blocks(self, page):
 
@@ -294,14 +283,17 @@ class PDFParser:
 
         block_index = 0
 
+
         for block in page_dict["blocks"]:
 
             if block["type"] != 0:
                 continue
 
+
             spans = []
 
             texts = []
+
 
             for line in block.get("lines", []):
 
@@ -311,6 +303,7 @@ class PDFParser:
 
                     if not text:
                         continue
+
 
                     span_obj = TextSpan(
 
@@ -330,10 +323,13 @@ class PDFParser:
 
                     texts.append(text)
 
+
             if not spans:
                 continue
 
+
             merged_text = " ".join(texts)
+
 
             heading = any(
 
@@ -351,8 +347,11 @@ class PDFParser:
 
             )
 
+
             if heading:
+
                 headings.append(merged_text)
+
 
             blocks.append(
 
@@ -372,7 +371,9 @@ class PDFParser:
 
             )
 
+
             block_index += 1
+
 
         return blocks, headings
 
@@ -381,39 +382,129 @@ class PDFParser:
     # Extract Images
     # ======================================================
 
-    def extract_images(self, page):
+    def extract_images(
+
+            self,
+
+            page,
+
+            page_number
+
+    ):
+
+        """
+        Extract every image from a page and save it.
+
+        Images are stored under:
+
+            output/images/inspection/
+
+            output/images/thermal/
+
+        """
 
         images = []
 
-        for img in page.get_images(full=True):
+
+        if self.report_type.lower() == "thermal":
+
+            save_dir = self.thermal_image_dir
+
+        else:
+
+            save_dir = self.inspection_image_dir
+
+
+        image_list = page.get_images(full=True)
+
+
+        for image_index, img in enumerate(image_list):
 
             xref = img[0]
 
             try:
 
-                pix = fitz.Pixmap(self.doc, xref)
+                pix = fitz.Pixmap(
 
-                images.append(
+                    self.doc,
 
-                    ImageInfo(
-
-                        xref=xref,
-
-                        width=pix.width,
-
-                        height=pix.height,
-
-                        ext="png",
-
-                        bbox=[]
-
-                    )
+                    xref
 
                 )
 
-            except Exception:
 
-                pass
+                if pix.alpha:
+
+                    pix = fitz.Pixmap(
+
+                        fitz.csRGB,
+
+                        pix
+
+                    )
+
+
+                filename = (
+
+                    f"page_{page_number}_"
+
+                    f"image_{image_index}.png"
+
+                )
+
+
+                image_path = save_dir / filename
+
+
+                pix.save(
+
+                    image_path
+
+                )
+
+
+                pix = None
+
+
+                image_info = ImageInfo(
+
+                    xref=xref,
+
+                    width=img[2],
+
+                    height=img[3],
+
+                    ext="png",
+
+                    bbox=[],
+
+                    path=str(image_path)
+
+                )
+
+
+                images.append(
+
+                    image_info
+
+                )
+
+
+                logger.info(
+
+                    f"Saved image: {image_path}"
+
+                )
+
+
+            except Exception as e:
+
+                logger.warning(
+
+                    f"Failed extracting image {xref}: {e}"
+
+                )
+
 
         return images
 
@@ -422,15 +513,43 @@ class PDFParser:
     # Parse One Page
     # ======================================================
 
-    def parse_page(self, page_number):
+    def parse_page(
 
-        logger.info(f"Parsing Page {page_number + 1}")
+            self,
 
-        page = self.doc.load_page(page_number)
+            page_number
 
-        blocks, headings = self.extract_text_blocks(page)
+    ):
 
-        images = self.extract_images(page)
+        logger.info(
+
+            f"Parsing Page {page_number + 1}"
+
+        )
+
+
+        page = self.doc.load_page(
+
+            page_number
+
+        )
+
+
+        blocks, headings = self.extract_text_blocks(
+
+            page
+
+        )
+
+
+        images = self.extract_images(
+
+            page,
+
+            page_number + 1
+
+        )
+
 
         return PageData(
 
@@ -447,106 +566,58 @@ class PDFParser:
             images=images
 
         )
-
-
-    # ======================================================
-    # Detect Sections
-    # ======================================================
-
-    def detect_sections(self, page_data):
-
-        PROPERTY_AREAS = [
-
-            "Kitchen",
-
-            "Hall",
-
-            "Living Room",
-
-            "Dining",
-
-            "Master Bedroom",
-
-            "Bedroom",
-
-            "Bathroom",
-
-            "Balcony",
-
-            "Terrace",
-
-            "Parking",
-
-            "Utility",
-
-            "Roof",
-
-            "Ceiling",
-
-            "Floor"
-
-        ]
-
-        detected = []
-
-        for block in page_data.blocks:
-
-            text = block.text.lower()
-
-            for room in PROPERTY_AREAS:
-
-                if room.lower() in text and room not in detected:
-
-                    detected.append(room)
-
-        if not detected:
-
-            detected.append("General")
-
-        return detected
-
-
-    # ======================================================
+        # ======================================================
     # Extract Observations
     # ======================================================
 
-    def extract_observations(self, page_data):
+    def extract_observations(
+            self,
+            page_data
+    ):
+        """
+        Extract observations from page text and associate
+        page images with each observation.
+        """
 
         keywords = [
 
             "damp",
-
             "dampness",
-
             "crack",
-
             "cracks",
-
             "leak",
-
             "leakage",
-
             "moisture",
-
             "fungus",
-
             "paint",
-
             "tile",
-
             "corrosion",
-
             "rust",
-
             "thermal anomaly",
-
             "efflorescence"
 
         ]
 
         observations = []
 
-        area = self.detect_sections(page_data)[0]
+        area = self.detect_sections(
+            page_data
+        )[0]
+
+
+
+        # --------------------------------------------------
+        # Images on this page
+        # --------------------------------------------------
+
+        page_images = [
+
+            image.path
+
+            for image in page_data.images
+
+        ]
+
 
         for block in page_data.blocks:
 
@@ -556,81 +627,95 @@ class PDFParser:
 
                 if keyword in lower:
 
-                    observations.append({
+                    observations.append(
 
-                        "area": area,
+                        {
 
-                        "issue": keyword.title(),
+                            "area": area,
 
-                        "description": block.text,
+                            "issue": keyword.title(),
 
-                        "text": block.text,
+                            "description": block.text,
 
-                        "page": page_data.page_number,
+                            "text": block.text,
 
-                        "bbox": block.bbox,
+                            "page": page_data.page_number,
 
-                        "keyword": keyword,
+                            "bbox": block.bbox,
 
-                        "confidence": 1.0,
+                            "keyword": keyword,
 
-                        "image_refs": []
+                            "confidence": 1.0,
 
-                    })
+                            # Images attached automatically
+                            "image_refs": page_images
+
+                        }
+
+                    )
 
                     break
 
+
         return observations
-        # ======================================================
-    # Layout Confidence
-    # ======================================================
 
-    def calculate_layout_confidence(self, page_data):
-
-        score = 0
-
-        score += len(page_data.headings) * 5
-        score += len(page_data.blocks)
-        score += len(page_data.images) * 2
-
-        return min(score, 100)
 
 
     # ======================================================
     # Convert Page to Dictionary
     # ======================================================
 
-    def page_to_dict(self, page_data):
+    def page_to_dict(
+            self,
+            page_data
+    ):
 
         return {
 
-            "page_number": page_data.page_number,
+            "page_number":
+                page_data.page_number,
 
-            "width": page_data.width,
+            "width":
+                page_data.width,
 
-            "height": page_data.height,
+            "height":
+                page_data.height,
 
-            "headings": page_data.headings,
+            "headings":
+                page_data.headings,
 
-            "sections": self.detect_sections(page_data),
+            "sections":
+                self.detect_sections(
+                    page_data
+                ),
 
-            "layout_confidence": self.calculate_layout_confidence(page_data),
+            "layout_confidence":
+                self.calculate_layout_confidence(
+                    page_data
+                ),
 
-            "observations": self.extract_observations(page_data),
+            "observations":
+                self.extract_observations(
+                    page_data
+                ),
 
-            "blocks": [
+            "blocks":[
 
                 {
 
-                    "block_no": block.block_no,
+                    "block_no":
+                        block.block_no,
 
-                    "text": block.text,
+                    "text":
+                        block.text,
 
-                    "bbox": block.bbox,
+                    "bbox":
+                        block.bbox,
 
-                    "is_heading": block.is_heading,
+                    "is_heading":
+                        block.is_heading,
 
-                    "spans": [
+                    "spans":[
 
                         asdict(span)
 
@@ -644,16 +729,91 @@ class PDFParser:
 
             ],
 
-            "images": [
+            "images":[
 
-                asdict(img)
+                {
 
-                for img in page_data.images
+                    "xref":
+                        image.xref,
+
+                    "width":
+                        image.width,
+
+                    "height":
+                        image.height,
+
+                    "ext":
+                        image.ext,
+
+                    "bbox":
+                        image.bbox,
+
+                    "path":
+                        image.path
+
+                }
+
+                for image in page_data.images
 
             ]
 
         }
 
+
+
+    # ======================================================
+    # Metadata and layout helpers
+    # ======================================================
+
+    def extract_metadata(self):
+
+        metadata = self.doc.metadata or {}
+
+        return {
+            "title": metadata.get("title", ""),
+            "author": metadata.get("author", ""),
+            "subject": metadata.get("subject", ""),
+            "keywords": metadata.get("keywords", ""),
+            "creator": metadata.get("creator", ""),
+            "producer": metadata.get("producer", ""),
+            "pages": self.total_pages,
+            "file_name": self.pdf_path.name,
+            "report_type": self.report_type,
+        }
+
+    def is_heading(self, span):
+
+        text = (span.get("text", "") or "").strip()
+
+        if not text:
+            return False
+
+        size = span.get("size", 0) or 0
+        flags = span.get("flags", 0) or 0
+
+        if len(text.split()) <= 6 and (size >= 14 or text.isupper() or text.istitle()):
+            return True
+
+        if flags & 2**4:
+            return True
+
+        return False
+
+    def detect_sections(self, page_data):
+
+        headings = [heading for heading in page_data.headings if heading.strip()]
+
+        if headings:
+            return [headings[0]]
+
+        return ["Unknown"]
+
+    def calculate_layout_confidence(self, page_data):
+
+        if not page_data.blocks:
+            return 0.0
+
+        return 0.85
 
     # ======================================================
     # Parse Complete PDF
@@ -661,58 +821,87 @@ class PDFParser:
 
     def parse_pdf(self):
 
-        logger.info("Starting document parsing...")
+            logger.info(
+                "Starting document parsing..."
+            )
 
-        self.output["metadata"] = self.extract_metadata()
+            self.output["metadata"] = (
+                self.extract_metadata()
+            )
 
-        pages = []
+            pages = []
 
-        for page_number in range(self.total_pages):
+            for page_number in range(
+                self.total_pages
+            ):
 
-            page_data = self.parse_page(page_number)
+                page_data = self.parse_page(
+                    page_number
+                )
 
-            pages.append(
+                pages.append(
 
-                self.page_to_dict(page_data)
+                    self.page_to_dict(
+                        page_data
+                    )
+
+                )
+
+
+            self.output["pages"] = pages
+
+
+            EXTRACTED_DIR.mkdir(
+
+                parents=True,
+
+                exist_ok=True
 
             )
 
-        self.output["pages"] = pages
 
-        EXTRACTED_DIR.mkdir(
+            output_file = (
 
-            parents=True,
-
-            exist_ok=True
-
-        )
-
-        output_file = EXTRACTED_DIR / f"{self.pdf_path.stem}.json"
-
-        with open(
-
-            output_file,
-
-            "w",
-
-            encoding="utf-8"
-
-        ) as f:
-
-            json.dump(
-
-                self.output,
-
-                f,
-
-                indent=4,
-
-                ensure_ascii=False
+                EXTRACTED_DIR
+                /
+                f"{self.pdf_path.stem}.json"
 
             )
 
-        logger.info(f"Saved parsed JSON -> {output_file}")
 
-        logger.info("Document parsing completed.")
+            with open(
 
-        return self.output
+                output_file,
+
+                "w",
+
+                encoding="utf-8"
+
+            ) as f:
+
+                json.dump(
+
+                    self.output,
+
+                    f,
+
+                    indent=4,
+
+                    ensure_ascii=False
+
+                )
+
+
+            logger.info(
+
+                f"Saved parsed JSON -> {output_file}"
+
+            )
+
+            logger.info(
+
+                "Document parsing completed."
+
+            )
+
+            return self.output

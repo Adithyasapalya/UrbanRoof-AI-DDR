@@ -2,29 +2,34 @@
     "health_score": 0,
     "severity_statistics": {
         "Critical": 0,
-        "High": 8,
-        "Medium": 5,
-        "Low": 0,
-        "Unknown": 146
+        "High": 9,
+        "Medium": 1,
+        "Low": 4,
+        "Unknown": 145
     },
     "executive_summary": {
-        "overall_condition": "The roof condition is critical due to multiple high-severity issues, including leaks, cracks, and dampness. These issues are likely caused by poor waterproofing, damaged roofing material, and structural damage.",
-        "executive_summary": "The roof inspection revealed several high-severity issues that require immediate attention. Leaks, cracks, and dampness are widespread, indicating a need for comprehensive repairs. Poor waterproofing, damaged roofing material, and structural damage are likely contributing factors. Urgent action is required to prevent further damage and ensure the roof's integrity.",
+        "overall_condition": "The property has several issues that require attention, including leaks, cracks, dampness, and poor paint adhesion. While some of these issues are minor, others are more severe and require immediate investigation and repair.",
+        "executive_summary": "The inspection revealed multiple issues across various areas of the property, including leaks, cracks, dampness, and poor paint adhesion. It is recommended that the property owner investigates and repairs the leaks, cracks, and dampness issues as soon as possible to prevent further damage. Additionally, the paint adhesion issue should be inspected and addressed if necessary.",
         "priority_actions": [
             {
                 "issue": "Leaks",
                 "severity": "High",
-                "recommendation": "Investigate and repair the leaks, inspect surrounding areas for potential damage"
+                "recommendation": "Investigate and repair the leaks"
             },
             {
                 "issue": "Cracks",
                 "severity": "High",
-                "recommendation": "Investigate and repair the cracks to prevent further damage"
+                "recommendation": "Investigate and repair the cracks"
             },
             {
                 "issue": "Dampness",
                 "severity": "High",
-                "recommendation": "Investigate and repair the roof to prevent further water ingress or condensation"
+                "recommendation": "Investigate and rectify the source of dampness"
+            },
+            {
+                "issue": "Poor paint adhesion",
+                "severity": "Minor",
+                "recommendation": "Inspect and reapply paint if necessary"
             }
         ]
     },
@@ -32,127 +37,127 @@
         {
             "id": 0,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 3",
             "issue": "leak",
             "description": "3.1 SOURCES OF LEAKAGE EXACT POSITION OR UNIT NO: .................................................... 10",
-            "severity": "High",
-            "root_cause": "Poor waterproofing or damaged roofing material",
-            "recommendation": "Investigate and repair the leak, inspect surrounding areas for potential damage",
+            "severity": "low",
+            "root_cause": "unknown",
+            "recommendation": "investigate and repair the leak",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 1,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 3",
             "issue": "paint",
             "description": "3.9.3 CONDITION OF ADHESION OF OLD PAINT ............................................................................................. 23",
             "severity": "Minor",
             "root_cause": "Poor paint adhesion",
-            "recommendation": "Inspect and repaint as necessary",
+            "recommendation": "Inspect and reapply paint if necessary",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 2,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 3",
             "issue": "paint",
             "description": "3.9.3.1 CONDITION OF ADHESION OF OLD PAINT INPUT TABLE ........................................................... 23",
             "severity": "Minor",
             "root_cause": "Poor paint adhesion",
-            "recommendation": "Re-paint or replace with a suitable coating",
+            "recommendation": "Inspect and possibly repaint the affected area",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 3,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 4",
             "issue": "crack",
             "description": "TO THE CRACKS DEVELOPED BELOW THE TILES. AFTER THE INITIAL SET OF GROUTS, CLEAN THE",
             "severity": "High",
             "root_cause": "Poor grouting technique",
-            "recommendation": "Re-grout the area and inspect for further cracks",
+            "recommendation": "Re-grout the area and ensure proper cleaning before applying additional grouts",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 4,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 4",
             "issue": "tile",
             "description": "SURFACE WITH A CLEAN CLOTH. FURTHER FILL THE RTM GROUT INTO THE TILE JOINTS AND",
-            "severity": "Minor",
-            "root_cause": "Poor workmanship or material quality",
-            "recommendation": "Re-grout the tile joints and inspect for any further issues",
+            "severity": "Low",
+            "root_cause": "Poor maintenance of tile joints",
+            "recommendation": "Fill the RTM grout into the tile joints and ensure surface is clean",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 5,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "damp",
             "description": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL",
             "severity": "High",
-            "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the roof to prevent further water ingress or condensation",
+            "root_cause": "Possible water ingress or condensation issue",
+            "recommendation": "Investigate and rectify the source of dampness, inspect and repair or replace affected areas",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 6,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "damp",
             "description": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND",
             "severity": "Medium",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and address the root cause of dampness, potentially involving waterproofing or ventilation improvements",
+            "recommendation": "Investigate and rectify the dampness issue at the skirting level and wall corner of the bedroom (ground floor)",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 7,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "damp",
             "description": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE",
-            "severity": "Medium",
-            "root_cause": "Water ingress or poor waterproofing",
-            "recommendation": "Investigate and repair the roof waterproofing system, inspect and repair any damaged skirting and surrounding areas",
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and rectify the water ingress or condensation issue, and apply a suitable waterproofing treatment to the affected area",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 8,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "damp",
             "description": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN",
-            "severity": "Medium",
-            "root_cause": "Water ingress or condensation",
-            "recommendation": "Investigate and repair the roof to prevent further dampness and paint spalling",
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and rectify the water ingress or condensation issue, and apply a suitable waterproofing treatment to the affected area.",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 9,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "damp",
             "description": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS TER B",
             "severity": "High",
             "root_cause": "Water ingress or condensation",
-            "recommendation": "Investigate and repair the roof to prevent further water ingress or condensation",
+            "recommendation": "Investigate and rectify the source of dampness, and apply a suitable waterproofing treatment to the affected area.",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 10,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "tile",
             "description": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR) ............ 33",
             "severity": "Minor",
@@ -164,11 +169,11 @@
         {
             "id": 11,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "crack",
             "description": "IMAGE 8: CRACKS ON EXTERNAL WALL ........................................................................... 34",
             "severity": "High",
-            "root_cause": "Structural damage or settlement issue",
+            "root_cause": "Possible water ingress or structural settlement",
             "recommendation": "Investigate and repair the crack to prevent further damage",
             "matched_observation_id": null,
             "similarity_score": 0.0
@@ -176,9 +181,21 @@
         {
             "id": 12,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "tile",
             "description": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM .................................... 34",
+            "severity": "Low",
+            "root_cause": "Poor tile installation",
+            "recommendation": "Reinstall tiles with proper spacing and grouting",
+            "matched_observation_id": null,
+            "similarity_score": 0.0
+        },
+        {
+            "id": 13,
+            "source": "inspection",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
+            "issue": "tile",
+            "description": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY ...................................................... 35",
             "severity": "Minor",
             "root_cause": "Poor tile installation",
             "recommendation": "Reinstall tiles with proper joint spacing",
@@ -186,33 +203,21 @@
             "similarity_score": 0.0
         },
         {
-            "id": 13,
-            "source": "inspection",
-            "area": "Roof",
-            "issue": "tile",
-            "description": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY ...................................................... 35",
-            "severity": "Minor",
-            "root_cause": "Poor tile installation",
-            "recommendation": "Reinstall tiles with proper joint sealing",
-            "matched_observation_id": null,
-            "similarity_score": 0.0
-        },
-        {
             "id": 14,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "crack",
             "description": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM ........................................... 35",
             "severity": "High",
-            "root_cause": "Structural damage due to cracks",
-            "recommendation": "Investigate and repair the cracks to prevent further damage",
+            "root_cause": "Possible water ingress or settlement issue",
+            "recommendation": "Investigate and repair the crack to prevent further damage",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 15,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 5",
             "issue": "tile",
             "description": "SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN MASTERBEDROOM-2 36",
             "severity": "Minor",
@@ -224,55 +229,55 @@
         {
             "id": 16,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 6",
             "issue": "crack",
             "description": "Conducting visual site inspection using necessary assessment tools like Tapping Hammer, Crack gauge,",
             "severity": "High",
-            "root_cause": "Structural damage or settlement issue",
-            "recommendation": "Further investigation and repair of the crack to prevent potential collapse",
+            "root_cause": "Possible structural damage due to settlement or foundation issues",
+            "recommendation": "Further investigation and testing are required to determine the cause and extent of the damage, and to develop a repair plan",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 17,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 6",
             "issue": "moisture",
             "description": "IR Thermography, Moisture & pH meter to be carried out by UrbanRoof technical team involving 2",
             "severity": "High",
-            "root_cause": "Water ingress or condensation",
-            "recommendation": "Investigate and rectify the source of moisture, inspect and repair or replace affected roof components as necessary",
+            "root_cause": "Possible water ingress or condensation issue",
+            "recommendation": "Investigate and rectify the issue to prevent further damage",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 18,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "leak",
             "description": "3.1 SOURCES OF LEAKAGE EXACT POSITION OR UNIT NO:",
-            "severity": "Medium",
-            "root_cause": "Poor waterproofing or damaged roofing material",
-            "recommendation": "Investigate and repair the leak, inspect surrounding areas for potential damage",
+            "severity": "low",
+            "root_cause": "unknown",
+            "recommendation": "investigate and repair the leak",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 19,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "tile",
             "description": "Observed gaps between the tile joints of 3 Bathrooms (M.B – 1, M.B – 2 & Common Bathroom). Due to",
-            "severity": "Medium",
-            "root_cause": "Poor workmanship or design issue",
-            "recommendation": "Re-tile the affected areas and inspect for any underlying structural issues",
+            "severity": "Minor",
+            "root_cause": "Poor tile installation",
+            "recommendation": "Re-tile the affected areas and ensure proper joint sealing",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
         {
             "id": 20,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "moisture",
             "description": "which accumulated moisture starts rising up from the surface through the pores due to capillary action",
             "severity": "Unknown",
@@ -284,7 +289,7 @@
         {
             "id": 21,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "damp",
             "description": "causing dampness, efflorescence and spalling of paint at the ceiling of Hall, Adjacent wall (Skirting",
             "severity": "Unknown",
@@ -296,7 +301,7 @@
         {
             "id": 22,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "tile",
             "description": "Observed gaps between the tile joints of 2 Balcony (M.B – 1, M.B – 2 & Common Bathroom). Due to",
             "severity": "Unknown",
@@ -308,7 +313,7 @@
         {
             "id": 23,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "moisture",
             "description": "which accumulated moisture starts rising up from the surface through the pores due to capillary action",
             "severity": "Unknown",
@@ -320,7 +325,7 @@
         {
             "id": 24,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "damp",
             "description": "causing dampness, efflorescence and spalling of paint at the skirting level of Master Bedroom & Wall",
             "severity": "Unknown",
@@ -332,7 +337,7 @@
         {
             "id": 25,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "crack",
             "description": "Observed cracks on some portion of the terrace. Terrace screed has lost its strength, The IPS surface",
             "severity": "Unknown",
@@ -344,7 +349,7 @@
         {
             "id": 26,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "crack",
             "description": "has developed cracks. Observed disturbance in slope, leading to water ingress through the joints,",
             "severity": "Unknown",
@@ -356,7 +361,7 @@
         {
             "id": 27,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "leak",
             "description": "water is then channelizing through RCC Slab below screed leading to leakages at below floor ceiling.",
             "severity": "Unknown",
@@ -368,7 +373,7 @@
         {
             "id": 28,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "crack",
             "description": "The hollow sound was observed at many locations on the roof terrace. Fine cracks are observed on the",
             "severity": "Unknown",
@@ -380,7 +385,7 @@
         {
             "id": 29,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "crack",
             "description": "Observed hairline cracks on all external walls of the building. These are the cracks on which we need to",
             "severity": "Unknown",
@@ -392,7 +397,7 @@
         {
             "id": 30,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "crack",
             "description": "focus more. If we ignore such small cracks at this point, then it may have a severe problem in the",
             "severity": "Unknown",
@@ -404,7 +409,7 @@
         {
             "id": 31,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "crack",
             "description": "future. When water starts traveling through these cracks, then firstly water starts damaging the plaster",
             "severity": "Unknown",
@@ -416,7 +421,7 @@
         {
             "id": 32,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "damp",
             "description": "the structural gets reduce drastically. Observed dampness on internal walls of the building. Due to the",
             "severity": "Unknown",
@@ -428,7 +433,7 @@
         {
             "id": 33,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 10",
             "issue": "paint",
             "description": "scenario, water starts damaging the interior paint. Hence making the base strong i.e., applying a",
             "severity": "Unknown",
@@ -440,7 +445,7 @@
         {
             "id": 34,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Input 1.1 Condition of leakage at adjacent walls:",
             "severity": "Unknown",
@@ -452,7 +457,7 @@
         {
             "id": 35,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "No leakage",
             "severity": "Unknown",
@@ -464,7 +469,7 @@
         {
             "id": 36,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "damp",
             "description": "Dampness",
             "severity": "Unknown",
@@ -476,7 +481,7 @@
         {
             "id": 37,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Seepage/ Mild Leakage (waterproofing)",
             "severity": "Unknown",
@@ -488,7 +493,7 @@
         {
             "id": 38,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Live Leakage (plumbing)",
             "severity": "Unknown",
@@ -500,7 +505,7 @@
         {
             "id": 39,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Input 1.2 Condition of leakage below floor of the bathroom",
             "severity": "Unknown",
@@ -512,7 +517,7 @@
         {
             "id": 40,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "No leakage",
             "severity": "Unknown",
@@ -524,7 +529,7 @@
         {
             "id": 41,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "damp",
             "description": "Dampness",
             "severity": "Unknown",
@@ -536,7 +541,7 @@
         {
             "id": 42,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Seepage/ Mild Leakage (waterproofing)",
             "severity": "Unknown",
@@ -548,7 +553,7 @@
         {
             "id": 43,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Live Leakage (plumbing)",
             "severity": "Unknown",
@@ -560,7 +565,7 @@
         {
             "id": 44,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Input 1.3 Leakage during:",
             "severity": "Unknown",
@@ -572,7 +577,7 @@
         {
             "id": 45,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Input 1.4 Leakage due to concealed plumbing",
             "severity": "Unknown",
@@ -584,7 +589,7 @@
         {
             "id": 46,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 11",
             "issue": "leak",
             "description": "Input 1.5 Leakage due to damage in Nahani trap/Brick bat coba under tile flooring",
             "severity": "Unknown",
@@ -596,7 +601,7 @@
         {
             "id": 47,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 12",
             "issue": "tile",
             "description": "Input 1.6 Gaps/Blackish dirt observed in Tile joints",
             "severity": "Unknown",
@@ -608,7 +613,7 @@
         {
             "id": 48,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 12",
             "issue": "tile",
             "description": "Input 1.8 Tiles broken/loosed anywhere",
             "severity": "Unknown",
@@ -620,7 +625,7 @@
         {
             "id": 49,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 12",
             "issue": "rust",
             "description": "Input 1.9 Loose Plumbing joints/rust around joints & edges (Flush tank/shower/angle",
             "severity": "Unknown",
@@ -632,7 +637,7 @@
         {
             "id": 50,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Input 1.10 Condition of leakage at adjacent walls:",
             "severity": "Unknown",
@@ -644,7 +649,7 @@
         {
             "id": 51,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "No leakage",
             "severity": "Unknown",
@@ -656,7 +661,7 @@
         {
             "id": 52,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "damp",
             "description": "Dampness",
             "severity": "Unknown",
@@ -668,7 +673,7 @@
         {
             "id": 53,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Seepage/ Mild Leakage (waterproofing)",
             "severity": "Unknown",
@@ -680,7 +685,7 @@
         {
             "id": 54,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Live Leakage (plumbing)",
             "severity": "Unknown",
@@ -692,7 +697,7 @@
         {
             "id": 55,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Input 1.11 Condition of leakage below floor of the balcony",
             "severity": "Unknown",
@@ -704,7 +709,7 @@
         {
             "id": 56,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "No leakage",
             "severity": "Unknown",
@@ -716,7 +721,7 @@
         {
             "id": 57,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "damp",
             "description": "Dampness",
             "severity": "Unknown",
@@ -728,7 +733,7 @@
         {
             "id": 58,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Seepage/ Mild Leakage (waterproofing)",
             "severity": "Unknown",
@@ -740,7 +745,7 @@
         {
             "id": 59,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Live Leakage (plumbing)",
             "severity": "Unknown",
@@ -752,7 +757,7 @@
         {
             "id": 60,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Input 1.12 Leakage during:",
             "severity": "Unknown",
@@ -764,7 +769,7 @@
         {
             "id": 61,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Input 1.13 Leakage due to concealed plumbing",
             "severity": "Unknown",
@@ -776,7 +781,7 @@
         {
             "id": 62,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 13",
             "issue": "leak",
             "description": "Input 1.14 Leakage due to damage in Nahani trap/Brick bat coba under tile flooring",
             "severity": "Unknown",
@@ -788,7 +793,7 @@
         {
             "id": 63,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 14",
             "issue": "tile",
             "description": "Input 1.15 Gaps/Blackish dirt observed in Tile joints",
             "severity": "Unknown",
@@ -800,7 +805,7 @@
         {
             "id": 64,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 14",
             "issue": "tile",
             "description": "Input 1.17 Tiles broken/loosed anywhere",
             "severity": "Unknown",
@@ -812,7 +817,7 @@
         {
             "id": 65,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 14",
             "issue": "tile",
             "description": "Input 1.18 Type of tile",
             "severity": "Unknown",
@@ -824,7 +829,7 @@
         {
             "id": 66,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 14",
             "issue": "tile",
             "description": "Stone Tile",
             "severity": "Unknown",
@@ -836,7 +841,7 @@
         {
             "id": 67,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "Input 1.19 Condition of leakage in ceiling below terrace slab",
             "severity": "Unknown",
@@ -848,7 +853,7 @@
         {
             "id": 68,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "No leakage",
             "severity": "Unknown",
@@ -860,7 +865,7 @@
         {
             "id": 69,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "damp",
             "description": "Dampness",
             "severity": "Unknown",
@@ -872,7 +877,7 @@
         {
             "id": 70,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "Seepage/ Mild Leakage (waterproofing)",
             "severity": "Unknown",
@@ -884,7 +889,7 @@
         {
             "id": 71,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "Live Leakage (plumbing)",
             "severity": "Unknown",
@@ -896,7 +901,7 @@
         {
             "id": 72,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "Input 1.20 Condition of leakage near ceiling & wall corner junction",
             "severity": "Unknown",
@@ -908,7 +913,7 @@
         {
             "id": 73,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "No leakage",
             "severity": "Unknown",
@@ -920,7 +925,7 @@
         {
             "id": 74,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "damp",
             "description": "Dampness",
             "severity": "Unknown",
@@ -932,7 +937,7 @@
         {
             "id": 75,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "Seepage/ Mild Leakage (waterproofing)",
             "severity": "Unknown",
@@ -944,7 +949,7 @@
         {
             "id": 76,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "Live Leakage (plumbing)",
             "severity": "Unknown",
@@ -956,7 +961,7 @@
         {
             "id": 77,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "Input 1.21 Season of leakage:",
             "severity": "Unknown",
@@ -968,7 +973,7 @@
         {
             "id": 78,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 15",
             "issue": "leak",
             "description": "Input 1.22 Leakage due to concealed plumbing",
             "severity": "Unknown",
@@ -980,7 +985,7 @@
         {
             "id": 79,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 17",
             "issue": "leak",
             "description": "Condition of Leakages from water",
             "severity": "Unknown",
@@ -992,7 +997,7 @@
         {
             "id": 80,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 17",
             "issue": "crack",
             "description": "Surface Cracks condition observed",
             "severity": "Unknown",
@@ -1004,7 +1009,7 @@
         {
             "id": 81,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 17",
             "issue": "crack",
             "description": "developed cracks and",
             "severity": "Unknown",
@@ -1016,7 +1021,7 @@
         {
             "id": 82,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 17",
             "issue": "crack",
             "description": "Condition of Any Cracks/ Absence of",
             "severity": "Unknown",
@@ -1028,7 +1033,7 @@
         {
             "id": 83,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 17",
             "issue": "crack",
             "description": "Observed cracks and moss",
             "severity": "Unknown",
@@ -1040,7 +1045,7 @@
         {
             "id": 84,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 17",
             "issue": "crack",
             "description": "Condition of Shrinkage cracks &",
             "severity": "Unknown",
@@ -1052,7 +1057,7 @@
         {
             "id": 85,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 17",
             "issue": "fungus",
             "description": "algae-fungus on parapet walls",
             "severity": "Unknown",
@@ -1064,7 +1069,7 @@
         {
             "id": 86,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 17",
             "issue": "crack",
             "description": "Shrinkage cracks are",
             "severity": "Unknown",
@@ -1076,7 +1081,7 @@
         {
             "id": 87,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 18",
             "issue": "tile",
             "description": "(specify: naked/tiled)",
             "severity": "Unknown",
@@ -1088,7 +1093,7 @@
         {
             "id": 88,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 19",
             "issue": "leak",
             "description": "Input 1.24 Condition of leakage at interior side",
             "severity": "Unknown",
@@ -1100,7 +1105,7 @@
         {
             "id": 89,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 19",
             "issue": "leak",
             "description": "No leakage",
             "severity": "Unknown",
@@ -1112,7 +1117,7 @@
         {
             "id": 90,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 19",
             "issue": "damp",
             "description": "Dampness",
             "severity": "Unknown",
@@ -1124,7 +1129,7 @@
         {
             "id": 91,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 19",
             "issue": "leak",
             "description": "Seepage/ Mild Leakage (waterproofing)",
             "severity": "Unknown",
@@ -1136,7 +1141,7 @@
         {
             "id": 92,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 19",
             "issue": "leak",
             "description": "Live Leakage (plumbing)",
             "severity": "Unknown",
@@ -1148,7 +1153,7 @@
         {
             "id": 93,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 19",
             "issue": "leak",
             "description": "Input 1.25 Leakage during:",
             "severity": "Unknown",
@@ -1160,7 +1165,7 @@
         {
             "id": 94,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 19",
             "issue": "leak",
             "description": "Input 1.26 Leakage due to concealed plumbing",
             "severity": "Unknown",
@@ -1172,7 +1177,7 @@
         {
             "id": 95,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 19",
             "issue": "leak",
             "description": "Input 1.27 Internal WC/Bathroom/Balcony leakages observed.",
             "severity": "Unknown",
@@ -1184,7 +1189,7 @@
         {
             "id": 96,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 20",
             "issue": "paint",
             "description": "Input 1.28 Existing type of paint & manufacturer (specify)",
             "severity": "Unknown",
@@ -1196,7 +1201,7 @@
         {
             "id": 97,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 20",
             "issue": "paint",
             "description": "No paint",
             "severity": "Unknown",
@@ -1208,7 +1213,7 @@
         {
             "id": 98,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 20",
             "issue": "paint",
             "description": "Cement paint",
             "severity": "Unknown",
@@ -1220,7 +1225,7 @@
         {
             "id": 99,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 20",
             "issue": "paint",
             "description": "Textured paint",
             "severity": "Unknown",
@@ -1232,7 +1237,7 @@
         {
             "id": 100,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "crack",
             "description": "Condition of cracks observed on RCC",
             "severity": "Unknown",
@@ -1244,7 +1249,7 @@
         {
             "id": 101,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "crack",
             "description": "Condition of cracks observed on",
             "severity": "Unknown",
@@ -1256,7 +1261,7 @@
         {
             "id": 102,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "rust",
             "description": "Condition of rust marks observed in",
             "severity": "Unknown",
@@ -1268,7 +1273,7 @@
         {
             "id": 103,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "corrosion",
             "description": "Condition of Corrosion/ Spalling of",
             "severity": "Unknown",
@@ -1280,7 +1285,7 @@
         {
             "id": 104,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "crack",
             "description": "Are there any cracks on the walls",
             "severity": "Unknown",
@@ -1292,7 +1297,7 @@
         {
             "id": 105,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "crack",
             "description": "cracks?",
             "severity": "Unknown",
@@ -1304,7 +1309,7 @@
         {
             "id": 106,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "crack",
             "description": "Observed cracks on",
             "severity": "Unknown",
@@ -1316,7 +1321,7 @@
         {
             "id": 107,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "crack",
             "description": "Are there hairline cracks observed",
             "severity": "Unknown",
@@ -1328,7 +1333,7 @@
         {
             "id": 108,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "crack",
             "description": "structural cracks less than 2mm. If",
             "severity": "Unknown",
@@ -1340,7 +1345,7 @@
         {
             "id": 109,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 21",
             "issue": "crack",
             "description": "Observed hairline cracks",
             "severity": "Unknown",
@@ -1352,7 +1357,7 @@
         {
             "id": 110,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 22",
             "issue": "crack",
             "description": "yes, condition of cracks?",
             "severity": "Unknown",
@@ -1364,7 +1369,7 @@
         {
             "id": 111,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 22",
             "issue": "crack",
             "description": "Are external plumbing pipes cracked",
             "severity": "Unknown",
@@ -1376,7 +1381,7 @@
         {
             "id": 112,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 22",
             "issue": "leak",
             "description": "and leaks? If yes, its condition? NA",
             "severity": "Unknown",
@@ -1388,7 +1393,7 @@
         {
             "id": 113,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 23",
             "issue": "paint",
             "description": "3.9.3 CONDITION OF ADHESION OF OLD PAINT",
             "severity": "Unknown",
@@ -1400,7 +1405,7 @@
         {
             "id": 114,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 23",
             "issue": "paint",
             "description": "3.9.3.1 Condition of Adhesion of Old Paint Input Table",
             "severity": "Unknown",
@@ -1412,7 +1417,7 @@
         {
             "id": 115,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 23",
             "issue": "paint",
             "description": "Chalking & flaking in paint film",
             "severity": "Unknown",
@@ -1424,7 +1429,7 @@
         {
             "id": 116,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 23",
             "issue": "paint",
             "description": "observed? If yes, condition of paint? ",
             "severity": "Unknown",
@@ -1436,7 +1441,7 @@
         {
             "id": 117,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 23",
             "issue": "fungus",
             "description": "Did Algae, fungus & moss observed",
             "severity": "Unknown",
@@ -1448,7 +1453,7 @@
         {
             "id": 118,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 23",
             "issue": "crack",
             "description": "Condition of Cracks observed on RCC",
             "severity": "Unknown",
@@ -1460,7 +1465,7 @@
         {
             "id": 119,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 23",
             "issue": "corrosion",
             "description": "Condition of Corrosion on metal rods",
             "severity": "Unknown",
@@ -1472,7 +1477,7 @@
         {
             "id": 120,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 24",
             "issue": "crack",
             "description": "Condition of Separation cracks",
             "severity": "Unknown",
@@ -1484,7 +1489,7 @@
         {
             "id": 121,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 24",
             "issue": "leak",
             "description": "Condition of Leakage observed from",
             "severity": "Unknown",
@@ -1496,7 +1501,7 @@
         {
             "id": 122,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 25",
             "issue": "crack",
             "description": "modified mortar made up of Dr. Fixit URP so that it will reach to the cracks developed below the",
             "severity": "Unknown",
@@ -1508,7 +1513,7 @@
         {
             "id": 123,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 25",
             "issue": "tile",
             "description": "tiles. After the initial set of grouts, clean the surface with a clean cloth. Further fill the RTM grout into",
             "severity": "Unknown",
@@ -1520,7 +1525,7 @@
         {
             "id": 124,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 25",
             "issue": "tile",
             "description": "the tile joints and patch the joints. Outlets and corners to be patched with PMM made of Dr. Fixit",
             "severity": "Unknown",
@@ -1532,7 +1537,7 @@
         {
             "id": 125,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 25",
             "issue": "crack",
             "description": "Cracks to be opened in V shape grove, filling with heavy duty polymer mortars. Any spalling of",
             "severity": "Unknown",
@@ -1544,7 +1549,7 @@
         {
             "id": 126,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 25",
             "issue": "crack",
             "description": "Note: * Structural cracks deserve immediate attention. They indicate that the structure of the building, or at least a part of it, is overstressed. A structure, when stressed beyond its capacity, may collapse without further warning signs. When such cracks suddenly develop, or appear to widen and/or spread, the findings must be reported immediately to the Structural Engineer, Buildings Department. A building professional such as a Registered Structural Engineer is usually required to investigate the cause(s) of the cracks, to assess their effects on the structure, to propose suitable rectification and remedial works, and supervise the carrying out of such works.",
             "severity": "Unknown",
@@ -1556,7 +1561,7 @@
         {
             "id": 127,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "damp",
             "description": "Observed dampness, efflorescence",
             "severity": "Unknown",
@@ -1568,7 +1573,7 @@
         {
             "id": 128,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "paint",
             "description": "and spalling of paint at the ceiling of",
             "severity": "Unknown",
@@ -1580,7 +1585,7 @@
         {
             "id": 129,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "tile",
             "description": "tile joints of Master Bedroom Bathroom of",
             "severity": "Unknown",
@@ -1592,7 +1597,7 @@
         {
             "id": 130,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "damp",
             "description": "Observed dampness at the skirting",
             "severity": "Unknown",
@@ -1604,7 +1609,7 @@
         {
             "id": 131,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "crack",
             "description": "4.5.2 Observed cracks on the External wall of the",
             "severity": "Unknown",
@@ -1616,7 +1621,7 @@
         {
             "id": 132,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "tile",
             "description": "4.5.3 Observed gaps between the tile joints of",
             "severity": "Unknown",
@@ -1628,7 +1633,7 @@
         {
             "id": 133,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "damp",
             "description": "Observed dampness at the wall",
             "severity": "Unknown",
@@ -1640,7 +1645,7 @@
         {
             "id": 134,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "crack",
             "description": "tile joints of Open Balcony. Cracks have",
             "severity": "Unknown",
@@ -1652,7 +1657,7 @@
         {
             "id": 135,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "damp",
             "description": "Observed dampness & paint spalling",
             "severity": "Unknown",
@@ -1664,7 +1669,7 @@
         {
             "id": 136,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "crack",
             "description": "4.5.5 Observed cracks on External wall of Master",
             "severity": "Unknown",
@@ -1676,7 +1681,7 @@
         {
             "id": 137,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "tile",
             "description": "Bedroom Wall & gaps between the tile",
             "severity": "Unknown",
@@ -1688,7 +1693,7 @@
         {
             "id": 138,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "damp",
             "description": "Observed dampness & paint spalling",
             "severity": "Unknown",
@@ -1700,7 +1705,7 @@
         {
             "id": 139,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 26",
             "issue": "tile",
             "description": "4.5.6 Observed gaps between the tile joints of",
             "severity": "Unknown",
@@ -1712,7 +1717,7 @@
         {
             "id": 140,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 27",
             "issue": "damp",
             "description": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF",
             "severity": "Unknown",
@@ -1724,7 +1729,7 @@
         {
             "id": 141,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 28",
             "issue": "damp",
             "description": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM",
             "severity": "Unknown",
@@ -1736,7 +1741,7 @@
         {
             "id": 142,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 30",
             "issue": "damp",
             "description": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE",
             "severity": "Unknown",
@@ -1748,7 +1753,7 @@
         {
             "id": 143,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 31",
             "issue": "damp",
             "description": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR",
             "severity": "Unknown",
@@ -1760,7 +1765,7 @@
         {
             "id": 144,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 32",
             "issue": "damp",
             "description": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS",
             "severity": "Unknown",
@@ -1772,7 +1777,7 @@
         {
             "id": 145,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 33",
             "issue": "tile",
             "description": "Gaps were observed between the tile joints of the Master bedroom Bathroom of first floor. Unless",
             "severity": "Unknown",
@@ -1784,7 +1789,7 @@
         {
             "id": 146,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 33",
             "issue": "leak",
             "description": "these gaps are repaired immediately a similar leakage will happen at the ceiling and skirting level",
             "severity": "Unknown",
@@ -1796,7 +1801,7 @@
         {
             "id": 147,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 33",
             "issue": "tile",
             "description": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR)",
             "severity": "Unknown",
@@ -1808,7 +1813,7 @@
         {
             "id": 148,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 34",
             "issue": "crack",
             "description": "Cracks observed on the external wall of bedroom. Through which water is ingressing inside the wall",
             "severity": "Unknown",
@@ -1820,7 +1825,7 @@
         {
             "id": 149,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 34",
             "issue": "damp",
             "description": "causing dampness at the skirting level and wall corner of bedroom.",
             "severity": "Unknown",
@@ -1832,7 +1837,7 @@
         {
             "id": 150,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 34",
             "issue": "crack",
             "description": "IMAGE 8: CRACKS ON EXTERNAL WALL",
             "severity": "Unknown",
@@ -1844,7 +1849,7 @@
         {
             "id": 151,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 34",
             "issue": "tile",
             "description": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM",
             "severity": "Unknown",
@@ -1856,7 +1861,7 @@
         {
             "id": 152,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 35",
             "issue": "tile",
             "description": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY",
             "severity": "Unknown",
@@ -1868,7 +1873,7 @@
         {
             "id": 153,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 35",
             "issue": "crack",
             "description": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM",
             "severity": "Unknown",
@@ -1880,7 +1885,7 @@
         {
             "id": 154,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 36",
             "issue": "tile",
             "description": "SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN",
             "severity": "Unknown",
@@ -1892,7 +1897,7 @@
         {
             "id": 155,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 37",
             "issue": "crack",
             "description": "Some conditions noted, such as structural cracks & other signs of settlement indicate a potential",
             "severity": "Unknown",
@@ -1904,7 +1909,7 @@
         {
             "id": 156,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 37",
             "issue": "crack",
             "description": "stretched beyond its capacity, may collapse without further warning signs. When such cracks suddenly",
             "severity": "Unknown",
@@ -1916,7 +1921,7 @@
         {
             "id": 157,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 37",
             "issue": "crack",
             "description": "Engineer is usually required to investigate the cause(s) of the cracks, to assess their effects on the",
             "severity": "Unknown",
@@ -1928,7 +1933,7 @@
         {
             "id": 158,
             "source": "inspection",
-            "area": "Roof",
+            "area": "www.urbaroof.in . UrbanRoof Private Limited Page 37",
             "issue": "leak",
             "description": "happen under certain circumstances. As an example, Inspector may not discover leaks that occur only",
             "severity": "Unknown",
