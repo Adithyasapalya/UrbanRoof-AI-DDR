@@ -22,7 +22,8 @@ from __future__ import annotations
 import json
 import time
 
-import google.generativeai as genai
+import os
+from groq import Groq
 
 from modules.knowledge_base import (
 
@@ -34,7 +35,7 @@ from modules.knowledge_base import (
 
 from config import (
 
-    GEMINI_API_KEY,
+    GROQ_API_KEY,
 
     GEMINI_MODEL
 
@@ -45,9 +46,9 @@ from config import (
 # Gemini Configuration
 # ==========================================================
 
-genai.configure(
+groq_client = Groq(
 
-    api_key=GEMINI_API_KEY
+    api_key=GROQ_API_KEY
 
 )
 
@@ -60,17 +61,13 @@ class LLMReasoner:
 
     def __init__(self):
 
-        print("\nLoading Gemini...")
+        print("\nLoading Groq...")
 
-        self.model = genai.GenerativeModel(
-
-            GEMINI_MODEL
-
-        )
+        self.model = groq_client
 
         print(
 
-            f"Model Loaded : {GEMINI_MODEL}"
+            f"Model Loaded : {GROQ_API_KEY}"
 
         )
 
