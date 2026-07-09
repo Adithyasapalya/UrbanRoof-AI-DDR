@@ -532,7 +532,84 @@ class PDFParser:
                 )
 
         return images
+    
+        # ======================================================
+    # Calculate Distance
+    # ======================================================
 
+    def calculate_distance(
+            self,
+            block_bbox,
+            image
+    ):
+        """
+        Calculates Euclidean distance between the
+        center of a text block and an image.
+        """
+
+        if not image.bbox:
+
+            return float("inf")
+
+        block_center_x = (
+            block_bbox[0] + block_bbox[2]
+        ) / 2
+
+        block_center_y = (
+            block_bbox[1] + block_bbox[3]
+        ) / 2
+
+        dx = block_center_x - image.center_x
+
+        dy = block_center_y - image.center_y
+
+        return (dx * dx + dy * dy) ** 0.5
+
+
+    # ======================================================
+    # Find Nearest Image
+    # ======================================================
+
+    def find_nearest_image(
+            self,
+            block,
+            images
+    ):
+        """
+        Finds the closest image to a text block.
+        """
+
+        if not images:
+
+            return None
+
+        nearest = None
+
+        min_distance = float("inf")
+
+        for image in images:
+
+            distance = self.calculate_distance(
+                block.bbox,
+                image
+            )
+
+            if distance < min_distance:
+
+                min_distance = distance
+
+                nearest = image
+
+        if nearest:
+
+            logger.info(
+                f"Matched image {nearest.path} "
+                f"to observation block {block.block_no}"
+            )
+
+            return nearest.path
+
+        return None
 
     # ======================================================
     # Parse One Page
@@ -630,20 +707,6 @@ class PDFParser:
         )[0]
 
 
-
-        # --------------------------------------------------
-        # Images on this page
-        # --------------------------------------------------
-
-        page_images = [
-
-            image.path
-
-            for image in page_data.images
-
-        ]
-
-
         for block in page_data.blocks:
 
             lower = block.text.lower()
@@ -651,6 +714,11 @@ class PDFParser:
             for keyword in keywords:
 
                 if keyword in lower:
+
+                    nearest_image = self.find_nearest_image(
+                        block,
+                        page_data.images
+                    )
 
                     observations.append(
 
@@ -672,8 +740,12 @@ class PDFParser:
 
                             "confidence": 1.0,
 
-                            # Images attached automatically
-                            "image_refs": page_images
+                            # Find nearest image for this observation
+                            "image_refs": (
+                                [nearest_image]
+                                if nearest_image
+                                else []
+                            )
 
                         }
 
