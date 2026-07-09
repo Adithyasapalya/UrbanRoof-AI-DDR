@@ -354,12 +354,12 @@ class KnowledgeBase:
 
                     bbox=obs["bbox"],
 
-                    image_refs=obs.get("image_refs", []),
+                    image_refs=obs.get("images", []),
 
                     confidence=obs.get("confidence", 1.0)
 
                 )
-                print(obs.get("image_refs", [])
+                print(obs.get("images", [])
                 )
 
     # =======================================================

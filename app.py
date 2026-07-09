@@ -82,7 +82,7 @@ def main():
 
                 source="inspection",
 
-                area=page["sections"][0] if page["sections"] else "Unknown",
+                area=obs.get("area") or page.get("section") or "Unknown",
 
                 page=page["page_number"],
 
@@ -108,7 +108,7 @@ def main():
 
                 source="thermal",
 
-                area=page["sections"][0] if page["sections"] else "Unknown",
+                area=obs.get("area") or page.get("section") or "Unknown",
 
                 page=page["page_number"],
 

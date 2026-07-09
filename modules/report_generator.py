@@ -31,7 +31,9 @@ from docx.shared import Inches, Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.enum.section import WD_SECTION
 from docx.enum.style import WD_STYLE_TYPE
+from scipy import stats
 
+from modules import knowledge_base
 from modules.knowledge_base import KnowledgeBase
 
 
@@ -346,40 +348,38 @@ class ReportGenerator:
                     style="Heading 4"
                 )
 
-                if obs.image_refs:
+                images = []
 
-                    inserted = False
+        if hasattr(obs, "image_refs") and obs.image_refs:
+            images.extend(obs.image_refs)
 
-                    for image in obs.image_refs:
+        elif hasattr(obs, "image") and obs.image:
+            images.append(obs.image)
 
-                        try:
+        inserted = False
 
-                            self.document.add_picture(
-                                image,
-                                width=Inches(4.5)
-                            )
+        for img in images:
 
-                            inserted = True
+            if not img:
+                continue
+            print(img)
+            try:
 
-                        except Exception:
+                self.document.add_picture(
+                    img,
+                    width=Inches(4.8)
+                )
 
-                            pass
+                inserted = True
 
-                    if not inserted:
+            except Exception:
+                pass
 
-                        self.document.add_paragraph(
-                            "Image Not Available"
-                        )
+        if not inserted:
 
-                else:
-
-                    self.document.add_paragraph(
-                        "Image Not Available"
-                    )
-
-                self.document.add_paragraph()
-
-            self.document.add_page_break()
+            self.document.add_paragraph(
+                "Image Not Available"
+            )
     
         # -----------------------------------------------------
     # Severity Assessment
@@ -392,10 +392,21 @@ class ReportGenerator:
             level=1
         )
 
-        stats = llm_report.get(
-            "severity_statistics",
-            {}
-        )
+        stats = {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 0,
+    "Low": 0,
+    "Unknown": 0,
+                }
+        for obs in knowledge_base.get_all_observations():
+            sev = (obs.severity or "Unknown").title()
+
+            if sev not in stats:
+                sev = "Unknown"
+
+            stats[sev] += 1
+        
 
         table = self.document.add_table(
             rows=1,
