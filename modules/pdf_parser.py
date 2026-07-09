@@ -146,6 +146,15 @@ class PDFParser:
 
             width = image_data.get("width", 0)
             height = image_data.get("height", 0)
+            # Ignore logos, icons and decorative images
+            if width < 150 or height < 150:
+                continue
+
+            ratio = width / height if height else 0
+
+            # Ignore banners and separators
+            if ratio > 5 or ratio < 0.2:
+                continue
             ext = image_data.get("ext", "png")
             image_path = self.images_dir / f"page_{page_number}_image_{img_index}.{ext}"
 
@@ -195,11 +204,67 @@ class PDFParser:
                 nearest_image = image
 
         return nearest_image
+    
+    def find_best_evidence_image(
+        self,
+        text_block: TextBlock,
+        images: List[ImageInfo]
+    ):
+
+        candidates = []
+
+        for image in images:
+
+            if not image.bbox:
+                continue
+
+
+            area = (
+                image.width *
+                image.height
+            )
+
+
+            # ignore weak images
+            if area < 50000:
+                continue
+
+
+            block_y = text_block.bbox[1]
+
+            image_y = image.bbox[1]
+
+
+            distance = abs(
+                image_y - block_y
+            )
+
+
+            candidates.append(
+                (
+                    distance,
+                    image
+                )
+            )
+
+
+        if not candidates:
+            return None
+
+
+        candidates.sort(
+            key=lambda x: x[0]
+        )
+
+
+        return candidates[0][1]
 
     def extract_observations(self, page_data: PageData):
         observations = []
 
         for block in page_data.blocks:
+            if block.is_heading:
+                continue
             text = block.text.strip()
             if not text:
                 continue
@@ -222,25 +287,37 @@ class PDFParser:
             if not is_observation:
                 continue
 
-            matched_image = self.find_nearest_image(block, page_data.images)
+            matched_image = self.find_best_evidence_image(
+    block,
+    page_data.images
+)
+
+            image_path = (
+                matched_image.path
+                if matched_image
+                else None
+            )
+
 
             observation = {
                 "page": page_data.page_number,
 
-                # Required by DDR generator
                 "text": text,
 
-                # Keep description for compatibility
                 "description": text,
 
                 "bbox": block.bbox,
 
                 "heading": block.is_heading,
 
-                "image": (
-                    matched_image.path
-                    if matched_image
-                    else None
+                # old compatibility
+                "image": image_path,
+
+                # required by report generator
+                "image_refs": (
+                    [image_path]
+                    if image_path
+                    else []
                 ),
 
                 "keyword": None,

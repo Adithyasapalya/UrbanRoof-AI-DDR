@@ -25,6 +25,7 @@ import os
 import tempfile
 from collections import defaultdict
 
+from altair import value
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -47,6 +48,16 @@ class ReportGenerator:
         self.document.core_properties.subject = "Defect Diagnostic Report"
 
         self._create_styles()
+
+    def safe_text(self, value, default="Not Available"):
+        """
+        Convert None values into safe document text.
+        """
+
+        if value is None:
+            return default
+
+        return str(value)
 
     # -----------------------------------------------------
 
@@ -242,7 +253,7 @@ class ReportGenerator:
 
             row = table.add_row().cells
 
-            row[0].text = issue
+            row[0].text = str(issue or "Unknown Issue")
 
             row[1].text = str(count)
     # -----------------------------------------------------
@@ -282,13 +293,13 @@ class ReportGenerator:
                 table.style = "Table Grid"
 
                 table.cell(0,0).text = "Issue"
-                table.cell(0,1).text = obs.issue
+                table.cell(0,1).text = self.safe_text(obs.issue)
 
                 table.cell(1,0).text = "Description"
-                table.cell(1,1).text = obs.description
+                table.cell(1,1).text = self.safe_text(obs.description)
 
                 table.cell(2,0).text = "Severity"
-                table.cell(2,1).text = obs.severity
+                table.cell(2,1).text = self.safe_text(obs.severity)
 
                 table.cell(3,0).text = "Root Cause"
                 table.cell(3,1).text = (
@@ -322,10 +333,8 @@ class ReportGenerator:
 
                 table.cell(7,0).text = "Evidence"
 
-                table.cell(7,1).text = (
-                    obs.source_evidence
-                    if obs.source_evidence
-                    else "Not Available"
+                table.cell(7,1).text = self.safe_text(
+                obs.source_evidence
                 )
 
                 # ------------------------------------------
@@ -479,7 +488,11 @@ class ReportGenerator:
 
             )
 
-            severity = obs.severity.lower()
+            severity = (
+                obs.severity.lower()
+                if obs.severity
+                else "unknown"
+)
 
             if severity in [
 
@@ -666,7 +679,7 @@ class ReportGenerator:
 
                 missing = True
 
-            if obs.root_cause == "":
+            if not obs.root_cause:
 
                 self.document.add_paragraph(
 
@@ -678,7 +691,7 @@ class ReportGenerator:
 
                 missing = True
 
-            if obs.recommendation == "":
+            if not obs.recommendation:
 
                 self.document.add_paragraph(
 
@@ -798,11 +811,11 @@ class ReportGenerator:
 
             row[0].text = str(obs.id)
 
-            row[1].text = obs.area
+            row[1].text = self.safe_text(obs.area)
 
-            row[2].text = obs.issue
+            row[2].text = self.safe_text(obs.issue)
 
-            row[3].text = obs.severity
+            row[3].text = self.safe_text(obs.severity)
 
             row[4].text = (
                 str(obs.matched_observation_id)
@@ -874,31 +887,58 @@ class ReportGenerator:
     ):
 
         output_path = os.path.abspath(output_file)
+
         output_dir = os.path.dirname(output_path) or "."
 
-        os.makedirs(output_dir, exist_ok=True)
+        os.makedirs(
+            output_dir,
+            exist_ok=True
+        )
 
-        if os.path.exists(output_path):
-            try:
-                os.remove(output_path)
-            except PermissionError:
-                pass
 
-        with tempfile.NamedTemporaryFile(
-            delete=False,
-            dir=output_dir,
-            suffix=".docx"
-        ) as tmp_file:
-            temp_path = tmp_file.name
-
+        # Save directly first
         try:
-            self.document.save(temp_path)
-            os.replace(temp_path, output_path)
-        finally:
-            if os.path.exists(temp_path) and not os.path.exists(output_path):
-                os.remove(temp_path)
 
-        print(f"Report saved -> {output_path}")
+            self.document.save(
+                output_path
+            )
+
+            print(
+                f"Report saved -> {output_path}"
+            )
+
+            return
+
+
+        except PermissionError:
+
+            print(
+                "Existing report locked. Creating backup file..."
+            )
+
+
+        # Fallback filename
+        base, ext = os.path.splitext(
+            output_path
+        )
+
+        backup_path = (
+            base
+            +
+            "_new"
+            +
+            ext
+        )
+
+
+        self.document.save(
+            backup_path
+        )
+
+
+        print(
+            f"Report saved -> {backup_path}"
+        )
 
     # -----------------------------------------------------
     # Public Entry Point

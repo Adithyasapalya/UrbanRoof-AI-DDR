@@ -8,26 +8,29 @@
         "Unknown": 134
     },
     "executive_summary": {
-        "overall_condition": "The property has several structural issues that require immediate attention.",
-        "executive_summary": "The inspection report highlights several areas of concern, including structural damage due to cracks on the external wall, water ingress through joints and disturbance in slope, and possible structural damage or water ingress. Additionally, there are issues with capillary action due to accumulated moisture and terrace screed has lost its strength. It is recommended to investigate and repair the cracks, ensure waterproofing and slope stability, and address the source of moisture accumulation. Further investigation and repair of the cracks on the external wall are also necessary to prevent further damage.",
+        "overall_condition": "The property has several structural issues that require immediate attention. The inspection revealed cracks on external walls, water ingress through joints, and possible structural damage or water ingress. Additionally, the terrace screed has lost its strength, and there are signs of capillary action due to accumulated moisture.",
+        "executive_summary": "The property inspection revealed several structural issues that require immediate attention. The cracks on external walls, water ingress through joints, and possible structural damage or water ingress are of high severity and require urgent investigation and repair. The terrace screed has lost its strength, and capillary action due to accumulated moisture is also a concern. It is recommended that the property owner investigates and addresses these issues to prevent further damage.",
         "priority_actions": [
             {
                 "area": "Images",
                 "issue": "Structural damage due to cracks on external wall",
                 "severity": "High",
+                "root_cause": "Structural damage due to cracks on external wall",
                 "recommendation": "Investigate and repair cracks on external wall to prevent further damage"
-            },
-            {
-                "area": "SECTION 3 VISUAL OBSERVATION AND READINGS",
-                "issue": "Capillary action due to accumulated moisture",
-                "severity": "Low",
-                "recommendation": "Investigate and address the source of accumulated moisture"
             },
             {
                 "area": "SECTION 3 VISUAL OBSERVATION AND READINGS",
                 "issue": "Terrace screed has lost its strength",
                 "severity": "High",
+                "root_cause": "Terrace screed has lost its strength",
                 "recommendation": "Investigate and repair the terrace screed"
+            },
+            {
+                "area": "SECTION 3 VISUAL OBSERVATION AND READINGS",
+                "issue": "Water ingress through joints",
+                "severity": "High",
+                "root_cause": "Water ingress through joints",
+                "recommendation": "Investigate and repair cracks, ensure proper drainage and waterproofing"
             }
         ]
     },
@@ -40,7 +43,7 @@
             "description": "departments, lenders, insurers, and appraisers You should also attempt to determine whether repairs,",
             "severity": "Low",
             "root_cause": "Lack of information",
-            "recommendation": "Gather more data from departments, lenders, insurers, and appraisers",
+            "recommendation": "Gather more information from departments, lenders, insurers, and appraisers",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -62,9 +65,9 @@
             "area": "Data and Information Disclaimer",
             "issue": null,
             "description": "warrantability of the structure or its components, although some safety issues may be addressed in",
-            "severity": "Unknown",
+            "severity": "Informational",
             "root_cause": "Warrantability of the structure or its components",
-            "recommendation": "Address some safety issues",
+            "recommendation": "Further investigation is required to address potential safety issues",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -124,7 +127,7 @@
             "description": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM ........................................... 35",
             "severity": "High",
             "root_cause": "Structural damage due to cracks on external wall",
-            "recommendation": "Further investigation and repair of the cracks to prevent further damage",
+            "recommendation": "Investigate and repair cracks on external wall of master bedroom",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -135,8 +138,8 @@
             "issue": null,
             "description": " To prioritize the immediate repair & protection measures to be taken if any.",
             "severity": "Low",
-            "root_cause": "No specific cause identified",
-            "recommendation": "Prioritize immediate repair and protection measures",
+            "root_cause": "None",
+            "recommendation": "Prioritize immediate repair & protection measures",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -147,7 +150,7 @@
             "issue": null,
             "description": " Classification of recommendations & solutions based on existing flaws and precautionary",
             "severity": "None",
-            "root_cause": "Classification of recommendations & solutions based on existing flaws and precautionary",
+            "root_cause": "None",
             "recommendation": "Classification of recommendations & solutions based on existing flaws and precautionary",
             "matched_observation_id": null,
             "similarity_score": 0.0
@@ -183,8 +186,8 @@
             "issue": null,
             "description": "Previous Repairs: No",
             "severity": "None",
-            "root_cause": "No issues found",
-            "recommendation": "No repairs required",
+            "root_cause": "No previous repairs",
+            "recommendation": "No recommendation",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -195,8 +198,8 @@
             "issue": null,
             "description": "3.1 SOURCES OF LEAKAGE EXACT POSITION OR UNIT NO:",
             "severity": "None",
-            "root_cause": "No issue identified",
-            "recommendation": "No action required",
+            "root_cause": "No root cause identified",
+            "recommendation": "No recommendation provided",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -208,7 +211,7 @@
             "description": "which accumulated moisture starts rising up from the surface through the pores due to capillary action",
             "severity": "Low",
             "root_cause": "Capillary action due to accumulated moisture",
-            "recommendation": "Investigate and address the source of moisture accumulation",
+            "recommendation": "Investigate and address the source of accumulated moisture",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -220,7 +223,7 @@
             "description": "which accumulated moisture starts rising up from the surface through the pores due to capillary action",
             "severity": "Low",
             "root_cause": "Capillary action due to accumulated moisture",
-            "recommendation": "Investigate and address the source of accumulated moisture",
+            "recommendation": "Investigate and address the source of moisture accumulation",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -243,8 +246,8 @@
             "issue": null,
             "description": "has developed cracks. Observed disturbance in slope, leading to water ingress through the joints,",
             "severity": "High",
-            "root_cause": "Water ingress through joints and disturbance in slope",
-            "recommendation": "Investigate and repair cracks, ensure waterproofing and slope stability",
+            "root_cause": "Water ingress through joints",
+            "recommendation": "Investigate and repair cracks, ensure proper drainage and waterproofing",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
