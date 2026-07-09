@@ -15,6 +15,8 @@ from dataclasses import dataclass, field, asdict
 from typing import List, Optional
 import json
 
+from config import KNOWLEDGE_BASE_JSON
+
 
 # ==========================================================
 # Observation
@@ -167,6 +169,60 @@ class KnowledgeBase:
             self.thermal_observations.append(obs)
 
         return obs
+    
+    def link_observations(
+        self,
+        observations=None,
+        inspection_id=None,
+        thermal_id=None,
+        **kwargs
+    ):
+        """
+        Link observations into knowledge base.
+
+        Compatibility interface used by
+        SemanticMatcher.
+
+        Parameters
+        ----------
+        observations:
+            List of observation objects.
+
+        inspection_id:
+            Optional inspection document ID.
+
+        thermal_id:
+            Optional thermal document ID.
+        """
+
+        if not observations:
+            return
+
+
+        for observation in observations:
+
+            # Attach source metadata
+            if isinstance(
+                observation,
+                dict
+            ):
+
+                if inspection_id:
+                    observation.setdefault(
+                        "inspection_id",
+                        inspection_id
+                    )
+
+                if thermal_id:
+                    observation.setdefault(
+                        "thermal_id",
+                        thermal_id
+                    )
+
+
+            self.add_observation(
+                observation
+            )
 
     # =======================================================
     # Link Observations
@@ -298,10 +354,12 @@ class KnowledgeBase:
 
                     bbox=obs["bbox"],
 
-                    image_refs=[],
+                    image_refs=obs.get("image_refs", []),
 
-                    confidence=1.0
+                    confidence=obs.get("confidence", 1.0)
 
+                )
+                print(obs.get("image_refs", [])
                 )
 
     # =======================================================

@@ -1,1004 +1,365 @@
-"""
-===========================================================
-UrbanRoof AI DDR Generator
-
-Module : pdf_parser.py
-
-Purpose
--------
-Layout-aware PDF parser for inspection and thermal reports.
-
-Features
---------
-✔ Extract metadata
-✔ Extract text blocks
-✔ Detect headings
-✔ Detect property areas
-✔ Extract observations
-✔ Extract and save images
-✔ Associate images with observations
-✔ Generate JSON
-
-Author : Adithya Sapalya
-===========================================================
-"""
-
-
 from __future__ import annotations
-
 
 import json
 import logging
 
-
 from dataclasses import dataclass, asdict
-
-
 from pathlib import Path
-
-
 from typing import List
-
 
 import fitz
 
-
-
 from config import EXTRACTED_DIR
-
-
-
 
 
 # ==========================================================
 # LOGGER
 # ==========================================================
 
-
 logging.basicConfig(
-
     level=logging.INFO,
-
     format="%(levelname)s | %(message)s"
-
 )
 
-
 logger = logging.getLogger(__name__)
-
-
-
 
 
 # ==========================================================
 # DATA MODELS
 # ==========================================================
 
-
 @dataclass
 class TextSpan:
-
     text: str
-
     font: str
-
     size: float
-
     flags: int
-
     bbox: list
-
-
-
 
 
 @dataclass
 class TextBlock:
-
     block_no: int
-
     text: str
-
     bbox: list
-
     spans: List[TextSpan]
-
     is_heading: bool = False
-
-
-
 
 
 @dataclass
 class ImageInfo:
-
     xref: int
-
     width: int
-
     height: int
-
     ext: str
-
     bbox: list
-
     path: str = ""
-
-    center_x: float = 0.0
-
-    center_y: float = 0.0
-
-
-
 
 
 @dataclass
 class PageData:
-
     page_number: int
-
     width: float
-
     height: float
-
     headings: List[str]
-
     blocks: List[TextBlock]
-
     images: List[ImageInfo]
 
 
-
-
-
-
-
-# ==========================================================
-# PDF PARSER
-# ==========================================================
-
-
 class PDFParser:
+    """Layout-aware PDF parser wrapper."""
 
-
-    def __init__(
-            self,
-            pdf_path,
-            report_type="inspection"
-    ):
-
-
-        self.pdf_path = Path(
-            pdf_path
-        )
-
+    def __init__(self, pdf_path: str):
+        self.pdf_path = Path(pdf_path)
 
         if not self.pdf_path.exists():
+            raise FileNotFoundError(f"PDF not found: {self.pdf_path}")
 
-            raise FileNotFoundError(
-                f"{self.pdf_path} not found"
-            )
+        self.document = fitz.open(self.pdf_path)
+        self.pages: List[PageData] = []
 
+        # Output directory for extracted assets
+        self.output_dir = EXTRACTED_DIR
+        self.images_dir = self.output_dir / self.pdf_path.stem / "images"
+        self.images_dir.mkdir(parents=True, exist_ok=True)
 
-
-        logger.info(
-            f"Opening {self.pdf_path.name}"
-        )
-
-
-
-        self.doc = fitz.open(
-            self.pdf_path
-        )
-
-
-
-        self.total_pages = len(
-            self.doc
-        )
-
-
-
-        self.report_type = report_type
-
-
-
-        self.output = {
-
-
-            "metadata": {},
-
-
-            "pages": []
-
-
-        }
-
-
-
-
-        # ==================================================
-        # Image folders
-        # ==================================================
-
-
-        self.image_root = Path(
-            "output/images"
-        )
-
-
-
-        self.inspection_image_dir = (
-
-            self.image_root
-            /
-            "inspection"
-
-        )
-
-
-
-        self.thermal_image_dir = (
-
-            self.image_root
-            /
-            "thermal"
-
-        )
-
-
-
-        self.inspection_image_dir.mkdir(
-
-            parents=True,
-
-            exist_ok=True
-
-        )
-
-
-
-        self.thermal_image_dir.mkdir(
-
-            parents=True,
-
-            exist_ok=True
-
-        )
-
-
-
-        logger.info(
-
-            f"Report type: {self.report_type}"
-
-        )
-    # ======================================================
-# Extract Text Blocks
-# ======================================================
+        logger.info(f"Loaded PDF: {self.pdf_path.name}")
 
     def extract_text_blocks(self, page):
-
-        page_dict = page.get_text("dict")
-
         blocks = []
+        raw_blocks = page.get_text("dict")["blocks"]
 
-        headings = []
-
-        block_index = 0
-
-
-        for block in page_dict["blocks"]:
-
-            if block["type"] != 0:
+        for block_no, block in enumerate(raw_blocks):
+            if block.get("type") != 0:
                 continue
-
 
             spans = []
-
-            texts = []
-
+            full_text = []
 
             for line in block.get("lines", []):
-
                 for span in line.get("spans", []):
-
                     text = span.get("text", "").strip()
-
                     if not text:
                         continue
-
-
-                    span_obj = TextSpan(
-
-                        text=text,
-
-                        font=span.get("font", ""),
-
-                        size=span.get("size", 0),
-
-                        flags=span.get("flags", 0),
-
-                        bbox=list(span.get("bbox"))
-
+                    full_text.append(text)
+                    spans.append(
+                        TextSpan(
+                            text=text,
+                            font=span.get("font", ""),
+                            size=span.get("size", 0.0),
+                            flags=span.get("flags", 0),
+                            bbox=list(span.get("bbox", [])),
+                        )
                     )
 
-                    spans.append(span_obj)
-
-                    texts.append(text)
-
-
-            if not spans:
+            if not full_text:
                 continue
 
+            text = " ".join(full_text)
 
-            merged_text = " ".join(texts)
-
-
-            heading = any(
-
-                self.is_heading({
-
-                    "text": s.text,
-
-                    "size": s.size,
-
-                    "flags": s.flags
-
-                })
-
-                for s in spans
-
-            )
-
-
-            if heading:
-
-                headings.append(merged_text)
-
+            avg_size = sum(s.size for s in spans) / len(spans)
+            is_heading = avg_size >= 12 or any("bold" in s.font.lower() for s in spans)
 
             blocks.append(
-
                 TextBlock(
-
-                    block_no=block_index,
-
-                    text=merged_text,
-
-                    bbox=list(block["bbox"]),
-
+                    block_no=block_no,
+                    text=text,
+                    bbox=list(block.get("bbox", [])),
                     spans=spans,
-
-                    is_heading=heading
-
+                    is_heading=is_heading,
                 )
-
             )
 
+        return blocks
 
-            block_index += 1
-
-
-        return blocks, headings
-
-
-    # ======================================================
-    # Extract Images
-    # ======================================================
-
-    def extract_images(
-
-            self,
-
-            page,
-
-            page_number
-
-    ):
-
-        """
-        Extract every image from a page and save it.
-
-        Images are stored under:
-
-            output/images/inspection/
-
-            output/images/thermal/
-
-        """
-
+    def extract_images(self, page, page_number: int):
         images = []
-
-        if self.report_type.lower() == "thermal":
-
-            save_dir = self.thermal_image_dir
-
-        else:
-
-            save_dir = self.inspection_image_dir
-
         image_list = page.get_images(full=True)
 
-        for image_index, img in enumerate(image_list):
-
+        for img_index, img in enumerate(image_list):
             xref = img[0]
+            try:
+                image_data = self.document.extract_image(xref)
+            except Exception as e:
+                logger.warning(f"Failed extracting image {xref}: {e}")
+                continue
+
+            width = image_data.get("width", 0)
+            height = image_data.get("height", 0)
+            ext = image_data.get("ext", "png")
+            image_path = self.images_dir / f"page_{page_number}_image_{img_index}.{ext}"
 
             try:
-
-                pix = fitz.Pixmap(
-
-                    self.doc,
-
-                    xref
-
-                )
-
-                if pix.alpha:
-
-                    pix = fitz.Pixmap(
-
-                        fitz.csRGB,
-
-                        pix
-
-                    )
-
-                filename = (
-
-                    f"page_{page_number}_"
-
-                    f"image_{image_index}.png"
-
-                )
-
-                image_path = save_dir / filename
-
-                pix.save(
-
-                    image_path
-
-                )
-
-                pix = None
-
-                image_rects = page.get_image_rects(xref)
-
-                if image_rects:
-
-                    rect = image_rects[0]
-
-                    bbox = [
-
-                        rect.x0,
-
-                        rect.y0,
-
-                        rect.x1,
-
-                        rect.y1
-
-                    ]
-
-                    center_x = (rect.x0 + rect.x1) / 2
-
-                    center_y = (rect.y0 + rect.y1) / 2
-
-                else:
-
-                    bbox = []
-
-                    center_x = 0
-
-                    center_y = 0
-
-                image_info = ImageInfo(
-
-                    xref=xref,
-
-                    width=img[2],
-
-                    height=img[3],
-
-                    ext="png",
-
-                    bbox=bbox,
-
-                    path=str(image_path),
-
-                    center_x=center_x,
-
-                    center_y=center_y
-
-                )
-
-                images.append(
-
-                    image_info
-
-                )
-
-                logger.info(
-
-                    f"Saved image: {image_path}"
-
-                )
-
+                with open(image_path, "wb") as f:
+                    f.write(image_data["image"])
             except Exception as e:
+                logger.warning(f"Failed saving image {image_path}: {e}")
+                continue
 
-                logger.warning(
+            bbox = []
+            try:
+                rects = page.get_image_rects(xref)
+                if rects:
+                    # rects[0] is a Rect object; convert to [x0, y0, x1, y1]
+                    r = rects[0]
+                    bbox = [r.x0, r.y0, r.x1, r.y1]
+            except Exception:
+                pass
 
-                    f"Failed extracting image {xref}: {e}"
-
-                )
+            images.append(ImageInfo(xref=xref, width=width, height=height, ext=ext, bbox=bbox, path=str(image_path)))
 
         return images
-    
-        # ======================================================
-    # Calculate Distance
-    # ======================================================
 
-    def calculate_distance(
-            self,
-            block_bbox,
-            image
-    ):
-        """
-        Calculates Euclidean distance between the
-        center of a text block and an image.
-        """
-
-        if not image.bbox:
-
-            return float("inf")
-
-        block_center_x = (
-            block_bbox[0] + block_bbox[2]
-        ) / 2
-
-        block_center_y = (
-            block_bbox[1] + block_bbox[3]
-        ) / 2
-
-        dx = block_center_x - image.center_x
-
-        dy = block_center_y - image.center_y
-
-        return (dx * dx + dy * dy) ** 0.5
-
-
-    # ======================================================
-    # Find Nearest Image
-    # ======================================================
-
-    def find_nearest_image(
-            self,
-            block,
-            images
-    ):
-        """
-        Finds the closest image to a text block.
-        """
-
+    def find_nearest_image(self, text_block: TextBlock, images: List[ImageInfo]):
         if not images:
-
             return None
 
-        nearest = None
+        block_bbox = text_block.bbox
+        if not block_bbox or len(block_bbox) != 4:
+            return None
 
-        min_distance = float("inf")
+        block_x = (block_bbox[0] + block_bbox[2]) / 2
+        block_y = (block_bbox[1] + block_bbox[3]) / 2
+
+        nearest_image = None
+        smallest_distance = float("inf")
 
         for image in images:
+            if not image.bbox or len(image.bbox) < 4:
+                continue
+            img_x = (image.bbox[0] + image.bbox[2]) / 2
+            img_y = (image.bbox[1] + image.bbox[3]) / 2
+            distance = ((block_x - img_x) ** 2 + (block_y - img_y) ** 2) ** 0.5
+            if distance < smallest_distance:
+                smallest_distance = distance
+                nearest_image = image
 
-            distance = self.calculate_distance(
-                block.bbox,
-                image
-            )
+        return nearest_image
 
-            if distance < min_distance:
-
-                min_distance = distance
-
-                nearest = image
-
-        if nearest:
-
-            logger.info(
-                f"Matched image {nearest.path} "
-                f"to observation block {block.block_no}"
-            )
-
-            return nearest.path
-
-        return None
-
-    # ======================================================
-    # Parse One Page
-    # ======================================================
-
-    def parse_page(
-
-            self,
-
-            page_number
-
-    ):
-
-        logger.info(
-
-            f"Parsing Page {page_number + 1}"
-
-        )
-
-
-        page = self.doc.load_page(
-
-            page_number
-
-        )
-
-
-        blocks, headings = self.extract_text_blocks(
-
-            page
-
-        )
-
-
-        images = self.extract_images(
-
-            page,
-
-            page_number + 1
-
-        )
-
-
-        return PageData(
-
-            page_number=page_number + 1,
-
-            width=page.rect.width,
-
-            height=page.rect.height,
-
-            headings=headings,
-
-            blocks=blocks,
-
-            images=images
-
-        )
-        # ======================================================
-    # Extract Observations
-    # ======================================================
-
-    def extract_observations(
-            self,
-            page_data
-    ):
-        """
-        Extract observations from page text and associate
-        page images with each observation.
-        """
-
-        keywords = [
-
-            "damp",
-            "dampness",
-            "crack",
-            "cracks",
-            "leak",
-            "leakage",
-            "moisture",
-            "fungus",
-            "paint",
-            "tile",
-            "corrosion",
-            "rust",
-            "thermal anomaly",
-            "efflorescence"
-
-        ]
-
+    def extract_observations(self, page_data: PageData):
         observations = []
 
-        area = self.detect_sections(
-            page_data
-        )[0]
-
-
         for block in page_data.blocks:
+            text = block.text.strip()
+            if not text:
+                continue
 
-            lower = block.text.lower()
+            keywords = [
+                "damage",
+                "defect",
+                "issue",
+                "leak",
+                "crack",
+                "moisture",
+                "thermal",
+                "repair",
+                "recommendation",
+                "concern",
+                "fault",
+            ]
 
-            for keyword in keywords:
+            is_observation = any(keyword in text.lower() for keyword in keywords)
+            if not is_observation:
+                continue
 
-                if keyword in lower:
+            matched_image = self.find_nearest_image(block, page_data.images)
 
-                    nearest_image = self.find_nearest_image(
-                        block,
-                        page_data.images
-                    )
+            observation = {
+                "page": page_data.page_number,
 
-                    observations.append(
+                # Required by DDR generator
+                "text": text,
 
-                        {
+                # Keep description for compatibility
+                "description": text,
 
-                            "area": area,
+                "bbox": block.bbox,
 
-                            "issue": keyword.title(),
+                "heading": block.is_heading,
 
-                            "description": block.text,
+                "image": (
+                    matched_image.path
+                    if matched_image
+                    else None
+                ),
 
-                            "text": block.text,
+                "keyword": None,
 
-                            "page": page_data.page_number,
+                "confidence": 1.0,
+            }
 
-                            "bbox": block.bbox,
-
-                            "keyword": keyword,
-
-                            "confidence": 1.0,
-
-                            # Find nearest image for this observation
-                            "image_refs": (
-                                [nearest_image]
-                                if nearest_image
-                                else []
-                            )
-
-                        }
-
-                    )
-
-                    break
-
+            observations.append(observation)
 
         return observations
 
+    def parse_pdf(self):
+        """
+        Execute complete PDF parsing pipeline.
+
+        Returns
+        -------
+        dict
+            Parsed PDF structure.
+        """
+
+        all_observations = []
+
+        pages_out = []
 
 
-    # ======================================================
-    # Convert Page to Dictionary
-    # ======================================================
+        for page_number in range(len(self.document)):
 
-    def page_to_dict(
-            self,
-            page_data
-    ):
+            page = self.document[page_number]
 
-        return {
+            logger.info(
+                f"Processing page {page_number + 1}"
+            )
 
-            "page_number":
-                page_data.page_number,
 
-            "width":
-                page_data.width,
+            blocks = self.extract_text_blocks(
+                page
+            )
 
-            "height":
-                page_data.height,
 
-            "headings":
-                page_data.headings,
+            images = self.extract_images(
+                page,
+                page_number + 1
+            )
 
-            "sections":
-                self.detect_sections(
-                    page_data
-                ),
 
-            "layout_confidence":
-                self.calculate_layout_confidence(
-                    page_data
-                ),
-
-            "observations":
-                self.extract_observations(
-                    page_data
-                ),
-
-            "blocks":[
-
-                {
-
-                    "block_no":
-                        block.block_no,
-
-                    "text":
-                        block.text,
-
-                    "bbox":
-                        block.bbox,
-
-                    "is_heading":
-                        block.is_heading,
-
-                    "spans":[
-
-                        asdict(span)
-
-                        for span in block.spans
-
-                    ]
-
-                }
-
-                for block in page_data.blocks
-
-            ],
-
-            "images":[
-
-                {
-
-                    "xref":
-                        image.xref,
-
-                    "width":
-                        image.width,
-
-                    "height":
-                        image.height,
-
-                    "ext":
-                        image.ext,
-
-                    "bbox":
-                        image.bbox,
-
-                    "path":
-                        image.path
-
-                }
-
-                for image in page_data.images
-
+            headings = [
+                block.text
+                for block in blocks
+                if block.is_heading
             ]
 
+
+            page_data = PageData(
+                page_number=page_number + 1,
+                width=page.rect.width,
+                height=page.rect.height,
+                headings=headings,
+                blocks=blocks,
+                images=images
+            )
+
+
+            observations = self.extract_observations(
+                page_data
+            )
+
+
+            page_output = {
+        "page_number": page_data.page_number,
+
+        "width": page_data.width,
+
+        "height": page_data.height,
+
+        "headings": page_data.headings,
+
+        # Compatibility with DDR generator
+        "sections": page_data.headings,
+
+        "blocks": [
+            asdict(block)
+            for block in page_data.blocks
+        ],
+
+        "images": [
+            asdict(image)
+            for image in page_data.images
+        ],
+
+        "observations": observations
+    }
+
+
+            pages_out.append(
+                page_output
+            )
+
+
+            all_observations.extend(
+                observations
+            )
+
+
+        result = {
+            "pdf": self.pdf_path.name,
+            "pages": pages_out,
+            "observations": all_observations
         }
 
 
-
-    # ======================================================
-    # Metadata and layout helpers
-    # ======================================================
-
-    def extract_metadata(self):
-
-        metadata = self.doc.metadata or {}
-
-        return {
-            "title": metadata.get("title", ""),
-            "author": metadata.get("author", ""),
-            "subject": metadata.get("subject", ""),
-            "keywords": metadata.get("keywords", ""),
-            "creator": metadata.get("creator", ""),
-            "producer": metadata.get("producer", ""),
-            "pages": self.total_pages,
-            "file_name": self.pdf_path.name,
-            "report_type": self.report_type,
-        }
-
-    def is_heading(self, span):
-
-        text = (span.get("text", "") or "").strip()
-
-        if not text:
-            return False
-
-        size = span.get("size", 0) or 0
-        flags = span.get("flags", 0) or 0
-
-        if len(text.split()) <= 6 and (size >= 14 or text.isupper() or text.istitle()):
-            return True
-
-        if flags & 2**4:
-            return True
-
-        return False
-
-    def detect_sections(self, page_data):
-
-        headings = [heading for heading in page_data.headings if heading.strip()]
-
-        if headings:
-            return [headings[0]]
-
-        return ["Unknown"]
-
-    def calculate_layout_confidence(self, page_data):
-
-        if not page_data.blocks:
-            return 0.0
-
-        return 0.85
-
-    # ======================================================
-    # Parse Complete PDF
-    # ======================================================
-
-    def parse_pdf(self):
-
-            logger.info(
-                "Starting document parsing..."
-            )
-
-            self.output["metadata"] = (
-                self.extract_metadata()
-            )
-
-            pages = []
-
-            for page_number in range(
-                self.total_pages
-            ):
-
-                page_data = self.parse_page(
-                    page_number
-                )
-
-                pages.append(
-
-                    self.page_to_dict(
-                        page_data
-                    )
-
-                )
-
-
-            self.output["pages"] = pages
-
-
-            EXTRACTED_DIR.mkdir(
-
-                parents=True,
-
-                exist_ok=True
-
-            )
-
-
-            output_file = (
-
-                EXTRACTED_DIR
-                /
-                f"{self.pdf_path.stem}.json"
-
-            )
-
-
-            with open(
-
-                output_file,
-
-                "w",
-
-                encoding="utf-8"
-
-            ) as f:
-
-                json.dump(
-
-                    self.output,
-
-                    f,
-
-                    indent=4,
-
-                    ensure_ascii=False
-
-                )
-
-
-            logger.info(
-
-                f"Saved parsed JSON -> {output_file}"
-
-            )
-
-            logger.info(
-
-                "Document parsing completed."
-
-            )
-
-            return self.output
+        return result
+    
+    def parse(self):
+        return self.parse_pdf()
+    
+    def save_json(self, data: dict, output_name: str = "parsed_output.json"):
+        output_path = self.output_dir / output_name
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        logger.info(f"JSON saved: {output_path}")
+        return output_path

@@ -1,0 +1,212 @@
+[
+    {
+        "inspection_id": 0,
+        "thermal_id": 118,
+        "area": "Data and Information Disclaimer",
+        "keyword_score": 0.1892,
+        "semantic_score": 0.2361,
+        "final_score": 0.2244,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 1,
+        "thermal_id": 125,
+        "area": "Data and Information Disclaimer",
+        "keyword_score": 0.2059,
+        "semantic_score": 0.2818,
+        "final_score": 0.2629,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 2,
+        "thermal_id": 130,
+        "area": "Data and Information Disclaimer",
+        "keyword_score": 0.2424,
+        "semantic_score": 0.3204,
+        "final_score": 0.3009,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 3,
+        "thermal_id": 128,
+        "area": "Table of Content",
+        "keyword_score": 0.2333,
+        "semantic_score": 0.4003,
+        "final_score": 0.3586,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 4,
+        "thermal_id": 143,
+        "area": "SECTION 4 ANALYSIS & SUGGESTIONS ................................................................................. 25",
+        "keyword_score": 0.2188,
+        "semantic_score": 0.3301,
+        "final_score": 0.3022,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 5,
+        "thermal_id": 120,
+        "area": "SECTION 4 ANALYSIS & SUGGESTIONS ................................................................................. 25",
+        "keyword_score": 0.3077,
+        "semantic_score": 0.4757,
+        "final_score": 0.4337,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 6,
+        "thermal_id": 134,
+        "area": "Images",
+        "keyword_score": 0.2759,
+        "semantic_score": 0.4026,
+        "final_score": 0.3709,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 7,
+        "thermal_id": 144,
+        "area": "Images",
+        "keyword_score": 0.2667,
+        "semantic_score": 0.3828,
+        "final_score": 0.3538,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 8,
+        "thermal_id": 135,
+        "area": "SECTION 1 INTRODUCTION",
+        "keyword_score": 0.2414,
+        "semantic_score": 0.2684,
+        "final_score": 0.2616,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 9,
+        "thermal_id": 142,
+        "area": "SECTION 1 INTRODUCTION",
+        "keyword_score": 0.25,
+        "semantic_score": 0.3355,
+        "final_score": 0.3141,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 10,
+        "thermal_id": 133,
+        "area": "SECTION 1 INTRODUCTION",
+        "keyword_score": 0.1944,
+        "semantic_score": 0.267,
+        "final_score": 0.2489,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 11,
+        "thermal_id": 126,
+        "area": "SECTION 1 INTRODUCTION",
+        "keyword_score": 0.2188,
+        "semantic_score": 0.4372,
+        "final_score": 0.3826,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 12,
+        "thermal_id": 124,
+        "area": "2.2 DESCRIPTION OF SITE",
+        "keyword_score": 0.3043,
+        "semantic_score": 0.4122,
+        "final_score": 0.3852,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 14,
+        "thermal_id": 138,
+        "area": "SECTION 3 VISUAL OBSERVATION AND READINGS",
+        "keyword_score": 0.175,
+        "semantic_score": 0.2256,
+        "final_score": 0.213,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 18,
+        "thermal_id": 145,
+        "area": "SECTION 3 VISUAL OBSERVATION AND READINGS",
+        "keyword_score": 0.175,
+        "semantic_score": 0.3016,
+        "final_score": 0.27,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 34,
+        "thermal_id": 132,
+        "area": "3.2 NEGATIVE SIDE INPUTS FOR BATHROOM",
+        "keyword_score": 0.2353,
+        "semantic_score": 0.2389,
+        "final_score": 0.238,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 45,
+        "thermal_id": 127,
+        "area": "3.4 NEGATIVE SIDE INPUTS FOR BALCONY",
+        "keyword_score": 0.2286,
+        "semantic_score": 0.2564,
+        "final_score": 0.2494,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 67,
+        "thermal_id": 119,
+        "area": "3.8 NEGATIVE SIDE INPUTS FOR EXTERNAL WALL",
+        "keyword_score": 0.32,
+        "semantic_score": 0.278,
+        "final_score": 0.2885,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 69,
+        "thermal_id": 122,
+        "area": "3.8 NEGATIVE SIDE INPUTS FOR EXTERNAL WALL",
+        "keyword_score": 0.2963,
+        "semantic_score": 0.3211,
+        "final_score": 0.3149,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 96,
+        "thermal_id": 136,
+        "area": "4.2 FURTHER POSSIBILITIES DUE TO DELAYED ACTION",
+        "keyword_score": 0.2759,
+        "semantic_score": 0.427,
+        "final_score": 0.3892,
+        "match_type": "IGNORE",
+        "review_required": false
+    },
+    {
+        "inspection_id": 102,
+        "thermal_id": 139,
+        "area": "Unknown",
+        "keyword_score": 0.4091,
+        "semantic_score": 0.4651,
+        "final_score": 0.4511,
+        "match_type": "IGNORE",
+        "review_required": false
+    }
+]

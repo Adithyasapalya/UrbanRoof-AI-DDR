@@ -28,6 +28,7 @@ Author: Adithya Sapalya
 
 from config import (
     DATA_DIR,
+    KNOWLEDGE_BASE_JSON,
     OUTPUT_DIR,
     REPORT_OUTPUT
 )
@@ -77,8 +78,7 @@ def main():
     for page in inspection_data["pages"]:
 
         for obs in page["observations"]:
-
-            kb.add_observation(
+             kb.add_observation(
 
                 source="inspection",
 
@@ -92,9 +92,13 @@ def main():
 
                 source_evidence=obs["text"],
 
-                bbox=obs["bbox"]
+                bbox=obs["bbox"],
 
-            )
+                image_refs=obs.get("image_refs", []),
+
+                confidence=obs.get("confidence", 1.0)
+
+        )
 
     for page in thermal_data["pages"]:
 
@@ -114,13 +118,22 @@ def main():
 
                 source_evidence=obs["text"],
 
-                bbox=obs["bbox"]
+                bbox=obs["bbox"],
 
+                image_refs=obs.get("image_refs", []),
+
+                confidence=obs.get("confidence", 1.0)
             )
+
 
     print("\nKnowledge Base Created")
 
     kb.summary()
+    matcher = SemanticMatcher()
+    kb = matcher.run(kb)
+    reasoner = LLMReasoner()
+    kb, report = reasoner.run(kb)
+    kb.save(KNOWLEDGE_BASE_JSON)
 
     # --------------------------------------------------
     # Semantic Matching

@@ -208,7 +208,12 @@
                     "width": 1984,
                     "height": 2747,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        26.040000915527344,
+                        0.12005615234375,
+                        585.3599853515625,
+                        791.52001953125
+                    ],
                     "path": "output\\images\\inspection\\page_1_image_0.png"
                 }
             ]
@@ -230,7 +235,12 @@
                     "width": 2481,
                     "height": 782,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        25.920001983642578,
+                        0.0,
+                        585.7200317382812,
+                        176.16000366210938
+                    ],
                     "path": "output\\images\\inspection\\page_2_image_0.png"
                 },
                 {
@@ -238,7 +248,12 @@
                     "width": 2481,
                     "height": 782,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        25.920001983642578,
+                        176.16000366210938,
+                        585.7200317382812,
+                        352.32000732421875
+                    ],
                     "path": "output\\images\\inspection\\page_2_image_1.png"
                 },
                 {
@@ -246,7 +261,12 @@
                     "width": 2481,
                     "height": 782,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        25.920001983642578,
+                        352.3199768066406,
+                        585.7200317382812,
+                        528.47998046875
+                    ],
                     "path": "output\\images\\inspection\\page_2_image_2.png"
                 },
                 {
@@ -254,7 +274,12 @@
                     "width": 2481,
                     "height": 782,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        25.920001983642578,
+                        528.47998046875,
+                        585.7200317382812,
+                        704.6400146484375
+                    ],
                     "path": "output\\images\\inspection\\page_2_image_3.png"
                 },
                 {
@@ -262,7 +287,12 @@
                     "width": 2481,
                     "height": 383,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        25.920001983642578,
+                        704.6400146484375,
+                        585.7200317382812,
+                        792.239990234375
+                    ],
                     "path": "output\\images\\inspection\\page_2_image_4.png"
                 }
             ]
@@ -936,7 +966,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_3_image_0.png"
                 },
                 {
@@ -944,7 +979,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_3_image_1.png"
                 }
             ]
@@ -1001,8 +1041,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_4_image_0.png",
-                        "output\\images\\inspection\\page_4_image_1.png"
+                        "output\\images\\inspection\\page_4_image_0.png"
                     ]
                 },
                 {
@@ -1020,8 +1059,7 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_4_image_0.png",
-                        "output\\images\\inspection\\page_4_image_1.png"
+                        "output\\images\\inspection\\page_4_image_0.png"
                     ]
                 },
                 {
@@ -1039,8 +1077,7 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_4_image_0.png",
-                        "output\\images\\inspection\\page_4_image_1.png"
+                        "output\\images\\inspection\\page_4_image_0.png"
                     ]
                 }
             ],
@@ -2236,7 +2273,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_4_image_0.png"
                 },
                 {
@@ -2244,7 +2286,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_4_image_1.png"
                 }
             ]
@@ -2305,8 +2352,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_5_image_0.png",
-                        "output\\images\\inspection\\page_5_image_1.png"
+                        "output\\images\\inspection\\page_5_image_0.png"
                     ]
                 },
                 {
@@ -2324,8 +2370,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_5_image_0.png",
-                        "output\\images\\inspection\\page_5_image_1.png"
+                        "output\\images\\inspection\\page_5_image_0.png"
                     ]
                 }
             ],
@@ -3546,7 +3591,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_5_image_0.png"
                 },
                 {
@@ -3554,7 +3604,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_5_image_1.png"
                 }
             ]
@@ -3606,8 +3661,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3625,8 +3679,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3644,8 +3697,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3663,8 +3715,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3682,8 +3733,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3701,8 +3751,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3720,8 +3769,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3739,8 +3787,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3758,8 +3805,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3777,8 +3823,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 },
                 {
@@ -3796,8 +3841,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_6_image_0.png",
-                        "output\\images\\inspection\\page_6_image_1.png"
+                        "output\\images\\inspection\\page_6_image_0.png"
                     ]
                 }
             ],
@@ -4684,7 +4728,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_6_image_0.png"
                 },
                 {
@@ -4692,7 +4741,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_6_image_1.png"
                 }
             ]
@@ -4729,8 +4783,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_7_image_0.png",
-                        "output\\images\\inspection\\page_7_image_1.png"
+                        "output\\images\\inspection\\page_7_image_0.png"
                     ]
                 },
                 {
@@ -4748,8 +4801,7 @@
                     "keyword": "moisture",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_7_image_0.png",
-                        "output\\images\\inspection\\page_7_image_1.png"
+                        "output\\images\\inspection\\page_7_image_0.png"
                     ]
                 }
             ],
@@ -5504,7 +5556,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_7_image_0.png"
                 },
                 {
@@ -5512,7 +5569,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_7_image_1.png"
                 }
             ]
@@ -5698,7 +5760,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_8_image_0.png"
                 },
                 {
@@ -5706,7 +5773,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_8_image_1.png"
                 },
                 {
@@ -5714,7 +5786,12 @@
                     "width": 2183,
                     "height": 710,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        59.76000213623047,
+                        100.91998291015625,
+                        552.3599853515625,
+                        261.1199951171875
+                    ],
                     "path": "output\\images\\inspection\\page_8_image_2.png"
                 }
             ]
@@ -6382,7 +6459,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_9_image_0.png"
                 },
                 {
@@ -6390,7 +6472,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_9_image_1.png"
                 }
             ]
@@ -6931,7 +7018,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_10_image_0.png"
                 },
                 {
@@ -6939,7 +7031,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_10_image_1.png"
                 }
             ]
@@ -6978,8 +7075,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -6997,8 +7093,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7016,8 +7111,7 @@
                     "keyword": "moisture",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7035,8 +7129,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7054,8 +7147,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7073,8 +7165,7 @@
                     "keyword": "moisture",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7092,8 +7183,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7111,8 +7201,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7130,8 +7219,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7149,8 +7237,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7168,8 +7255,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7187,8 +7273,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7206,8 +7291,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7225,8 +7309,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7244,8 +7327,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 },
                 {
@@ -7263,8 +7345,7 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_11_image_0.png",
-                        "output\\images\\inspection\\page_11_image_1.png"
+                        "output\\images\\inspection\\page_11_image_0.png"
                     ]
                 }
             ],
@@ -8160,7 +8241,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_11_image_0.png"
                 },
                 {
@@ -8168,7 +8254,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_11_image_1.png"
                 }
             ]
@@ -8213,7 +8304,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8232,7 +8322,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8251,7 +8340,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8270,7 +8358,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8289,7 +8376,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8308,8 +8394,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
-                        "output\\images\\inspection\\page_12_image_1.png"
+                        "output\\images\\inspection\\page_12_image_0.png"
                     ]
                 },
                 {
@@ -8327,7 +8412,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8346,7 +8430,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8365,7 +8448,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8384,7 +8466,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8403,7 +8484,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8422,7 +8502,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
                         "output\\images\\inspection\\page_12_image_1.png"
                     ]
                 },
@@ -8441,8 +8520,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_12_image_0.png",
-                        "output\\images\\inspection\\page_12_image_1.png"
+                        "output\\images\\inspection\\page_12_image_0.png"
                     ]
                 }
             ],
@@ -9224,7 +9302,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_12_image_0.png"
                 },
                 {
@@ -9232,7 +9315,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_12_image_1.png"
                 }
             ]
@@ -9278,7 +9366,6 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_13_image_0.png",
                         "output\\images\\inspection\\page_13_image_1.png"
                     ]
                 },
@@ -9297,7 +9384,6 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_13_image_0.png",
                         "output\\images\\inspection\\page_13_image_1.png"
                     ]
                 },
@@ -9316,8 +9402,7 @@
                     "keyword": "rust",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_13_image_0.png",
-                        "output\\images\\inspection\\page_13_image_1.png"
+                        "output\\images\\inspection\\page_13_image_0.png"
                     ]
                 }
             ],
@@ -9962,7 +10047,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_13_image_0.png"
                 },
                 {
@@ -9970,7 +10060,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_13_image_1.png"
                 }
             ]
@@ -10015,7 +10110,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10034,7 +10128,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10053,7 +10146,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10072,7 +10164,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10091,7 +10182,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10110,8 +10200,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
-                        "output\\images\\inspection\\page_14_image_1.png"
+                        "output\\images\\inspection\\page_14_image_0.png"
                     ]
                 },
                 {
@@ -10129,7 +10218,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10148,7 +10236,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10167,7 +10254,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10186,7 +10272,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10205,7 +10290,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10224,7 +10308,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
                         "output\\images\\inspection\\page_14_image_1.png"
                     ]
                 },
@@ -10243,8 +10326,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_14_image_0.png",
-                        "output\\images\\inspection\\page_14_image_1.png"
+                        "output\\images\\inspection\\page_14_image_0.png"
                     ]
                 }
             ],
@@ -11026,7 +11108,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_14_image_0.png"
                 },
                 {
@@ -11034,7 +11121,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_14_image_1.png"
                 }
             ]
@@ -11082,7 +11174,6 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_15_image_0.png",
                         "output\\images\\inspection\\page_15_image_1.png"
                     ]
                 },
@@ -11101,7 +11192,6 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_15_image_0.png",
                         "output\\images\\inspection\\page_15_image_1.png"
                     ]
                 },
@@ -11120,7 +11210,6 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_15_image_0.png",
                         "output\\images\\inspection\\page_15_image_1.png"
                     ]
                 },
@@ -11139,7 +11228,6 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_15_image_0.png",
                         "output\\images\\inspection\\page_15_image_1.png"
                     ]
                 }
@@ -11810,7 +11898,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_15_image_0.png"
                 },
                 {
@@ -11818,7 +11911,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_15_image_1.png"
                 }
             ]
@@ -11860,8 +11958,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
-                        "output\\images\\inspection\\page_16_image_1.png"
+                        "output\\images\\inspection\\page_16_image_0.png"
                     ]
                 },
                 {
@@ -11879,7 +11976,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -11898,7 +11994,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -11917,7 +12012,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -11936,7 +12030,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -11955,8 +12048,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
-                        "output\\images\\inspection\\page_16_image_1.png"
+                        "output\\images\\inspection\\page_16_image_0.png"
                     ]
                 },
                 {
@@ -11974,7 +12066,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -11993,7 +12084,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -12012,7 +12102,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -12031,7 +12120,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -12050,7 +12138,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 },
@@ -12069,7 +12156,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_16_image_0.png",
                         "output\\images\\inspection\\page_16_image_1.png"
                     ]
                 }
@@ -12740,7 +12826,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_16_image_0.png"
                 },
                 {
@@ -12748,7 +12839,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_16_image_1.png"
                 }
             ]
@@ -14019,7 +14115,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_17_image_0.png"
                 },
                 {
@@ -14027,7 +14128,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_17_image_1.png"
                 }
             ]
@@ -14073,7 +14179,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_18_image_0.png",
                         "output\\images\\inspection\\page_18_image_1.png"
                     ]
                 },
@@ -14092,7 +14197,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_18_image_0.png",
                         "output\\images\\inspection\\page_18_image_1.png"
                     ]
                 },
@@ -14111,8 +14215,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_18_image_0.png",
-                        "output\\images\\inspection\\page_18_image_1.png"
+                        "output\\images\\inspection\\page_18_image_0.png"
                     ]
                 },
                 {
@@ -14130,7 +14233,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_18_image_0.png",
                         "output\\images\\inspection\\page_18_image_1.png"
                     ]
                 },
@@ -14149,8 +14251,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_18_image_0.png",
-                        "output\\images\\inspection\\page_18_image_1.png"
+                        "output\\images\\inspection\\page_18_image_0.png"
                     ]
                 },
                 {
@@ -14168,7 +14269,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_18_image_0.png",
                         "output\\images\\inspection\\page_18_image_1.png"
                     ]
                 },
@@ -14187,7 +14287,6 @@
                     "keyword": "fungus",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_18_image_0.png",
                         "output\\images\\inspection\\page_18_image_1.png"
                     ]
                 },
@@ -14206,8 +14305,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_18_image_0.png",
-                        "output\\images\\inspection\\page_18_image_1.png"
+                        "output\\images\\inspection\\page_18_image_0.png"
                     ]
                 }
             ],
@@ -16054,7 +16152,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_18_image_0.png"
                 },
                 {
@@ -16062,7 +16165,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_18_image_1.png"
                 }
             ]
@@ -16106,12 +16214,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_19_image_0.png",
-                        "output\\images\\inspection\\page_19_image_1.png",
-                        "output\\images\\inspection\\page_19_image_2.png",
-                        "output\\images\\inspection\\page_19_image_3.png",
-                        "output\\images\\inspection\\page_19_image_4.png",
-                        "output\\images\\inspection\\page_19_image_5.png"
+                        "output\\images\\inspection\\page_19_image_1.png"
                     ]
                 }
             ],
@@ -16979,7 +17082,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_19_image_0.png"
                 },
                 {
@@ -16987,7 +17095,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_19_image_1.png"
                 },
                 {
@@ -16995,7 +17108,12 @@
                     "width": 773,
                     "height": 772,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        218.63998413085938,
+                        374.52001953125,
+                        393.0,
+                        548.760009765625
+                    ],
                     "path": "output\\images\\inspection\\page_19_image_2.png"
                 },
                 {
@@ -17003,7 +17121,12 @@
                     "width": 24,
                     "height": 25,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        255.0,
+                        559.3200073242188,
+                        260.3999938964844,
+                        564.9600219726562
+                    ],
                     "path": "output\\images\\inspection\\page_19_image_3.png"
                 },
                 {
@@ -17011,7 +17134,12 @@
                     "width": 25,
                     "height": 25,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        287.6399841308594,
+                        559.3200073242188,
+                        293.2799987792969,
+                        564.9600219726562
+                    ],
                     "path": "output\\images\\inspection\\page_19_image_4.png"
                 },
                 {
@@ -17019,7 +17147,12 @@
                     "width": 24,
                     "height": 25,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        336.4800109863281,
+                        559.3200073242188,
+                        341.8800048828125,
+                        564.9600219726562
+                    ],
                     "path": "output\\images\\inspection\\page_19_image_5.png"
                 }
             ]
@@ -17062,7 +17195,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_20_image_0.png",
                         "output\\images\\inspection\\page_20_image_1.png"
                     ]
                 },
@@ -17081,7 +17213,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_20_image_0.png",
                         "output\\images\\inspection\\page_20_image_1.png"
                     ]
                 },
@@ -17100,7 +17231,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_20_image_0.png",
                         "output\\images\\inspection\\page_20_image_1.png"
                     ]
                 },
@@ -17119,7 +17249,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_20_image_0.png",
                         "output\\images\\inspection\\page_20_image_1.png"
                     ]
                 },
@@ -17138,7 +17267,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_20_image_0.png",
                         "output\\images\\inspection\\page_20_image_1.png"
                     ]
                 },
@@ -17157,7 +17285,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_20_image_0.png",
                         "output\\images\\inspection\\page_20_image_1.png"
                     ]
                 },
@@ -17176,7 +17303,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_20_image_0.png",
                         "output\\images\\inspection\\page_20_image_1.png"
                     ]
                 },
@@ -17195,8 +17321,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_20_image_0.png",
-                        "output\\images\\inspection\\page_20_image_1.png"
+                        "output\\images\\inspection\\page_20_image_0.png"
                     ]
                 }
             ],
@@ -17841,7 +17966,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_20_image_0.png"
                 },
                 {
@@ -17849,7 +17979,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_20_image_1.png"
                 }
             ]
@@ -17883,8 +18018,7 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_21_image_0.png",
-                        "output\\images\\inspection\\page_21_image_1.png"
+                        "output\\images\\inspection\\page_21_image_0.png"
                     ]
                 },
                 {
@@ -17902,7 +18036,6 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_21_image_0.png",
                         "output\\images\\inspection\\page_21_image_1.png"
                     ]
                 },
@@ -17921,7 +18054,6 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_21_image_0.png",
                         "output\\images\\inspection\\page_21_image_1.png"
                     ]
                 },
@@ -17940,7 +18072,6 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_21_image_0.png",
                         "output\\images\\inspection\\page_21_image_1.png"
                     ]
                 }
@@ -18350,7 +18481,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_21_image_0.png"
                 },
                 {
@@ -18358,7 +18494,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_21_image_1.png"
                 }
             ]
@@ -18413,7 +18554,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
                         "output\\images\\inspection\\page_22_image_1.png"
                     ]
                 },
@@ -18432,7 +18572,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
                         "output\\images\\inspection\\page_22_image_1.png"
                     ]
                 },
@@ -18451,7 +18590,6 @@
                     "keyword": "rust",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
                         "output\\images\\inspection\\page_22_image_1.png"
                     ]
                 },
@@ -18470,7 +18608,6 @@
                     "keyword": "corrosion",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
                         "output\\images\\inspection\\page_22_image_1.png"
                     ]
                 },
@@ -18489,7 +18626,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
                         "output\\images\\inspection\\page_22_image_1.png"
                     ]
                 },
@@ -18508,7 +18644,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
                         "output\\images\\inspection\\page_22_image_1.png"
                     ]
                 },
@@ -18527,8 +18662,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
-                        "output\\images\\inspection\\page_22_image_1.png"
+                        "output\\images\\inspection\\page_22_image_0.png"
                     ]
                 },
                 {
@@ -18546,7 +18680,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
                         "output\\images\\inspection\\page_22_image_1.png"
                     ]
                 },
@@ -18565,7 +18698,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
                         "output\\images\\inspection\\page_22_image_1.png"
                     ]
                 },
@@ -18584,8 +18716,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_22_image_0.png",
-                        "output\\images\\inspection\\page_22_image_1.png"
+                        "output\\images\\inspection\\page_22_image_0.png"
                     ]
                 }
             ],
@@ -20317,7 +20448,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_22_image_0.png"
                 },
                 {
@@ -20325,7 +20461,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_22_image_1.png"
                 }
             ]
@@ -20373,7 +20514,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_23_image_0.png",
                         "output\\images\\inspection\\page_23_image_1.png"
                     ]
                 },
@@ -20392,7 +20532,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_23_image_0.png",
                         "output\\images\\inspection\\page_23_image_1.png"
                     ]
                 },
@@ -20411,8 +20550,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_23_image_0.png",
-                        "output\\images\\inspection\\page_23_image_1.png"
+                        "output\\images\\inspection\\page_23_image_0.png"
                     ]
                 }
             ],
@@ -21589,7 +21727,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_23_image_0.png"
                 },
                 {
@@ -21597,7 +21740,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_23_image_1.png"
                 }
             ]
@@ -21643,8 +21791,7 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_24_image_0.png",
-                        "output\\images\\inspection\\page_24_image_1.png"
+                        "output\\images\\inspection\\page_24_image_0.png"
                     ]
                 },
                 {
@@ -21662,8 +21809,7 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_24_image_0.png",
-                        "output\\images\\inspection\\page_24_image_1.png"
+                        "output\\images\\inspection\\page_24_image_0.png"
                     ]
                 },
                 {
@@ -21681,7 +21827,6 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_24_image_0.png",
                         "output\\images\\inspection\\page_24_image_1.png"
                     ]
                 },
@@ -21700,8 +21845,7 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_24_image_0.png",
-                        "output\\images\\inspection\\page_24_image_1.png"
+                        "output\\images\\inspection\\page_24_image_0.png"
                     ]
                 },
                 {
@@ -21719,7 +21863,6 @@
                     "keyword": "fungus",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_24_image_0.png",
                         "output\\images\\inspection\\page_24_image_1.png"
                     ]
                 },
@@ -21738,7 +21881,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_24_image_0.png",
                         "output\\images\\inspection\\page_24_image_1.png"
                     ]
                 },
@@ -21757,7 +21899,6 @@
                     "keyword": "corrosion",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_24_image_0.png",
                         "output\\images\\inspection\\page_24_image_1.png"
                     ]
                 }
@@ -22772,7 +22913,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_24_image_0.png"
                 },
                 {
@@ -22780,7 +22926,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_24_image_1.png"
                 }
             ]
@@ -22832,7 +22983,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_25_image_0.png",
                         "output\\images\\inspection\\page_25_image_1.png"
                     ]
                 },
@@ -22851,7 +23001,6 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_25_image_0.png",
                         "output\\images\\inspection\\page_25_image_1.png"
                     ]
                 }
@@ -24088,7 +24237,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_25_image_0.png"
                 },
                 {
@@ -24096,7 +24250,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_25_image_1.png"
                 }
             ]
@@ -24134,8 +24293,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_26_image_0.png",
-                        "output\\images\\inspection\\page_26_image_1.png"
+                        "output\\images\\inspection\\page_26_image_0.png"
                     ]
                 },
                 {
@@ -24153,8 +24311,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_26_image_0.png",
-                        "output\\images\\inspection\\page_26_image_1.png"
+                        "output\\images\\inspection\\page_26_image_0.png"
                     ]
                 },
                 {
@@ -24172,8 +24329,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_26_image_0.png",
-                        "output\\images\\inspection\\page_26_image_1.png"
+                        "output\\images\\inspection\\page_26_image_0.png"
                     ]
                 },
                 {
@@ -24191,8 +24347,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_26_image_0.png",
-                        "output\\images\\inspection\\page_26_image_1.png"
+                        "output\\images\\inspection\\page_26_image_0.png"
                     ]
                 },
                 {
@@ -24210,8 +24365,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_26_image_0.png",
-                        "output\\images\\inspection\\page_26_image_1.png"
+                        "output\\images\\inspection\\page_26_image_0.png"
                     ]
                 }
             ],
@@ -25053,7 +25207,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_26_image_0.png"
                 },
                 {
@@ -25061,7 +25220,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_26_image_1.png"
                 }
             ]
@@ -25122,7 +25286,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
                         "output\\images\\inspection\\page_27_image_1.png"
                     ]
                 },
@@ -25141,7 +25304,6 @@
                     "keyword": "paint",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
                         "output\\images\\inspection\\page_27_image_1.png"
                     ]
                 },
@@ -25160,8 +25322,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
-                        "output\\images\\inspection\\page_27_image_1.png"
+                        "output\\images\\inspection\\page_27_image_0.png"
                     ]
                 },
                 {
@@ -25179,7 +25340,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
                         "output\\images\\inspection\\page_27_image_1.png"
                     ]
                 },
@@ -25198,8 +25358,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
-                        "output\\images\\inspection\\page_27_image_1.png"
+                        "output\\images\\inspection\\page_27_image_0.png"
                     ]
                 },
                 {
@@ -25217,8 +25376,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
-                        "output\\images\\inspection\\page_27_image_1.png"
+                        "output\\images\\inspection\\page_27_image_0.png"
                     ]
                 },
                 {
@@ -25236,7 +25394,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
                         "output\\images\\inspection\\page_27_image_1.png"
                     ]
                 },
@@ -25255,8 +25412,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
-                        "output\\images\\inspection\\page_27_image_1.png"
+                        "output\\images\\inspection\\page_27_image_0.png"
                     ]
                 },
                 {
@@ -25274,7 +25430,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
                         "output\\images\\inspection\\page_27_image_1.png"
                     ]
                 },
@@ -25293,8 +25448,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
-                        "output\\images\\inspection\\page_27_image_1.png"
+                        "output\\images\\inspection\\page_27_image_0.png"
                     ]
                 },
                 {
@@ -25312,8 +25466,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
-                        "output\\images\\inspection\\page_27_image_1.png"
+                        "output\\images\\inspection\\page_27_image_0.png"
                     ]
                 },
                 {
@@ -25331,7 +25484,6 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
                         "output\\images\\inspection\\page_27_image_1.png"
                     ]
                 },
@@ -25350,8 +25502,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_27_image_0.png",
-                        "output\\images\\inspection\\page_27_image_1.png"
+                        "output\\images\\inspection\\page_27_image_0.png"
                     ]
                 }
             ],
@@ -26985,7 +27136,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_27_image_0.png"
                 },
                 {
@@ -26993,7 +27149,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_27_image_1.png"
                 }
             ]
@@ -27029,12 +27190,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_28_image_0.png",
-                        "output\\images\\inspection\\page_28_image_1.png",
-                        "output\\images\\inspection\\page_28_image_2.png",
-                        "output\\images\\inspection\\page_28_image_3.png",
-                        "output\\images\\inspection\\page_28_image_4.png",
-                        "output\\images\\inspection\\page_28_image_5.png"
+                        "output\\images\\inspection\\page_28_image_0.png"
                     ]
                 }
             ],
@@ -27305,7 +27461,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_28_image_0.png"
                 },
                 {
@@ -27313,7 +27474,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_28_image_1.png"
                 },
                 {
@@ -27321,7 +27487,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        74.87999725341797,
+                        194.51998901367188,
+                        300.2400207519531,
+                        363.7200012207031
+                    ],
                     "path": "output\\images\\inspection\\page_28_image_2.png"
                 },
                 {
@@ -27329,7 +27500,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        314.1600036621094,
+                        192.239990234375,
+                        539.760009765625,
+                        361.44000244140625
+                    ],
                     "path": "output\\images\\inspection\\page_28_image_3.png"
                 },
                 {
@@ -27337,7 +27513,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        75.23999786376953,
+                        389.27996826171875,
+                        300.8399963378906,
+                        558.5999755859375
+                    ],
                     "path": "output\\images\\inspection\\page_28_image_4.png"
                 },
                 {
@@ -27345,7 +27526,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        314.1600036621094,
+                        389.15997314453125,
+                        539.760009765625,
+                        558.3599853515625
+                    ],
                     "path": "output\\images\\inspection\\page_28_image_5.png"
                 }
             ]
@@ -27380,14 +27566,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_29_image_0.png",
-                        "output\\images\\inspection\\page_29_image_1.png",
-                        "output\\images\\inspection\\page_29_image_2.png",
-                        "output\\images\\inspection\\page_29_image_3.png",
-                        "output\\images\\inspection\\page_29_image_4.png",
-                        "output\\images\\inspection\\page_29_image_5.png",
-                        "output\\images\\inspection\\page_29_image_6.png",
-                        "output\\images\\inspection\\page_29_image_7.png"
+                        "output\\images\\inspection\\page_29_image_0.png"
                     ]
                 }
             ],
@@ -27621,7 +27800,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_29_image_0.png"
                 },
                 {
@@ -27629,7 +27813,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_29_image_1.png"
                 },
                 {
@@ -27637,7 +27826,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        148.07998657226562,
+                        302.3999938964844,
+                        317.2799987792969
+                    ],
                     "path": "output\\images\\inspection\\page_29_image_2.png"
                 },
                 {
@@ -27645,7 +27839,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.67999267578125,
+                        148.20001220703125,
+                        539.2799682617188,
+                        317.4000244140625
+                    ],
                     "path": "output\\images\\inspection\\page_29_image_3.png"
                 },
                 {
@@ -27653,7 +27852,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        77.52000427246094,
+                        338.51995849609375,
+                        303.1199951171875,
+                        507.719970703125
+                    ],
                     "path": "output\\images\\inspection\\page_29_image_4.png"
                 },
                 {
@@ -27661,7 +27865,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.91998291015625,
+                        338.52001953125,
+                        539.5199584960938,
+                        507.84002685546875
+                    ],
                     "path": "output\\images\\inspection\\page_29_image_5.png"
                 },
                 {
@@ -27669,7 +27878,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        524.5199584960938,
+                        302.3999938964844,
+                        693.5999755859375
+                    ],
                     "path": "output\\images\\inspection\\page_29_image_6.png"
                 },
                 {
@@ -27677,7 +27891,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        314.4000244140625,
+                        524.5199584960938,
+                        540.0,
+                        693.719970703125
+                    ],
                     "path": "output\\images\\inspection\\page_29_image_7.png"
                 }
             ]
@@ -27927,7 +28146,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_30_image_0.png"
                 },
                 {
@@ -27935,7 +28159,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_30_image_1.png"
                 },
                 {
@@ -27943,7 +28172,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        152.16000366210938,
+                        302.3999938964844,
+                        321.3600158691406
+                    ],
                     "path": "output\\images\\inspection\\page_30_image_2.png"
                 },
                 {
@@ -27951,7 +28185,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.67999267578125,
+                        152.27999877929688,
+                        539.2799682617188,
+                        321.4800109863281
+                    ],
                     "path": "output\\images\\inspection\\page_30_image_3.png"
                 }
             ]
@@ -27986,14 +28225,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_31_image_0.png",
-                        "output\\images\\inspection\\page_31_image_1.png",
-                        "output\\images\\inspection\\page_31_image_2.png",
-                        "output\\images\\inspection\\page_31_image_3.png",
-                        "output\\images\\inspection\\page_31_image_4.png",
-                        "output\\images\\inspection\\page_31_image_5.png",
-                        "output\\images\\inspection\\page_31_image_6.png",
-                        "output\\images\\inspection\\page_31_image_7.png"
+                        "output\\images\\inspection\\page_31_image_0.png"
                     ]
                 }
             ],
@@ -28251,7 +28483,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_31_image_0.png"
                 },
                 {
@@ -28259,7 +28496,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_31_image_1.png"
                 },
                 {
@@ -28267,7 +28509,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        77.52000427246094,
+                        150.239990234375,
+                        303.1199951171875,
+                        319.44000244140625
+                    ],
                     "path": "output\\images\\inspection\\page_31_image_2.png"
                 },
                 {
@@ -28275,7 +28522,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.67999267578125,
+                        150.239990234375,
+                        539.2799682617188,
+                        319.44000244140625
+                    ],
                     "path": "output\\images\\inspection\\page_31_image_3.png"
                 },
                 {
@@ -28283,7 +28535,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        75.60000610351562,
+                        338.51995849609375,
+                        301.32000732421875,
+                        507.719970703125
+                    ],
                     "path": "output\\images\\inspection\\page_31_image_4.png"
                 },
                 {
@@ -28291,7 +28548,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.67999267578125,
+                        338.4000244140625,
+                        539.2799682617188,
+                        507.60003662109375
+                    ],
                     "path": "output\\images\\inspection\\page_31_image_5.png"
                 },
                 {
@@ -28299,7 +28561,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        75.60000610351562,
+                        524.4000244140625,
+                        301.32000732421875,
+                        693.6000366210938
+                    ],
                     "path": "output\\images\\inspection\\page_31_image_6.png"
                 },
                 {
@@ -28307,7 +28574,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.32000732421875,
+                        524.6399536132812,
+                        538.9199829101562,
+                        693.8399658203125
+                    ],
                     "path": "output\\images\\inspection\\page_31_image_7.png"
                 }
             ]
@@ -28342,12 +28614,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_32_image_0.png",
-                        "output\\images\\inspection\\page_32_image_1.png",
-                        "output\\images\\inspection\\page_32_image_2.png",
-                        "output\\images\\inspection\\page_32_image_3.png",
-                        "output\\images\\inspection\\page_32_image_4.png",
-                        "output\\images\\inspection\\page_32_image_5.png"
+                        "output\\images\\inspection\\page_32_image_0.png"
                     ]
                 }
             ],
@@ -28605,7 +28872,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_32_image_0.png"
                 },
                 {
@@ -28613,7 +28885,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_32_image_1.png"
                 },
                 {
@@ -28621,7 +28898,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        152.16000366210938,
+                        302.3999938964844,
+                        321.3600158691406
+                    ],
                     "path": "output\\images\\inspection\\page_32_image_2.png"
                 },
                 {
@@ -28629,7 +28911,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        314.1600036621094,
+                        152.39996337890625,
+                        539.760009765625,
+                        321.5999755859375
+                    ],
                     "path": "output\\images\\inspection\\page_32_image_3.png"
                 },
                 {
@@ -28637,7 +28924,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        338.15997314453125,
+                        302.3999938964844,
+                        507.3599853515625
+                    ],
                     "path": "output\\images\\inspection\\page_32_image_4.png"
                 },
                 {
@@ -28645,7 +28937,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        314.1600036621094,
+                        337.9200134277344,
+                        539.760009765625,
+                        507.1200256347656
+                    ],
                     "path": "output\\images\\inspection\\page_32_image_5.png"
                 }
             ]
@@ -28681,14 +28978,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_33_image_0.png",
-                        "output\\images\\inspection\\page_33_image_1.png",
-                        "output\\images\\inspection\\page_33_image_2.png",
-                        "output\\images\\inspection\\page_33_image_3.png",
-                        "output\\images\\inspection\\page_33_image_4.png",
-                        "output\\images\\inspection\\page_33_image_5.png",
-                        "output\\images\\inspection\\page_33_image_6.png",
-                        "output\\images\\inspection\\page_33_image_7.png"
+                        "output\\images\\inspection\\page_33_image_0.png"
                     ]
                 }
             ],
@@ -28983,7 +29273,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_33_image_0.png"
                 },
                 {
@@ -28991,7 +29286,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_33_image_1.png"
                 },
                 {
@@ -28999,7 +29299,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        177.83999633789062,
+                        302.3999938964844,
+                        347.0400085449219
+                    ],
                     "path": "output\\images\\inspection\\page_33_image_2.png"
                 },
                 {
@@ -29007,7 +29312,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.67999267578125,
+                        177.719970703125,
+                        539.2799682617188,
+                        346.91998291015625
+                    ],
                     "path": "output\\images\\inspection\\page_33_image_3.png"
                 },
                 {
@@ -29015,7 +29325,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        363.719970703125,
+                        302.3999938964844,
+                        532.9199829101562
+                    ],
                     "path": "output\\images\\inspection\\page_33_image_4.png"
                 },
                 {
@@ -29023,7 +29338,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.67999267578125,
+                        364.79998779296875,
+                        539.2799682617188,
+                        534.0
+                    ],
                     "path": "output\\images\\inspection\\page_33_image_5.png"
                 },
                 {
@@ -29031,7 +29351,12 @@
                     "width": 640,
                     "height": 480,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        546.8400268554688,
+                        302.3999938964844,
+                        716.1600341796875
+                    ],
                     "path": "output\\images\\inspection\\page_33_image_6.png"
                 },
                 {
@@ -29039,7 +29364,12 @@
                     "width": 320,
                     "height": 240,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.67999267578125,
+                        546.47998046875,
+                        539.2799682617188,
+                        715.6799926757812
+                    ],
                     "path": "output\\images\\inspection\\page_33_image_7.png"
                 }
             ]
@@ -29074,10 +29404,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_34_image_0.png",
-                        "output\\images\\inspection\\page_34_image_1.png",
-                        "output\\images\\inspection\\page_34_image_2.png",
-                        "output\\images\\inspection\\page_34_image_3.png"
+                        "output\\images\\inspection\\page_34_image_0.png"
                     ]
                 },
                 {
@@ -29095,10 +29422,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_34_image_0.png",
-                        "output\\images\\inspection\\page_34_image_1.png",
-                        "output\\images\\inspection\\page_34_image_2.png",
-                        "output\\images\\inspection\\page_34_image_3.png"
+                        "output\\images\\inspection\\page_34_image_0.png"
                     ]
                 },
                 {
@@ -29116,10 +29440,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_34_image_0.png",
-                        "output\\images\\inspection\\page_34_image_1.png",
-                        "output\\images\\inspection\\page_34_image_2.png",
-                        "output\\images\\inspection\\page_34_image_3.png"
+                        "output\\images\\inspection\\page_34_image_2.png"
                     ]
                 }
             ],
@@ -29488,7 +29809,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_34_image_0.png"
                 },
                 {
@@ -29496,7 +29822,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_34_image_1.png"
                 },
                 {
@@ -29504,7 +29835,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        280.3199768066406,
+                        302.3999938964844,
+                        449.5199890136719
+                    ],
                     "path": "output\\images\\inspection\\page_34_image_2.png"
                 },
                 {
@@ -29512,7 +29848,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        317.0400085449219,
+                        280.20001220703125,
+                        542.6400146484375,
+                        449.4000244140625
+                    ],
                     "path": "output\\images\\inspection\\page_34_image_3.png"
                 }
             ]
@@ -29549,12 +29890,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_35_image_0.png",
-                        "output\\images\\inspection\\page_35_image_1.png",
-                        "output\\images\\inspection\\page_35_image_2.png",
-                        "output\\images\\inspection\\page_35_image_3.png",
-                        "output\\images\\inspection\\page_35_image_4.png",
-                        "output\\images\\inspection\\page_35_image_5.png"
+                        "output\\images\\inspection\\page_35_image_0.png"
                     ]
                 },
                 {
@@ -29572,12 +29908,7 @@
                     "keyword": "damp",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_35_image_0.png",
-                        "output\\images\\inspection\\page_35_image_1.png",
-                        "output\\images\\inspection\\page_35_image_2.png",
-                        "output\\images\\inspection\\page_35_image_3.png",
-                        "output\\images\\inspection\\page_35_image_4.png",
-                        "output\\images\\inspection\\page_35_image_5.png"
+                        "output\\images\\inspection\\page_35_image_2.png"
                     ]
                 },
                 {
@@ -29595,12 +29926,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_35_image_0.png",
-                        "output\\images\\inspection\\page_35_image_1.png",
-                        "output\\images\\inspection\\page_35_image_2.png",
-                        "output\\images\\inspection\\page_35_image_3.png",
-                        "output\\images\\inspection\\page_35_image_4.png",
-                        "output\\images\\inspection\\page_35_image_5.png"
+                        "output\\images\\inspection\\page_35_image_2.png"
                     ]
                 },
                 {
@@ -29618,12 +29944,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_35_image_0.png",
-                        "output\\images\\inspection\\page_35_image_1.png",
-                        "output\\images\\inspection\\page_35_image_2.png",
-                        "output\\images\\inspection\\page_35_image_3.png",
-                        "output\\images\\inspection\\page_35_image_4.png",
-                        "output\\images\\inspection\\page_35_image_5.png"
+                        "output\\images\\inspection\\page_35_image_4.png"
                     ]
                 }
             ],
@@ -29981,7 +30302,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_35_image_0.png"
                 },
                 {
@@ -29989,7 +30315,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_35_image_1.png"
                 },
                 {
@@ -29997,7 +30328,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        68.27999877929688,
+                        168.3599853515625,
+                        294.0,
+                        337.55999755859375
+                    ],
                     "path": "output\\images\\inspection\\page_35_image_2.png"
                 },
                 {
@@ -30005,7 +30341,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        307.20001220703125,
+                        168.60000610351562,
+                        532.7999877929688,
+                        337.8000183105469
+                    ],
                     "path": "output\\images\\inspection\\page_35_image_3.png"
                 },
                 {
@@ -30013,7 +30354,12 @@
                     "width": 734,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.68000030517578,
+                        448.44000244140625,
+                        302.2799987792969,
+                        617.6400146484375
+                    ],
                     "path": "output\\images\\inspection\\page_35_image_4.png"
                 },
                 {
@@ -30021,7 +30367,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        322.08001708984375,
+                        448.79998779296875,
+                        547.800048828125,
+                        618.0
+                    ],
                     "path": "output\\images\\inspection\\page_35_image_5.png"
                 }
             ]
@@ -30057,11 +30408,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_36_image_0.png",
-                        "output\\images\\inspection\\page_36_image_1.png",
-                        "output\\images\\inspection\\page_36_image_2.png",
-                        "output\\images\\inspection\\page_36_image_3.png",
-                        "output\\images\\inspection\\page_36_image_4.png"
+                        "output\\images\\inspection\\page_36_image_2.png"
                     ]
                 },
                 {
@@ -30079,10 +30426,6 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_36_image_0.png",
-                        "output\\images\\inspection\\page_36_image_1.png",
-                        "output\\images\\inspection\\page_36_image_2.png",
-                        "output\\images\\inspection\\page_36_image_3.png",
                         "output\\images\\inspection\\page_36_image_4.png"
                     ]
                 }
@@ -30366,7 +30709,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_36_image_0.png"
                 },
                 {
@@ -30374,7 +30722,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_36_image_1.png"
                 },
                 {
@@ -30382,7 +30735,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        76.44000244140625,
+                        143.63998413085938,
+                        302.1600036621094,
+                        312.8399963378906
+                    ],
                     "path": "output\\images\\inspection\\page_36_image_2.png"
                 },
                 {
@@ -30390,7 +30748,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        313.32000732421875,
+                        143.63998413085938,
+                        539.0400390625,
+                        312.8399963378906
+                    ],
                     "path": "output\\images\\inspection\\page_36_image_3.png"
                 },
                 {
@@ -30398,7 +30761,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        195.0,
+                        422.99993896484375,
+                        420.7200012207031,
+                        592.199951171875
+                    ],
                     "path": "output\\images\\inspection\\page_36_image_4.png"
                 }
             ]
@@ -30434,9 +30802,7 @@
                     "keyword": "tile",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_37_image_0.png",
-                        "output\\images\\inspection\\page_37_image_1.png",
-                        "output\\images\\inspection\\page_37_image_2.png"
+                        "output\\images\\inspection\\page_37_image_0.png"
                     ]
                 }
             ],
@@ -30791,7 +31157,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_37_image_0.png"
                 },
                 {
@@ -30799,7 +31170,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_37_image_1.png"
                 },
                 {
@@ -30807,7 +31183,12 @@
                     "width": 733,
                     "height": 550,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        178.3199920654297,
+                        177.60000610351562,
+                        403.91998291015625,
+                        346.8000183105469
+                    ],
                     "path": "output\\images\\inspection\\page_37_image_2.png"
                 }
             ]
@@ -30840,8 +31221,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_38_image_0.png",
-                        "output\\images\\inspection\\page_38_image_1.png"
+                        "output\\images\\inspection\\page_38_image_0.png"
                     ]
                 },
                 {
@@ -30859,8 +31239,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_38_image_0.png",
-                        "output\\images\\inspection\\page_38_image_1.png"
+                        "output\\images\\inspection\\page_38_image_0.png"
                     ]
                 },
                 {
@@ -30878,8 +31257,7 @@
                     "keyword": "crack",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_38_image_0.png",
-                        "output\\images\\inspection\\page_38_image_1.png"
+                        "output\\images\\inspection\\page_38_image_0.png"
                     ]
                 },
                 {
@@ -30897,8 +31275,7 @@
                     "keyword": "leak",
                     "confidence": 1.0,
                     "image_refs": [
-                        "output\\images\\inspection\\page_38_image_0.png",
-                        "output\\images\\inspection\\page_38_image_1.png"
+                        "output\\images\\inspection\\page_38_image_0.png"
                     ]
                 }
             ],
@@ -31870,7 +32247,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_38_image_0.png"
                 },
                 {
@@ -31878,7 +32260,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_38_image_1.png"
                 }
             ]
@@ -32376,7 +32763,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_39_image_0.png"
                 },
                 {
@@ -32384,7 +32776,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_39_image_1.png"
                 }
             ]
@@ -33133,7 +33530,12 @@
                     "width": 2009,
                     "height": 277,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        132.24000549316406,
+                        0.4799995422363281,
+                        585.47998046875,
+                        63.0
+                    ],
                     "path": "output\\images\\inspection\\page_40_image_0.png"
                 },
                 {
@@ -33141,7 +33543,12 @@
                     "width": 310,
                     "height": 263,
                     "ext": "png",
-                    "bbox": [],
+                    "bbox": [
+                        37.07999801635742,
+                        0.0,
+                        106.91999816894531,
+                        59.39999771118164
+                    ],
                     "path": "output\\images\\inspection\\page_40_image_1.png"
                 }
             ]
