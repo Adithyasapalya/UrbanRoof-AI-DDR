@@ -124,6 +124,10 @@ class ImageInfo:
 
     path: str = ""
 
+    center_x: float = 0.0
+
+    center_y: float = 0.0
+
 
 
 
@@ -405,7 +409,6 @@ class PDFParser:
 
         images = []
 
-
         if self.report_type.lower() == "thermal":
 
             save_dir = self.thermal_image_dir
@@ -414,9 +417,7 @@ class PDFParser:
 
             save_dir = self.inspection_image_dir
 
-
         image_list = page.get_images(full=True)
-
 
         for image_index, img in enumerate(image_list):
 
@@ -432,7 +433,6 @@ class PDFParser:
 
                 )
 
-
                 if pix.alpha:
 
                     pix = fitz.Pixmap(
@@ -443,7 +443,6 @@ class PDFParser:
 
                     )
 
-
                 filename = (
 
                     f"page_{page_number}_"
@@ -452,9 +451,7 @@ class PDFParser:
 
                 )
 
-
                 image_path = save_dir / filename
-
 
                 pix.save(
 
@@ -462,9 +459,37 @@ class PDFParser:
 
                 )
 
-
                 pix = None
 
+                image_rects = page.get_image_rects(xref)
+
+                if image_rects:
+
+                    rect = image_rects[0]
+
+                    bbox = [
+
+                        rect.x0,
+
+                        rect.y0,
+
+                        rect.x1,
+
+                        rect.y1
+
+                    ]
+
+                    center_x = (rect.x0 + rect.x1) / 2
+
+                    center_y = (rect.y0 + rect.y1) / 2
+
+                else:
+
+                    bbox = []
+
+                    center_x = 0
+
+                    center_y = 0
 
                 image_info = ImageInfo(
 
@@ -476,12 +501,15 @@ class PDFParser:
 
                     ext="png",
 
-                    bbox=[],
+                    bbox=bbox,
 
-                    path=str(image_path)
+                    path=str(image_path),
+
+                    center_x=center_x,
+
+                    center_y=center_y
 
                 )
-
 
                 images.append(
 
@@ -489,13 +517,11 @@ class PDFParser:
 
                 )
 
-
                 logger.info(
 
                     f"Saved image: {image_path}"
 
                 )
-
 
             except Exception as e:
 
@@ -504,7 +530,6 @@ class PDFParser:
                     f"Failed extracting image {xref}: {e}"
 
                 )
-
 
         return images
 
