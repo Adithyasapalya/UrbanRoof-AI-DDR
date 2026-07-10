@@ -1,10 +1,13 @@
 # UrbanRoof AI DDR Generator
 
-> **AI-powered Damage Detection Report (DDR) Generator** that automatically analyzes **Inspection Reports** and **Thermal Reports**, matches related observations using semantic similarity, performs AI-based reasoning, and generates a professional **Damage Detection Report (DDR)** with associated evidence images.
+> AI-powered Damage Detection Report (DDR) Generator that automatically analyzes
+> inspection and thermal reports, matches related observations using semantic
+> similarity, performs AI-based reasoning, and generates a professional DDR with
+> associated evidence images.
 
 ---
 
-## 📌 Overview
+## Overview
 
 The UrbanRoof AI DDR Generator automates the process of creating engineering inspection reports by combining information from:
 
@@ -15,18 +18,18 @@ The system extracts observations, associates evidence images, semantically match
 
 ---
 
-## ✨ Features
+## Features
 
-* 📄 Automatic PDF Parsing
-* 🖼️ Evidence Image Association
-* 🏠 Property Area Detection
-* 🔍 Observation Extraction
-* 🤖 Semantic Matching between Inspection & Thermal Reports
-* 🧠 AI-based Reasoning using LLM
-* 📊 Knowledge Base Generation
-* 📑 Professional DDR Report Generation
-* 🌐 Simple Streamlit UI
-* 📥 Download Generated Reports and JSON Files
+* Automatic PDF Parsing
+* Evidence Image Association
+* Property Area Detection
+* Observation Extraction
+* Semantic Matching between Inspection & Thermal Reports
+* AI-based Reasoning using LLM
+* Knowledge Base Generation
+* Professional DDR Report Generation
+* Simple Streamlit UI
+* Download Generated Reports and JSON Files
 
 ---
 
@@ -105,46 +108,51 @@ UrbanRoof-AI-DDR/
 
 ---
 
-# Technologies Used
+## Technologies Used
 
-* Python 3.11+
-* PyMuPDF (fitz)
-* Sentence Transformers
-* FAISS
-* Streamlit
-* python-docx
-* NumPy
-* Groq LLM API
+- Python 3.11+
+- PyMuPDF (fitz)
+- SentenceTransformers
+- FAISS
+- Streamlit (optional UI)
+- python-docx
+- NumPy
+- Groq (LLM API)
 
 ---
 
 # Installation
 
+Prerequisites:
+
+- Python 3.11 or later
+- pip
+
 Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/UrbanRoof-AI-DDR.git
-
 cd UrbanRoof-AI-DDR
 ```
 
-Install dependencies
+Install dependencies (recommended using the current Python interpreter)
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ---
 
 # Configuration
 
-Create a `.env` file (or configure your API key as required by your project):
+Create a `.env` file (or set environment variables) for any API keys required
+by the project. Example:
 
 ```env
 GROQ_API_KEY=your_api_key_here
 ```
 
-Update `config.py` if necessary.
+Also verify any values in `config.py` (paths, output folders) before running.
 
 ---
 
@@ -343,11 +351,11 @@ Download Report
 
 # Author
 
-**Adithya Sapalya**
+**Adithya Ashok Sapalya**
 
 Bachelor of Engineering in Artificial Intelligence & Machine Learning
 
-Project developed as part of the **UrbanRoof AI/ML Internship Assessment**.
+Project developed as part of the **UrbanRoof AI/ML Assessment**.
 
 ---
 
