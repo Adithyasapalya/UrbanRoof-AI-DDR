@@ -48,7 +48,7 @@
             "similarity_score": 0.0,
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and rectify the water ingress or condensation issue, and re-paint the ceiling with a water-resistant paint"
+            "recommendation": "Investigate and rectify the source of dampness, and apply a suitable coating to protect the ceiling"
         },
         {
             "id": 2,
@@ -74,7 +74,7 @@
             "similarity_score": 0.0,
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and rectify the source of dampness, consider applying a waterproofing treatment to the affected area"
+            "recommendation": "Investigate and rectify the source of dampness, and consider applying a waterproofing treatment to the affected area"
         },
         {
             "id": 3,
@@ -100,7 +100,7 @@
             "similarity_score": 0.0,
             "severity": "Mild",
             "root_cause": "Water ingress through the skirting level",
-            "recommendation": "Investigate and rectify the water ingress issue"
+            "recommendation": "Investigate and repair the skirting level to prevent further water ingress"
         },
         {
             "id": 4,
@@ -126,7 +126,7 @@
             "similarity_score": 0.0,
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the source of dampness and repaint the affected area"
+            "recommendation": "Investigate and repair the source of dampness, and re-paint the affected area"
         },
         {
             "id": 5,
@@ -151,7 +151,7 @@
             "matched_observation_id": null,
             "similarity_score": 0.0,
             "severity": "High",
-            "root_cause": "Water ingress or condensation issue",
+            "root_cause": "Water ingress or condensation",
             "recommendation": "Investigate and repair the source of dampness, and re-paint the affected area"
         },
         {
@@ -178,7 +178,7 @@
             "similarity_score": 0.0,
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and rectify the source of dampness, and repaint the affected area"
+            "recommendation": "Investigate and rectify the source of dampness, and repaint the affected area with a suitable water-resistant coating"
         },
         {
             "id": 7,
@@ -203,8 +203,8 @@
             "matched_observation_id": null,
             "similarity_score": 0.0,
             "severity": "Minor",
-            "root_cause": "Poor workmanship or inadequate tile installation",
-            "recommendation": "Re-tile the affected area and ensure proper joint sealing"
+            "root_cause": "Poor workmanship",
+            "recommendation": "Re-grout tile joints"
         },
         {
             "id": 8,
@@ -229,8 +229,8 @@
             "matched_observation_id": null,
             "similarity_score": 0.0,
             "severity": "High",
-            "root_cause": "Structural damage or settlement",
-            "recommendation": "Investigate and repair cracks on external wall"
+            "root_cause": "Structural damage due to external factors",
+            "recommendation": "Conduct a thorough structural assessment and repair the cracks on the external wall"
         },
         {
             "id": 9,
@@ -256,7 +256,7 @@
             "similarity_score": 0.0,
             "severity": "Minor",
             "root_cause": "Poor workmanship or inadequate tile installation",
-            "recommendation": "Re-tile the affected area and ensure proper joint spacing and grouting"
+            "recommendation": "Re-tile the affected area to ensure proper joint spacing and grouting"
         },
         {
             "id": 10,
@@ -282,7 +282,7 @@
             "similarity_score": 0.0,
             "severity": "Minor",
             "root_cause": "Poor workmanship or inadequate tile installation",
-            "recommendation": "Re-tile the balcony area to ensure proper joint spacing and sealing"
+            "recommendation": "Re-tile the balcony area, ensuring proper joint sealing and grouting"
         },
         {
             "id": 11,
@@ -307,8 +307,8 @@
             "matched_observation_id": null,
             "similarity_score": 0.0,
             "severity": "High",
-            "root_cause": "Structural damage due to external factors",
-            "recommendation": "Investigate and repair cracks on external wall of master bedroom"
+            "root_cause": "Possible structural damage due to external wall cracks",
+            "recommendation": "Conduct further investigation and repair or reinforce the affected area"
         },
         {
             "id": 12,
@@ -334,7 +334,7 @@
             "similarity_score": 0.0,
             "severity": "Moderate",
             "root_cause": "Water ingress and poor maintenance",
-            "recommendation": "Inspect and repair terrace surface, seal tile joints in bathroom"
+            "recommendation": "Repair and re-seal the terrace surface, inspect and re-grout the bathroom tile joints"
         },
         {
             "id": 13,
@@ -360,7 +360,7 @@
             "similarity_score": 0.0,
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the water ingress or condensation issue, and apply a suitable waterproofing coating to the ceiling"
+            "recommendation": "Investigate and repair the water ingress or condensation issue, and apply a suitable coating to the ceiling to prevent further damage"
         },
         {
             "id": 14,
@@ -385,8 +385,8 @@
             "matched_observation_id": null,
             "similarity_score": 0.0,
             "severity": "High",
-            "root_cause": "Water ingress or condensation issue at the skirting level and wall corner of the bedroom",
-            "recommendation": "Investigate and rectify the water ingress or condensation issue, and consider applying a waterproofing treatment to the affected area"
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and repair the skirting and ceiling-wall corner to prevent further dampness"
         },
         {
             "id": 15,
@@ -412,7 +412,7 @@
             "similarity_score": 0.0,
             "severity": "High",
             "root_cause": "Waterproofing failure or inadequate drainage",
-            "recommendation": "Investigate and repair waterproofing system, and ensure proper drainage in the common bathroom passage area"
+            "recommendation": "Investigate and repair the waterproofing system, and ensure proper drainage in the common bathroom passage area"
         },
         {
             "id": 16,
@@ -438,7 +438,7 @@
             "similarity_score": 0.0,
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the dampness and paint spalling issue, and consider upgrading the waterproofing system or improving ventilation in the area."
+            "recommendation": "Investigate and repair the dampness and paint spalling issue, and consider upgrading the window flashing and skirting details"
         },
         {
             "id": 17,
@@ -464,7 +464,7 @@
             "similarity_score": 0.0,
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the skirting level and area near the window in the master bedroom to prevent further dampness and paint spalling."
+            "recommendation": "Investigate and rectify the water ingress or condensation issue, and inspect and repair the skirting and surrounding areas"
         },
         {
             "id": 18,

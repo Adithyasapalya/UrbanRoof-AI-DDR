@@ -74,27 +74,31 @@ class ReportGenerator:
 
     def title_page(self):
 
-        title = self.document.add_heading(
+        # Heading (centered)
+        heading_par = self.document.add_heading(
             "UrbanRoof AI\nDetailed Diagnostic Report",
             level=0
         )
-        title = self.document.add_paragraph(
-            "Made Using Python and Artificial Intelligence" \
-            "\n\nAuthor: Adithya Sapalya" \
-            "\n\nDate: 2024-06-15" \
-            "\n\nDisclaimer: This report is generated using AI and should be verified by a qualified professional." \
-            "n\nNote: The information provided in this report is based on the analysis of the inspection and thermal reports. It is intended for informational purposes only and should not be considered as a substitute for professional advice or judgment." \
-            "\n\nThe author and UrbanRoof AI are not responsible for any decisions made based on the information contained in this report. Users are advised to consult with qualified professionals for any actions or decisions related to the property." \
-            
+        heading_par.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+        # Body paragraph (left-aligned)
+        body_text = (
+            "Made Using Python and Artificial Intelligence"
+            "\n\nAuthor: Adithya Sapalya"
+            "\n\nDate: 2024-06-15 - By UrbanRoof AI"
+            "\n\nDisclaimer: This report is generated using AI and should be verified by a qualified professional."
+            "\n\nNote: The information provided in this report is based on the analysis of the inspection and thermal reports. It is intended for informational purposes only and should not be considered as a substitute for professional advice or judgment."
+            "\n\nThe author and UrbanRoof AI are not responsible for any decisions made based on the information contained in this report. Users are advised to consult with qualified professionals for any actions or decisions related to the property."
         )
 
-        title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        body_par = self.document.add_paragraph(body_text)
+        body_par.alignment = WD_ALIGN_PARAGRAPH.LEFT
 
         p = self.document.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
         p.add_run(
-            "Generated using Artificial Intelligence\n"
+            "\nGenerated using Artificial Intelligence\n"
         ).bold = True
 
         p.add_run(

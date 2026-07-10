@@ -8,13 +8,24 @@
         "Unknown": 12
     },
     "executive_summary": {
-        "overall_condition": "The property has several structural and water ingress issues that require immediate attention.",
-        "executive_summary": "The inspection revealed high severity issues with dampness, efflorescence, and spalling of paint at various locations, including the hall, bedrooms, and bathrooms. Water ingress or condensation is the root cause of these issues. Additionally, there are minor issues with gaps in tile joints and cracks on external walls. It is recommended to investigate and rectify the water ingress or condensation issues, re-paint affected areas, and re-tile areas with gaps in tile joints. Furthermore, cracks on external walls require investigation and repair.",
+        "overall_condition": "The property has several issues related to water ingress, condensation, and poor workmanship, which require immediate attention.",
+        "executive_summary": "The inspection revealed high-severity issues with dampness, efflorescence, and spalling of paint in multiple areas, including the hall, bedrooms, and bathrooms. Additionally, there are gaps in tile joints, cracks on external walls, and poor workmanship. It is essential to investigate and rectify the source of dampness, repair waterproofing systems, and address poor workmanship to prevent further damage and ensure the structural integrity of the property.",
         "priority_actions": [
-            "Investigate and rectify water ingress or condensation issues",
-            "Re-paint affected areas",
-            "Re-tile areas with gaps in tile joints",
-            "Investigate and repair cracks on external walls"
+            {
+                "area": "General",
+                "issue": "Investigate and rectify the source of dampness, and apply a suitable coating to protect the ceiling",
+                "severity": "High"
+            },
+            {
+                "area": "General",
+                "issue": "Investigate and repair the waterproofing system, and ensure proper drainage in the common bathroom passage area",
+                "severity": "High"
+            },
+            {
+                "area": "General",
+                "issue": "Re-grout tile joints and re-tile the affected areas to ensure proper joint spacing and grouting",
+                "severity": "Minor"
+            }
         ]
     },
     "observations": [
@@ -38,7 +49,7 @@
             "description": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL (GROUND FLOOR) ................................................................................................................ 27",
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and rectify the water ingress or condensation issue, and re-paint the ceiling with a water-resistant paint",
+            "recommendation": "Investigate and rectify the source of dampness, and apply a suitable coating to protect the ceiling",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -50,7 +61,7 @@
             "description": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR). 28",
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and rectify the source of dampness, consider applying a waterproofing treatment to the affected area",
+            "recommendation": "Investigate and rectify the source of dampness, and consider applying a waterproofing treatment to the affected area",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -62,7 +73,7 @@
             "description": "IMAGE 3: MILD SEEPAGE AT THE SKIRTING LEVEL OF COMMON BATHROOM PASSAGE AREA (GROUND FLOOR) ....................................................................................................... 29",
             "severity": "Mild",
             "root_cause": "Water ingress through the skirting level",
-            "recommendation": "Investigate and rectify the water ingress issue",
+            "recommendation": "Investigate and repair the skirting level to prevent further water ingress",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -74,7 +85,7 @@
             "description": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE WINDOW IN MASTER BEDROOM (1 ST FLOOR)....................................................................... 30",
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the source of dampness and repaint the affected area",
+            "recommendation": "Investigate and repair the source of dampness, and re-paint the affected area",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -85,7 +96,7 @@
             "issue": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR). .......................................................................................... 31",
             "description": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR). .......................................................................................... 31",
             "severity": "High",
-            "root_cause": "Water ingress or condensation issue",
+            "root_cause": "Water ingress or condensation",
             "recommendation": "Investigate and repair the source of dampness, and re-paint the affected area",
             "matched_observation_id": null,
             "similarity_score": 0.0
@@ -98,7 +109,7 @@
             "description": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS TER B EDROOM – 2 (1 ST FLOOR) ..................................................................................................... 32",
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and rectify the source of dampness, and repaint the affected area",
+            "recommendation": "Investigate and rectify the source of dampness, and repaint the affected area with a suitable water-resistant coating",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -109,8 +120,8 @@
             "issue": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR) ............ 33",
             "description": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR) ............ 33",
             "severity": "Minor",
-            "root_cause": "Poor workmanship or inadequate tile installation",
-            "recommendation": "Re-tile the affected area and ensure proper joint sealing",
+            "root_cause": "Poor workmanship",
+            "recommendation": "Re-grout tile joints",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -121,8 +132,8 @@
             "issue": "IMAGE 8: CRACKS ON EXTERNAL WALL ........................................................................... 34",
             "description": "IMAGE 8: CRACKS ON EXTERNAL WALL ........................................................................... 34",
             "severity": "High",
-            "root_cause": "Structural damage or settlement",
-            "recommendation": "Investigate and repair cracks on external wall",
+            "root_cause": "Structural damage due to external factors",
+            "recommendation": "Conduct a thorough structural assessment and repair the cracks on the external wall",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -134,7 +145,7 @@
             "description": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM .................................... 34",
             "severity": "Minor",
             "root_cause": "Poor workmanship or inadequate tile installation",
-            "recommendation": "Re-tile the affected area and ensure proper joint spacing and grouting",
+            "recommendation": "Re-tile the affected area to ensure proper joint spacing and grouting",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -146,7 +157,7 @@
             "description": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY ...................................................... 35",
             "severity": "Minor",
             "root_cause": "Poor workmanship or inadequate tile installation",
-            "recommendation": "Re-tile the balcony area to ensure proper joint spacing and sealing",
+            "recommendation": "Re-tile the balcony area, ensuring proper joint sealing and grouting",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -157,8 +168,8 @@
             "issue": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM ........................................... 35",
             "description": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM ........................................... 35",
             "severity": "High",
-            "root_cause": "Structural damage due to external factors",
-            "recommendation": "Investigate and repair cracks on external wall of master bedroom",
+            "root_cause": "Possible structural damage due to external wall cracks",
+            "recommendation": "Conduct further investigation and repair or reinforce the affected area",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -170,7 +181,7 @@
             "description": "IMAGE 12: HOLLOWNESS AND VEGETATION GROWTH OBSERVED ON TERRACE SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN MASTERBEDROOM-2 36",
             "severity": "Moderate",
             "root_cause": "Water ingress and poor maintenance",
-            "recommendation": "Inspect and repair terrace surface, seal tile joints in bathroom",
+            "recommendation": "Repair and re-seal the terrace surface, inspect and re-grout the bathroom tile joints",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -182,7 +193,7 @@
             "description": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL (GROUND FLOOR)",
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the water ingress or condensation issue, and apply a suitable waterproofing coating to the ceiling",
+            "recommendation": "Investigate and repair the water ingress or condensation issue, and apply a suitable coating to the ceiling to prevent further damage",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -193,8 +204,8 @@
             "issue": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR).",
             "description": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR).",
             "severity": "High",
-            "root_cause": "Water ingress or condensation issue at the skirting level and wall corner of the bedroom",
-            "recommendation": "Investigate and rectify the water ingress or condensation issue, and consider applying a waterproofing treatment to the affected area",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and repair the skirting and ceiling-wall corner to prevent further dampness",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -206,7 +217,7 @@
             "description": "IMAGE 3: MILD SEEPAGE AT THE SKIRTING LEVEL OF COMMON BATHROOM PASSAGE AREA (GROUND FLOOR)",
             "severity": "High",
             "root_cause": "Waterproofing failure or inadequate drainage",
-            "recommendation": "Investigate and repair waterproofing system, and ensure proper drainage in the common bathroom passage area",
+            "recommendation": "Investigate and repair the waterproofing system, and ensure proper drainage in the common bathroom passage area",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -218,7 +229,7 @@
             "description": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE WINDOW IN MASTER BEDROOM (1 ST FLOOR).",
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the dampness and paint spalling issue, and consider upgrading the waterproofing system or improving ventilation in the area.",
+            "recommendation": "Investigate and repair the dampness and paint spalling issue, and consider upgrading the window flashing and skirting details",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
@@ -230,7 +241,7 @@
             "description": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR).",
             "severity": "High",
             "root_cause": "Water ingress or condensation issue",
-            "recommendation": "Investigate and repair the skirting level and area near the window in the master bedroom to prevent further dampness and paint spalling.",
+            "recommendation": "Investigate and rectify the water ingress or condensation issue, and inspect and repair the skirting and surrounding areas",
             "matched_observation_id": null,
             "similarity_score": 0.0
         },
