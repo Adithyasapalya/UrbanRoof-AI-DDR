@@ -78,6 +78,8 @@ def main():
     for page in inspection_data["pages"]:
 
         for obs in page["observations"]:
+             print("=" * 60)
+             print(obs.get("images"))
              kb.add_observation(
 
                 source="inspection",
@@ -86,7 +88,7 @@ def main():
 
                 page=page["page_number"],
 
-                issue=obs["keyword"],
+                issue=obs.get("issue") or obs.get("keyword") or "Unknown",
 
                 description=obs["text"],
 
@@ -94,7 +96,8 @@ def main():
 
                 bbox=obs["bbox"],
 
-                image_refs=obs.get("image_refs", []),
+                image_refs=obs.get("images") or ([obs["image"]] if obs.get("image") else []
+),
 
                 confidence=obs.get("confidence", 1.0)
 
@@ -103,6 +106,8 @@ def main():
     for page in thermal_data["pages"]:
 
         for obs in page["observations"]:
+            print("=" * 60)
+            print(obs.get("images"))
 
             kb.add_observation(
 
@@ -112,7 +117,7 @@ def main():
 
                 page=page["page_number"],
 
-                issue=obs["keyword"],
+                issue=obs.get("issue") or obs.get("keyword") or "Unknown",
 
                 description=obs["text"],
 
@@ -120,7 +125,9 @@ def main():
 
                 bbox=obs["bbox"],
 
-                image_refs=obs.get("image_refs", []),
+                image_refs=obs.get("images") or (
+    [obs["image"]] if obs.get("image") else []
+),
 
                 confidence=obs.get("confidence", 1.0)
             )
@@ -136,26 +143,21 @@ def main():
     kb.save(KNOWLEDGE_BASE_JSON)
 
     # --------------------------------------------------
-    # Semantic Matching
-    # --------------------------------------------------
-
-    matcher = SemanticMatcher()
-
-    kb = matcher.run(kb)
-
-    # --------------------------------------------------
-    # LLM Reasoning
-    # --------------------------------------------------
-
-    reasoner = LLMReasoner()
-
-    kb, report = reasoner.run(kb)
-
-    # --------------------------------------------------
     # Report Generation
     # --------------------------------------------------
 
     generator = ReportGenerator()
+    print("\n===== KB IMAGE CHECK =====")
+    total = 0
+    for obs in kb.get_all_observations():
+
+                print(obs.id, obs.issue)
+                print(obs.image_refs)
+                print()
+
+                if obs.image_refs:
+                        total += 1
+    print("Images attached:", total, "/", len(kb.get_all_observations()))
 
     generator.run(
 

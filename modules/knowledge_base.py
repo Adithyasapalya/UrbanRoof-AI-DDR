@@ -43,7 +43,10 @@ class Observation:
 
     image_refs: List[str] = field(default_factory=list)
 
-    embedding=None
+    # Image number from report (IMAGE 1, IMAGE 2...)
+    image_number: Optional[int] = None
+
+    embedding = None
 
     embedding_id: int = -1
 
@@ -124,6 +127,8 @@ class KnowledgeBase:
 
         image_refs=None,
 
+        image_number=None,
+
         confidence=1.0
 
     ):
@@ -150,9 +155,12 @@ class KnowledgeBase:
 
             image_refs=image_refs or [],
 
+            image_number=image_number,
+
             confidence=confidence
 
         )
+        
 
         self.counter += 1
 
@@ -324,9 +332,9 @@ class KnowledgeBase:
 
             page_no = page["page_number"]
 
-            if page["sections"]:
+            if page["section"]:
 
-                current_area = page["sections"][0]
+                current_area = page["section"][0]
 
             observations = page.get(
 
@@ -346,21 +354,23 @@ class KnowledgeBase:
 
                     page=page_no,
 
-                    issue=obs["keyword"],
+                    issue=obs.get("issue", obs.get("keyword", "Unknown")),
 
-                    description=obs["text"],
+                    description=obs.get("description", obs.get("text", "")),
 
-                    source_evidence=obs["text"],
+                    source_evidence=obs.get("description", obs.get("text", "")),
 
                     bbox=obs["bbox"],
 
                     image_refs=obs.get("images", []),
 
+                    image_number=obs.get("image_number"),
+
                     confidence=obs.get("confidence", 1.0)
 
                 )
-                print(obs.get("images", [])
-                )
+                print(obs.get("images", []))
+                print(obs.get("image_number", None))
 
     # =======================================================
     # Summary

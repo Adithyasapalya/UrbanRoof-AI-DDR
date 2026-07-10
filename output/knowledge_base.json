@@ -1,4 +1,653 @@
 {
-    "inspection": [],
+    "inspection": [
+        {
+            "id": 0,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "Images",
+            "description": "Images",
+            "source_evidence": "Images",
+            "bbox": [
+                271.79998779296875,
+                67.665771484375,
+                344.0959167480469,
+                91.8141860961914
+            ],
+            "image_refs": [],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "",
+            "root_cause": "",
+            "recommendation": ""
+        },
+        {
+            "id": 1,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL (GROUND FLOOR) ................................................................................................................ 27",
+            "description": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL (GROUND FLOOR) ................................................................................................................ 27",
+            "source_evidence": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL (GROUND FLOOR) ................................................................................................................ 27",
+            "bbox": [
+                59.76000213623047,
+                112.16121673583984,
+                554.6796875,
+                125.89746856689453
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_01.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and rectify the water ingress or condensation issue, and re-paint the ceiling with a water-resistant paint"
+        },
+        {
+            "id": 2,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR). 28",
+            "description": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR). 28",
+            "source_evidence": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR). 28",
+            "bbox": [
+                59.76000213623047,
+                155.84121704101562,
+                554.6275024414062,
+                169.5774688720703
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_02.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and rectify the source of dampness, consider applying a waterproofing treatment to the affected area"
+        },
+        {
+            "id": 3,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 3: MILD SEEPAGE AT THE SKIRTING LEVEL OF COMMON BATHROOM PASSAGE AREA (GROUND FLOOR) ....................................................................................................... 29",
+            "description": "IMAGE 3: MILD SEEPAGE AT THE SKIRTING LEVEL OF COMMON BATHROOM PASSAGE AREA (GROUND FLOOR) ....................................................................................................... 29",
+            "source_evidence": "IMAGE 3: MILD SEEPAGE AT THE SKIRTING LEVEL OF COMMON BATHROOM PASSAGE AREA (GROUND FLOOR) ....................................................................................................... 29",
+            "bbox": [
+                59.76000213623047,
+                199.52122497558594,
+                554.692626953125,
+                213.25747680664062
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_03.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Mild",
+            "root_cause": "Water ingress through the skirting level",
+            "recommendation": "Investigate and rectify the water ingress issue"
+        },
+        {
+            "id": 4,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE WINDOW IN MASTER BEDROOM (1 ST FLOOR)....................................................................... 30",
+            "description": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE WINDOW IN MASTER BEDROOM (1 ST FLOOR)....................................................................... 30",
+            "source_evidence": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE WINDOW IN MASTER BEDROOM (1 ST FLOOR)....................................................................... 30",
+            "bbox": [
+                59.76000213623047,
+                243.2012176513672,
+                554.7135009765625,
+                256.9374694824219
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_04.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and repair the source of dampness and repaint the affected area"
+        },
+        {
+            "id": 5,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR). .......................................................................................... 31",
+            "description": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR). .......................................................................................... 31",
+            "source_evidence": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR). .......................................................................................... 31",
+            "bbox": [
+                59.76000213623047,
+                286.8811950683594,
+                554.7068481445312,
+                300.6174621582031
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_05.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and repair the source of dampness, and re-paint the affected area"
+        },
+        {
+            "id": 6,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS TER B EDROOM \u2013 2 (1 ST FLOOR) ..................................................................................................... 32",
+            "description": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS TER B EDROOM \u2013 2 (1 ST FLOOR) ..................................................................................................... 32",
+            "source_evidence": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS TER B EDROOM \u2013 2 (1 ST FLOOR) ..................................................................................................... 32",
+            "bbox": [
+                59.76000213623047,
+                330.44122314453125,
+                554.6744384765625,
+                344.177490234375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_06.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and rectify the source of dampness, and repaint the affected area"
+        },
+        {
+            "id": 7,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR) ............ 33",
+            "description": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR) ............ 33",
+            "source_evidence": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR) ............ 33",
+            "bbox": [
+                59.76000213623047,
+                374.2412414550781,
+                553.8245239257812,
+                387.9775085449219
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_07.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Minor",
+            "root_cause": "Poor workmanship or inadequate tile installation",
+            "recommendation": "Re-tile the affected area and ensure proper joint sealing"
+        },
+        {
+            "id": 8,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 8: CRACKS ON EXTERNAL WALL ........................................................................... 34",
+            "description": "IMAGE 8: CRACKS ON EXTERNAL WALL ........................................................................... 34",
+            "source_evidence": "IMAGE 8: CRACKS ON EXTERNAL WALL ........................................................................... 34",
+            "bbox": [
+                59.76000213623047,
+                400.76123046875,
+                553.8245239257812,
+                414.49749755859375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_08.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Structural damage or settlement",
+            "recommendation": "Investigate and repair cracks on external wall"
+        },
+        {
+            "id": 9,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM .................................... 34",
+            "description": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM .................................... 34",
+            "source_evidence": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM .................................... 34",
+            "bbox": [
+                59.76000213623047,
+                427.2812194824219,
+                553.8245239257812,
+                441.0174865722656
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_09.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Minor",
+            "root_cause": "Poor workmanship or inadequate tile installation",
+            "recommendation": "Re-tile the affected area and ensure proper joint spacing and grouting"
+        },
+        {
+            "id": 10,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY ...................................................... 35",
+            "description": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY ...................................................... 35",
+            "source_evidence": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY ...................................................... 35",
+            "bbox": [
+                59.76000213623047,
+                453.80120849609375,
+                553.8245239257812,
+                467.5374755859375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_10.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Minor",
+            "root_cause": "Poor workmanship or inadequate tile installation",
+            "recommendation": "Re-tile the balcony area to ensure proper joint spacing and sealing"
+        },
+        {
+            "id": 11,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM ........................................... 35",
+            "description": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM ........................................... 35",
+            "source_evidence": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM ........................................... 35",
+            "bbox": [
+                59.76000213623047,
+                480.44122314453125,
+                553.8245239257812,
+                494.177490234375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_11.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Structural damage due to external factors",
+            "recommendation": "Investigate and repair cracks on external wall of master bedroom"
+        },
+        {
+            "id": 12,
+            "source": "inspection",
+            "area": "General",
+            "page": 6,
+            "issue": "IMAGE 12: HOLLOWNESS AND VEGETATION GROWTH OBSERVED ON TERRACE SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN MASTERBEDROOM-2 36",
+            "description": "IMAGE 12: HOLLOWNESS AND VEGETATION GROWTH OBSERVED ON TERRACE SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN MASTERBEDROOM-2 36",
+            "source_evidence": "IMAGE 12: HOLLOWNESS AND VEGETATION GROWTH OBSERVED ON TERRACE SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN MASTERBEDROOM-2 36",
+            "bbox": [
+                59.76000213623047,
+                506.9612121582031,
+                554.74365234375,
+                520.6974487304688
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_12.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Moderate",
+            "root_cause": "Water ingress and poor maintenance",
+            "recommendation": "Inspect and repair terrace surface, seal tile joints in bathroom"
+        },
+        {
+            "id": 13,
+            "source": "inspection",
+            "area": "CEILING (HALL)",
+            "page": 28,
+            "issue": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL (GROUND FLOOR)",
+            "description": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL (GROUND FLOOR)",
+            "source_evidence": "IMAGE 1: DAMPNESS, EFFLORESCENCE & SPALLING OF PAINT AT THE CEILING OF HALL (GROUND FLOOR)",
+            "bbox": [
+                59.76000213623047,
+                136.64447021484375,
+                555.3993530273438,
+                150.335693359375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_01.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and repair the water ingress or condensation issue, and apply a suitable waterproofing coating to the ceiling"
+        },
+        {
+            "id": 14,
+            "source": "inspection",
+            "area": "SKIRTING AND CEILING-WALL CORNER (BEDROOM)",
+            "page": 29,
+            "issue": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR).",
+            "description": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR).",
+            "source_evidence": "IMAGE 2: DAMPNESS AT THE SKIRTING LEVEL & WALL CORNER OF BEDROOM (GROUND FLOOR).",
+            "bbox": [
+                59.76000213623047,
+                97.64447784423828,
+                555.3482055664062,
+                111.335693359375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_02.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue at the skirting level and wall corner of the bedroom",
+            "recommendation": "Investigate and rectify the water ingress or condensation issue, and consider applying a waterproofing treatment to the affected area"
+        },
+        {
+            "id": 15,
+            "source": "inspection",
+            "area": "SKIRTING LEVEL (PASSAGE AREA)",
+            "page": 30,
+            "issue": "IMAGE 3: MILD SEEPAGE AT THE SKIRTING LEVEL OF COMMON BATHROOM PASSAGE AREA (GROUND FLOOR)",
+            "description": "IMAGE 3: MILD SEEPAGE AT THE SKIRTING LEVEL OF COMMON BATHROOM PASSAGE AREA (GROUND FLOOR)",
+            "source_evidence": "IMAGE 3: MILD SEEPAGE AT THE SKIRTING LEVEL OF COMMON BATHROOM PASSAGE AREA (GROUND FLOOR)",
+            "bbox": [
+                59.76000213623047,
+                97.64447784423828,
+                555.3467407226562,
+                111.335693359375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_03.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Waterproofing failure or inadequate drainage",
+            "recommendation": "Investigate and repair waterproofing system, and ensure proper drainage in the common bathroom passage area"
+        },
+        {
+            "id": 16,
+            "source": "inspection",
+            "area": "STAIRCASE AREA",
+            "page": 31,
+            "issue": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE WINDOW IN MASTER BEDROOM (1 ST FLOOR).",
+            "description": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE WINDOW IN MASTER BEDROOM (1 ST FLOOR).",
+            "source_evidence": "IMAGE 4: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR THE WINDOW IN MASTER BEDROOM (1 ST FLOOR).",
+            "bbox": [
+                59.76000213623047,
+                97.64447784423828,
+                555.3244018554688,
+                111.335693359375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_04.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and repair the dampness and paint spalling issue, and consider upgrading the waterproofing system or improving ventilation in the area."
+        },
+        {
+            "id": 17,
+            "source": "inspection",
+            "area": "SKIRTING LEVEL (MASTER BEDROOM)",
+            "page": 32,
+            "issue": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR).",
+            "description": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR).",
+            "source_evidence": "IMAGE 5: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & AREA NEAR WINDOW IN MASTER BEDROOM (1 ST FLOOR).",
+            "bbox": [
+                59.76000213623047,
+                97.64447784423828,
+                555.2484741210938,
+                111.335693359375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_05.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and repair the skirting level and area near the window in the master bedroom to prevent further dampness and paint spalling."
+        },
+        {
+            "id": 18,
+            "source": "inspection",
+            "area": "SKIRTING LEVEL AND CEILING OF MASTER BEDROOM -2(1 ST",
+            "page": 33,
+            "issue": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS TER B EDROOM \u2013 2 (1 ST FLOOR)",
+            "description": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS TER B EDROOM \u2013 2 (1 ST FLOOR)",
+            "source_evidence": "IMAGE 6: DAMPNESS & PAINT SPALLING AT SKIRTING LEVEL & CEILING IN MAS TER B EDROOM \u2013 2 (1 ST FLOOR)",
+            "bbox": [
+                59.76000213623047,
+                120.08082580566406,
+                555.3033447265625,
+                136.0995635986328
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_06.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "High",
+            "root_cause": "Water ingress or condensation issue",
+            "recommendation": "Investigate and rectify the source of dampness and water ingress, and apply a suitable waterproofing treatment to the affected area."
+        },
+        {
+            "id": 19,
+            "source": "inspection",
+            "area": "MASTER BEDROOM BATHROOM (1 ST FLOOR)",
+            "page": 34,
+            "issue": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR)",
+            "description": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR)",
+            "source_evidence": "IMAGE 7: GAPS IN TILE JOINTS OF MASTER BEDROOM BATHROOM (1 ST FLOOR)",
+            "bbox": [
+                59.76000213623047,
+                224.12448120117188,
+                530.5330200195312,
+                237.81570434570312
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_07.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Minor",
+            "root_cause": "Poor workmanship or inadequate tile installation",
+            "recommendation": "Re-tile the affected area and ensure proper joint sealing"
+        },
+        {
+            "id": 20,
+            "source": "inspection",
+            "area": "EXTERNAL WALL",
+            "page": 35,
+            "issue": "IMAGE 8: CRACKS ON EXTERNAL WALL Source: Urbanroof Pvt. Ltd.",
+            "description": "IMAGE 8: CRACKS ON EXTERNAL WALL Source: Urbanroof Pvt. Ltd.",
+            "source_evidence": "IMAGE 8: CRACKS ON EXTERNAL WALL Source: Urbanroof Pvt. Ltd.",
+            "bbox": [
+                59.76000213623047,
+                141.44447326660156,
+                301.9922790527344,
+                155.1356964111328
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_08.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Unknown",
+            "root_cause": "",
+            "recommendation": ""
+        },
+        {
+            "id": 21,
+            "source": "inspection",
+            "area": "COMMON BATHROOM",
+            "page": 35,
+            "issue": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM",
+            "description": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM",
+            "source_evidence": "IMAGE 9: GAPS BETWEEN TILE JOINTS OF COMMON BATHROOM",
+            "bbox": [
+                59.76000213623047,
+                405.4444885253906,
+                443.112060546875,
+                419.1357116699219
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_09.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Unknown",
+            "root_cause": "",
+            "recommendation": ""
+        },
+        {
+            "id": 22,
+            "source": "inspection",
+            "area": "OPEN BALCONY",
+            "page": 36,
+            "issue": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY",
+            "description": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY",
+            "source_evidence": "IMAGE 10: GAPS BETWEEN TILE JOINTS OF BALCONY",
+            "bbox": [
+                59.76000213623047,
+                97.64447784423828,
+                373.8452453613281,
+                111.335693359375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_10.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Unknown",
+            "root_cause": "",
+            "recommendation": ""
+        },
+        {
+            "id": 23,
+            "source": "inspection",
+            "area": "EXTERNAL WALL",
+            "page": 36,
+            "issue": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM",
+            "description": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM",
+            "source_evidence": "IMAGE 11: CRACKS ON EXTERNAL WALL OF MASTERBEROOM",
+            "bbox": [
+                59.76000213623047,
+                376.2844543457031,
+                422.0060729980469,
+                389.9756774902344
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_11.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Unknown",
+            "root_cause": "",
+            "recommendation": ""
+        },
+        {
+            "id": 24,
+            "source": "inspection",
+            "area": "TERRACE AND MASTER BEDROOM-2 BATHROOM",
+            "page": 37,
+            "issue": "IMAGE 12: HOLLOWNESS AND VEGETATION GROWTH OBSERVED ON TERRACE SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN MASTERBEDROOM-2",
+            "description": "IMAGE 12: HOLLOWNESS AND VEGETATION GROWTH OBSERVED ON TERRACE SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN MASTERBEDROOM-2",
+            "source_evidence": "IMAGE 12: HOLLOWNESS AND VEGETATION GROWTH OBSERVED ON TERRACE SURFACE, GAPS OBSERVED BETWEEN TILE JOINTS OF BATHROOM IN MASTERBEDROOM-2",
+            "bbox": [
+                59.76000213623047,
+                97.64447784423828,
+                555.302978515625,
+                111.335693359375
+            ],
+            "image_refs": [
+                "D:\\Adi\\UrbanRoof-AI-DDR\\extracted\\inspection_photos\\image_12.jpg"
+            ],
+            "image_number": null,
+            "embedding_id": -1,
+            "confidence": 1.0,
+            "matched_observation_id": null,
+            "similarity_score": 0.0,
+            "severity": "Unknown",
+            "root_cause": "",
+            "recommendation": ""
+        }
+    ],
     "thermal": []
 }
