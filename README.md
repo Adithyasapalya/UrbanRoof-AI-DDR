@@ -1,6 +1,6 @@
 # UrbanRoof AI DDR Generator
 
-> AI-powered Detailed Detection Report (DDR) Generator that automatically analyzes
+> AI-powered Detailed Diagnosis Report (DDR) Generator using Detailed Diagnosis Report (DDR) provided by UrbanRoof that automatically analyzes
 > inspection and thermal reports, matches related observations using semantic
 > similarity, performs AI-based reasoning, and generates a professional DDR with
 > associated evidence images.
