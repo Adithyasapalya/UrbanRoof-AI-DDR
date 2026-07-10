@@ -1,6 +1,6 @@
 # UrbanRoof AI DDR Generator
 
-> AI-powered Damage Detection Report (DDR) Generator that automatically analyzes
+> AI-powered Detailed Detection Report (DDR) Generator that automatically analyzes
 > inspection and thermal reports, matches related observations using semantic
 > similarity, performs AI-based reasoning, and generates a professional DDR with
 > associated evidence images.
